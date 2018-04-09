@@ -13,3 +13,7 @@ E36B85CC 84991F19 7575D828 470A92AB
 —— END LICENSE ——
 
 //Erwin Wiguna
+Baca Ini Farah
+Pertama kamu clone dengan perntah "git clone https://github.com/Farah-Skripsi/human_resource.git" di web server kamu, 
+setelah diclone kalau kamu mau dapat updatennya tinggal "git pull"
+Terimkasih, Semoga ALLAH selalu memberi kelancaran dan kemudahan pada kita
