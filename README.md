@@ -13,7 +13,16 @@ D5D52613 C3D12E98 BC49967F 7652EED2
 E36B85CC 84991F19 7575D828 470A92AB
 —— END LICENSE ——
 
+CREATE SEQUENCE seq_id_master_hris;
 
+CREATE OR REPLACE TRIGGER trig_increment_master_hris
+  BEFORE INSERT ON MASTER_HRIS
+  FOR EACH ROW
+BEGIN
+  SELECT seq_id_master_hris.nextval
+  INTO :new.ID
+  FROM dual;
+END;
 
 //Erwin Wiguna	
 
