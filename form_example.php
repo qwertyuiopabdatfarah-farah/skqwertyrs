@@ -900,7 +900,7 @@
                 <div class="card-panel">
                   <h4 class="header2">Form Isi </h4>
                   <div class="row">
-                    <form class="col s12">
+                    <form class="col s12" action="test.php" method="POST">
                       <div class="row">
                         <div class="input-field col s6">
                           <input id="first_name" type="text">
@@ -934,7 +934,7 @@
                           <label>Select Profile</label>
                         </div>
                         <div class="input-field col s6">
-                          <input type="text" class="datepicker">
+                          <input type="text" class="datepicker" name="date">
                           <label for="dob">Tanggal</label>
                         </div>
                       </div>
