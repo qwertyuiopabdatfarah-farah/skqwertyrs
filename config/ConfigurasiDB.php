@@ -1,26 +1,10 @@
-<?php
-class ConfigurasiDB
-{    
-    private $_host = 'localhost';
-    private $_username = 'root';
-    private $_password = '1234567';
-    private $_database = 'farah';
-    
-    protected $koneksi;
-    
-    public function __construct()
-    {
-        if (!isset($this->koneksi)) {
-            
-            $this->koneksi = new mysqli($this->_host, $this->_username, $this->_password, $this->_database);
-            
-            if (!$this->koneksi) {
-                echo 'Cannot connect to database server';
-                exit;
-            }            
-        }    
-        
-        return $this->koneksi;
-    }
+<?php  
+$db_host    = 'localhost'; 
+$db_usn     = 'root'; 
+$db_pwd     = '1234567'; 
+$db_name    = '14630341'; 
+
+$koneksi    = mysqli_connect($db_host,$db_usn,$db_pwd,$db_name);
+if (!$koneksi){
+    echo 'Tidak dapat terhubung ke database';
 }
-?>
