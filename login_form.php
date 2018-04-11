@@ -23,7 +23,7 @@
     <link href="assets/css/jquery-jvectormap.css" type="text/css" rel="stylesheet">
     <link href="assets/css/flag-icon.min.css" type="text/css" rel="stylesheet">
   </head>
-  <body class="cyan">
+  <body style="background-image: url('assets/images/front-tampilan/back.jpg');">
     <!-- Start Page Loading -->
     <div id="loader-wrapper">
       <div id="loader"></div>
@@ -32,15 +32,36 @@
     </div>
     <!-- End Page Loading -->
   <div class="container"> 
-    <div id="login-page" class="row  card-panel">
-      <div class="col s4">
+    <div id="login-page" class="row card-panel" style="width: 400px;height: 600px; background:rgba(255,255,255, 0.5); margin: 0 auto; margin-top: 20px;">
+      <div class="col s2">
         <form class="login-form">
           <div class="row">
             <div class="input-field col s12 center">
-              <img src="assets/images/front-tampilan/coba.jpg" alt="" class="circle responsive-img valign profile-image-login">
+              <img src="assets/images/front-tampilan/lambang.jpg" alt="" class="circle responsive-img valign profile-image-login">
               <p class="center login-form-text">Silahkan Login</p>
             </div>
           </div>
+
+          
+          <div class="row margin">
+            <div class="input-field col s12">
+              
+
+              <div id="card-alert" class="card gradient-45deg-red-pink">
+                    <div class="card-content white-text">
+                      <p>
+                        <i class="material-icons">error</i> User Tidak Ditemukan</p>
+                    </div>
+                    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+
+
+            </div>
+          </div>
+
+
           <div class="row margin">
             <div class="input-field col s12">
               <i class="material-icons prefix pt-5">person_outline</i>
@@ -48,6 +69,7 @@
               <label for="username" class="center-align">Username</label>
             </div>
           </div>
+
           <div class="row margin">
             <div class="input-field col s12">
               <i class="material-icons prefix pt-5">lock_outline</i>
@@ -55,6 +77,7 @@
               <label for="password">Password</label>
             </div>
           </div>
+
           <div class="row">
             <div class="col s12 m12 l12 ml-2 mt-3">
               <input type="checkbox" id="remember-me" />
@@ -66,21 +89,8 @@
               <a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s6 m6 l6">
-              <p class="margin medium-small"><a href="register.php">Daftar</a></p>
-            </div>
-          </div>
         </form>
       </div> 
-
-      <div class="col s8">
-        <div class="row">
-            <div class="input-field col s12 center">
-              <img src="assets/images/front-tampilan/desert.jpg" alt="not" style="width: 100%; height: 490px">
-            </div>
-          </div>
-      </div>  
 
     </div>
   </div>
