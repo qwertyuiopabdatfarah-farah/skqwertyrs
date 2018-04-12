@@ -31,7 +31,7 @@
     <header id="header" class="page-topbar">
       <!-- start header nav-->
       <div class="navbar-fixed">
-        <nav class="navbar-color gradient-45deg-purple-deep-orange gradient-shadow">
+        <nav class="navbar-color gradient-45deg-light-blue-cyan">
           <div class="nav-wrapper">
             <ul class="right hide-on-med-and-down">
             <li>
@@ -78,12 +78,12 @@
       <!-- START WRAPPER -->
       <div class="wrapper">
         <!-- START LEFT SIDEBAR NAV-->
-        <aside id="left-sidebar-nav" class="nav-expanded nav-lock nav-collapsible">
+        <aside id="left-sidebar-nav" class="gradient-45deg-light-blue-cyan">
           <div class="brand-sidebar">
             <h1 class="logo-wrapper">
               <a href="index.html" class="brand-logo darken-1">
                 <img src="assets/images/logo/materialize-logo.png" alt="materialize logo">
-                <span class="logo-text hide-on-med-and-down">Materialize</span>
+                <span class="logo-text hide-on-med-and-down">Menu</span>
               </a>
               <a href="#" class="navbar-toggler">
                 <i class="material-icons">radio_button_checked</i>
