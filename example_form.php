@@ -1,3 +1,10 @@
+<?php
+ session_start();
+ if (empty($_SESSION['username'])) {
+ header("location:login_form.php"); 
+ }
+ else {
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -82,8 +89,7 @@
           <div class="brand-sidebar">
             <h1 class="logo-wrapper">
               <a href="index.html" class="brand-logo darken-1">
-                <img src="assets/images/logo/materialize-logo.png" alt="materialize logo">
-                <span class="logo-text hide-on-med-and-down">Menu</span>
+                <span class="logo-text hide-on-med-and-down"><b><?php echo $_SESSION['username'] ?></span>
               </a>
               <a href="#" class="navbar-toggler">
                 <i class="material-icons">radio_button_checked</i>
@@ -1021,3 +1027,4 @@
       <script type="text/javascript" src="assets/js/custom-script.js"></script>
   </body>
 </html>
+<?php } ?>

@@ -34,38 +34,30 @@
   <div class="container"> 
     <div id="login-page" class="row card-panel" style="width: 400px;height: 600px; background:rgba(255,255,255, 0.5); margin: 0 auto; margin-top: 20px;">
       <div class="col s2">
-        <form class="login-form">
+        <div class="login-form">
           <div class="row">
             <div class="input-field col s12 center">
               <img src="assets/images/front-tampilan/lambang.jpg" alt="" class="circle responsive-img valign profile-image-login">
-              <p class="center login-form-text">Silahkan Login</p>
+             
             </div>
           </div>
 
           
           <div class="row margin">
             <div class="input-field col s12">
-              
-
-              <div id="card-alert" class="card gradient-45deg-red-pink">
+                  <div id="card-alert" class="card gradient-45deg-light-blue-cyan">
                     <div class="card-content white-text">
-                      <p>
-                        <i class="material-icons">error</i> User Tidak Ditemukan</p>
+                      <i class="material-icons">notifications</i> Silahkan Login Terlebih Dahulu<p></p>
                     </div>
-                    <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
                   </div>
-
-
             </div>
           </div>
-
+       <form action="login_action.php" method="POST">
 
           <div class="row margin">
             <div class="input-field col s12">
               <i class="material-icons prefix pt-5">person_outline</i>
-              <input id="username" type="text">
+              <input id="username" type="text" name="username">
               <label for="username" class="center-align">Username</label>
             </div>
           </div>
@@ -73,22 +65,17 @@
           <div class="row margin">
             <div class="input-field col s12">
               <i class="material-icons prefix pt-5">lock_outline</i>
-              <input id="password" type="password">
+              <input id="password" type="password" name="password">
               <label for="password">Password</label>
             </div>
           </div>
 
           <div class="row">
-            <div class="col s12 m12 l12 ml-2 mt-3">
-              <input type="checkbox" id="remember-me" />
-              <label for="remember-me">Remember me</label>
-            </div>
-          </div>
-          <div class="row">
             <div class="input-field col s12">
-              <a href="index.html" class="btn waves-effect waves-light col s12">Login</a>
+              <button type="submit" class="btn waves-effect waves-light col s12">Login</button>
             </div>
           </div>
+        </div>  
         </form>
       </div> 
 

@@ -1,3 +1,10 @@
+<?php
+ session_start();
+ if (empty($_SESSION['username'])) {
+ header("location:login_form.php"); 
+ }
+ else {
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1584,3 +1591,4 @@
       <script type="text/javascript" src="assets/js/dashboard-ecommerce.js"></script>
   </body>
 </html>
+<?php } ?>
