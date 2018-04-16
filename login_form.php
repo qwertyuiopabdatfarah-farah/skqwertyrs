@@ -52,7 +52,7 @@
                   </div>
             </div>
           </div>
-       <form action="login_action.php" method="POST">
+       <form action="login_proses.php" method="POST">
 
           <div class="row margin">
             <div class="input-field col s12">
