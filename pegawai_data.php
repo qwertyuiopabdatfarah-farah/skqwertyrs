@@ -47,61 +47,62 @@
               <div class="divider"></div>
               <!--DataTables example-->
               <div id="table-datatables">
-                <h4 class="header">Data Pasien</h4>
+                <h4 class="header">Data Pegawai Rumah Sakit</h4>
                 <div class="row">
                   <div class="col s12">
                     <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                         <thead>
                         <tr>
                         <th> No </th>
-                        <th> No Registrasi </th>
-                        <th> Nama Lengkap </th>
-                        <th> Tempat Lahir </th>
-                        <th> Tanggal Lahir </th>
-                        <th> Jenis Kelamin </th>
+                        <th> NIP </th>
+                        <th> Nama Pegawai RS </th>
+                        <th> Jabatan Pegawai</th>
+                        <th> Jenis Pegawai </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query="SELECT * FROM pasien ORDER BY id_pasien DESC";
+                        $query="SELECT * FROM pegawai";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
                         ?>
                         <tr>
                         <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['no_registerasi']; ?></td>  
-                        <td><?php echo $data['nama_lengkap']; ?></td>  
-                        <td><?php echo $data['tempat_lahir']; ?></td> 
-                        <td><?php echo $data['tgl_lahir']; ?></td>
-                        <td><?php echo $data['jenis_kelamin']; ?></td>   
+                        <td><?php echo $data['nip']; ?></td>  
+                        <td><?php echo $data['nama_pegawai']; ?></td>  
+                        <td><?php echo $data['jabatan_pegawai']; ?></td> 
+                        <td><?php echo $data['jenis_pegawai']; ?></td>
                         <td style="width:100px;text-align: center;">
-                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_pasien']; ?>'>|Detail|</a>
+                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_pegawai']; ?>'>|Detail|</a>
                         <?php echo "
-                        <a href='pasien_form_ubah.php?id_pasien=$data[id_pasien]'>|Ubah|</a>
-                        <a href='pasien_proses_hapus.php?id_pasien=$data[id_pasien]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
+                        <a href='pegawai_form_ubah.php?id_pegawai=$data[id_pegawai]'>|Ubah|</a>
+                        <a href='pegawai_proses_hapus.php?id_pegawai=$data[id_pegawai]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
                         ?>
                         </td> 
                         </tr>  
 
                             <!-- Awal Modal -->
-                            <div id="modal2<?php echo $data['id_pasien']; ?>" class="modal modal-fixed-footer">
+                            <div id="modal2<?php echo $data['id_pegawai']; ?>" class="modal modal-fixed-footer">
                                   <div class="modal-content">
-                                    <h4>Data Pasien</h4>
+                                    <h4>Data Pegawai Rumah Sakit</h4>
                                           <ul class="collection">
-                                          <li class="collection-item">No Registrasi : <?php echo $data['no_registerasi']; ?></li>
-                                          <li class="collection-item">Nama Lengkap : <?php echo $data['nama_lengkap']; ?></li>
-                                          <li class="collection-item">Tempat Lahir : <?php echo $data['tempat_lahir']; ?></li>
+                                          <li class="collection-item">NIP : <?php echo $data['nip']; ?></li>
+                                          <li class="collection-item">Nama : <?php echo $data['nama_pegawai']; ?></li>
+                                          <li class="collection-item">Jabatan : <?php echo $data['jabatan_pegawai']; ?></li>
+                                          <li class="collection-item">Jenis : <?php echo $data['jenis_pegawai']; ?></li>
                                           <li class="collection-item">Tanggal Lahir : <?php echo $data['tgl_lahir']; ?></li>
+                                          <li class="collection-item">Tanggal Masuk Kerja : <?php echo $data['tgl_masuk_kerja']; ?></li>
+                                          <li class="collection-item">Tanggal Keluar Kerja : <?php echo $data['tgl_keluar_kerja']; ?></li>
                                           <li class="collection-item">Jenis Kelamin : <?php echo $data['jenis_kelamin']; ?></li>
                                           <li class="collection-item">Agama : <?php echo $data['agama']; ?></li>
-                                          <li class="collection-item">No Telepon : <?php echo $data['no_telepon']; ?></li>
-                                          <li class="collection-item">No Telepon Lain : <?php echo $data['no_telepon_lain']; ?></li>
-                                          <li class="collection-item">Pekerjaan : <?php echo $data['pekerjaan']; ?></li>
-                                          <li class="collection-item">Alamat :  <?php echo $data['alamat_jln']; ?></li>
-                                          <li class="collection-item">Kabupaten/Kota : <?php echo $data['kabupaten_kota']; ?></li>
+                                          <li class="collection-item">Pendidikan Terakhir : <?php echo $data['pendidikan_akhir']; ?></li>
+                                          <li class="collection-item">No Telepon :  <?php echo $data['no_telepon']; ?></li>
+                                          <li class="collection-item">No Telepon Rumah: <?php echo $data['no_telepon_rumah']; ?></li>
+                                           <li class="collection-item">Alamat Jalan : <?php echo $data['alamat_jln']; ?></li>
+                                          <li class="collection-item">Kabupaten/Koata : <?php echo $data['kabupaten_kota']; ?></li>
                                           <li class="collection-item">Kecamatan : <?php echo $data['kecamatan']; ?></li>
                                           <li class="collection-item">Desa : <?php echo $data['desa']; ?></li>
                                           <li class="collection-item">Rt/Rw : <?php echo $data['rt_rw']; ?></li>

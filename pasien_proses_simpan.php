@@ -94,22 +94,7 @@ if($hasil){
             } ,2000); 
             </script>';
 	}else{
-		echo'
-          <script type="text/javascript">
-            setTimeout(function () {    
-            swal({
-              title: "Maaf!",
-              text: "Terjadi Kesalahan",
-              type: "error",
-              timer: 2000,
-              showConfirmButton: true
-            }, function(){
-                  window.location.href = "pasien_form_simpan.php";
-            });
-            },10); 
-            window.setTimeout(function(){ 
-            } ,2000); 
-            </script>';
+		echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
 	}
  }
 

@@ -172,6 +172,7 @@
                           <textarea name="alamat_jln" id="message5" class="materialize-textarea" length="120" required="required"></textarea>
                           <label for="message">Alamat Lengkap</label>
                        </div>
+                      </div> 
 
 
                         <div class="row">

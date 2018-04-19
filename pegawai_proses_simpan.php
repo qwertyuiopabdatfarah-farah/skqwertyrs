@@ -18,7 +18,7 @@ if (isset($_POST['simpan_pegawai'])) {
     $jenis_kelamin    = $_POST['jenis_kelamin'];
     $agama            = $_POST['agama'];
     $pendidikan_akhir = $_POST['pendidikan_akhir'];
-    $kabupaten        = $_POST['kabupaten'];
+    $kabupaten_kota        = $_POST['kabupaten_kota'];
     $kecamatan        = $_POST['kecamatan'];
     $desa             = $_POST['desa'];
     $rt_rw            = $_POST['rt_rw'];
@@ -58,7 +58,7 @@ $query_simpan = 'INSERT INTO pegawai (nip,
                                       jenis_kelamin, 
                                       agama, 
                                       pendidikan_akhir, 
-                                      kabupaten, 
+                                      kabupaten_kota, 
                                       kecamatan,
                                       desa,
                                       rt_rw,
@@ -75,7 +75,7 @@ $query_simpan = 'INSERT INTO pegawai (nip,
                          "'.$jenis_kelamin.'", 
                          "'.$agama.'", 
                          "'.$pendidikan_akhir.'", 
-                         "'.$kabupaten.'",
+                         "'.$kabupaten_kota.'",
                          "'.$kecamatan.'", 
                          "'.$desa.'",
                          "'.$rt_rw.'",
@@ -104,21 +104,7 @@ if($hasil){
             } ,2000); 
             </script>';
   }else{
-    echo '<script type="text/javascript">
-            setTimeout(function () {    
-            swal({
-              title: "Maaf!",
-              text: "Ada Yang Salah",
-              type: "error",
-              timer: 2000,
-              showConfirmButton: true
-            }, function(){
-                  window.location.href = "pegawai_form_simpan.php";
-            });
-            },10); 
-            window.setTimeout(function(){ 
-            } ,2000); 
-            </script>';
+    echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
   }
  }
 
