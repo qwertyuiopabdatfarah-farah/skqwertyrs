@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2018 at 04:01 PM
+-- Generation Time: Apr 19, 2018 at 07:56 AM
 -- Server version: 5.7.21-log
 -- PHP Version: 7.2.4
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `dokter` (
   `id_dokter` int(21) NOT NULL,
-  `id_pegawai` int(21) NOT NULL,
+  `id_ketenagaan` int(21) NOT NULL,
   `spesialis` varchar(30) NOT NULL,
   `keterangan` text NOT NULL,
   `status` enum('on','of') NOT NULL
@@ -69,6 +69,21 @@ CREATE TABLE `kamar` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ketenagaan_rs`
+--
+
+CREATE TABLE `ketenagaan_rs` (
+  `id_ketenagaan` int(21) NOT NULL,
+  `id_pegawai` int(21) NOT NULL,
+  `nama_ketenagaan` varchar(90) NOT NULL,
+  `jenis_ketenagaan` varchar(70) NOT NULL,
+  `keterangan` text NOT NULL,
+  `status` enum('Aktif','NonAktif') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `log_sms`
 --
 
@@ -88,20 +103,28 @@ CREATE TABLE `log_sms` (
 
 CREATE TABLE `pasien` (
   `id_pasien` int(21) NOT NULL,
-  `no_registrasi` varchar(30) NOT NULL,
+  `no_registerasi` varchar(30) NOT NULL,
   `nama_lengkap` varchar(30) NOT NULL,
   `tempat_lahir` varchar(30) NOT NULL,
   `tgl_lahir` date NOT NULL,
   `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL,
-  `pekerjaan` varchar(31) NOT NULL,
-  `kabupaten_kota` varchar(30) NOT NULL,
-  `kecamatan` varchar(30) NOT NULL,
-  `desa` varchar(30) NOT NULL,
-  `rt_rw` int(21) NOT NULL,
-  `alamat_jln` text NOT NULL,
+  `agama` enum('Islam','Kristen','Budha','Hindu','Protestan') NOT NULL,
+  `no_telepon` varchar(21) NOT NULL,
   `no_telepon_lain` varchar(21) NOT NULL,
-  `no_telepon` int(21) NOT NULL
+  `pekerjaan` varchar(31) NOT NULL,
+  `alamat_jln` text NOT NULL,
+  `kabupaten_kota` varchar(30) NOT NULL,
+  `kecamatan` varchar(30) DEFAULT NULL,
+  `desa` varchar(30) DEFAULT NULL,
+  `rt_rw` varchar(21) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pasien`
+--
+
+INSERT INTO `pasien` (`id_pasien`, `no_registerasi`, `nama_lengkap`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `no_telepon_lain`, `pekerjaan`, `alamat_jln`, `kabupaten_kota`, `kecamatan`, `desa`, `rt_rw`) VALUES
+(2, '1234', 'Farah Saleh Abdat', 'Bandung', '2018-04-20', 'Perempuan', 'Islam', '0853526446551', '0853526446551', 'Sutradara PT. Indonesia', 'Jl. Raya Belok Kekanan', 'Banjarmasin', 'Ciwidey 01', '', '');
 
 -- --------------------------------------------------------
 
@@ -111,20 +134,31 @@ CREATE TABLE `pasien` (
 
 CREATE TABLE `pegawai` (
   `id_pegawai` int(21) NOT NULL,
-  `nama_pegawai` int(30) NOT NULL,
-  `jabatan_pegawai` int(30) NOT NULL,
-  `jenis_pegawai` int(30) NOT NULL,
+  `nip` varchar(21) NOT NULL,
+  `nama_pegawai` varchar(30) NOT NULL,
+  `jabatan_pegawai` varchar(30) NOT NULL,
+  `jenis_pegawai` varchar(30) NOT NULL,
   `tgl_lahir` date NOT NULL,
+  `tgl_masuk_kerja` date NOT NULL,
+  `tgl_keluar_kerja` date DEFAULT NULL,
   `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL,
-  `tamatan_sekolah` varchar(30) NOT NULL,
-  `kabupaten` varchar(30) NOT NULL,
-  `kecamatan` varchar(30) NOT NULL,
-  `desa` varchar(30) NOT NULL,
-  `rt_rw` varchar(30) NOT NULL,
-  `alamat_jln` varchar(30) NOT NULL,
+  `agama` enum('Islam','Kristen','Hindu','Budha','Protestan') NOT NULL,
+  `pendidikan_akhir` varchar(30) NOT NULL,
   `no_telepon` varchar(21) NOT NULL,
-  `foto_pegawai` text NOT NULL
+  `no_telepon_rumah` varchar(21) NOT NULL,
+  `kabupaten` varchar(30) NOT NULL,
+  `kecamatan` varchar(30) DEFAULT NULL,
+  `desa` varchar(30) DEFAULT NULL,
+  `rt_rw` varchar(30) DEFAULT NULL,
+  `alamat_jln` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `jabatan_pegawai`, `jenis_pegawai`, `tgl_lahir`, `tgl_masuk_kerja`, `tgl_keluar_kerja`, `jenis_kelamin`, `agama`, `pendidikan_akhir`, `no_telepon`, `no_telepon_rumah`, `kabupaten`, `kecamatan`, `desa`, `rt_rw`, `alamat_jln`) VALUES
+(1, 'n01', 'Farah', 'Abdat', 'Kontrak', '2018-04-13', '2018-04-19', '2018-04-20', 'Laki-laki', 'Islam', 'S1', '085352644655', '085352644655', 'Banjarmasin', 'Ciwidey', '', 'Rt. 02. Rw. 09', 'Jl. Raya');
 
 -- --------------------------------------------------------
 
@@ -188,7 +222,7 @@ CREATE TABLE `resep` (
 --
 ALTER TABLE `dokter`
   ADD PRIMARY KEY (`id_dokter`),
-  ADD KEY `id_pegawai` (`id_pegawai`);
+  ADD KEY `id_pegawai` (`id_ketenagaan`);
 
 --
 -- Indexes for table `inventaris`
@@ -205,6 +239,13 @@ ALTER TABLE `kamar`
   ADD PRIMARY KEY (`id_kamar`);
 
 --
+-- Indexes for table `ketenagaan_rs`
+--
+ALTER TABLE `ketenagaan_rs`
+  ADD PRIMARY KEY (`id_ketenagaan`),
+  ADD KEY `id_pegawai` (`id_pegawai`);
+
+--
 -- Indexes for table `log_sms`
 --
 ALTER TABLE `log_sms`
@@ -217,13 +258,14 @@ ALTER TABLE `log_sms`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`id_pasien`),
-  ADD UNIQUE KEY `no_registrasi` (`no_registrasi`);
+  ADD UNIQUE KEY `no_registrasi` (`no_registerasi`);
 
 --
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD PRIMARY KEY (`id_pegawai`);
+  ADD PRIMARY KEY (`id_pegawai`),
+  ADD UNIQUE KEY `nik` (`nip`);
 
 --
 -- Indexes for table `pelayanan`
@@ -271,6 +313,12 @@ ALTER TABLE `kamar`
   MODIFY `id_kamar` int(21) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ketenagaan_rs`
+--
+ALTER TABLE `ketenagaan_rs`
+  MODIFY `id_ketenagaan` int(21) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `log_sms`
 --
 ALTER TABLE `log_sms`
@@ -280,13 +328,13 @@ ALTER TABLE `log_sms`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(21) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pasien` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(21) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pegawai` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pelayanan`
@@ -314,13 +362,19 @@ ALTER TABLE `resep`
 -- Constraints for table `dokter`
 --
 ALTER TABLE `dokter`
-  ADD CONSTRAINT `dokter_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `dokter_ibfk_1` FOREIGN KEY (`id_ketenagaan`) REFERENCES `ketenagaan_rs` (`id_ketenagaan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `inventaris`
 --
 ALTER TABLE `inventaris`
   ADD CONSTRAINT `inventaris_ibfk_1` FOREIGN KEY (`id_kamar`) REFERENCES `kamar` (`id_kamar`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `ketenagaan_rs`
+--
+ALTER TABLE `ketenagaan_rs`
+  ADD CONSTRAINT `ketenagaan_rs_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `log_sms`
