@@ -55,7 +55,7 @@
                   <h4 class="header2">Form Isi Data Pegawai RS</h4>
                   <div class="row">
 
-                    <form action="pegawai_proses_simpan.php" method="POST" enctype="multipart/form-data">
+                 <form action="pegawai_proses_simpan.php" method="POST" enctype="multipart/form-data">
 
                       <div class="row">
                         <div class="input-field col s12">
@@ -182,27 +182,12 @@
 
                       </div>
 
-
-                      <div class="row">
-                        <div class="file-field input-field col s6">
-                          <input class="file-path validate" type="text" />
-                          <div class="btn">
-                            <span>Upload Foto</span>
-                            <input type="file" name="foto_pegawai" required="required" />
-                          </div>
-                        </div>
-                      </div>
-
                       <div class="row">
                         <div class="input-field col s12">
                           <textarea name="alamat_jln" id="message5" class="materialize-textarea" length="120" required="required"></textarea>
                           <label for="message">Alamat Lengkap</label>
                        </div>
                      </div>
-
-                      
-                
-
                   
 
                         <div class="row">
@@ -213,7 +198,7 @@
                           </div>
                         </div>
                       </div>
-                    </form>
+            </form>
 
 
 

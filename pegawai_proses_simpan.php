@@ -25,19 +25,9 @@ if (isset($_POST['simpan_pegawai'])) {
     $alamat_jln       = $_POST['alamat_jln'];
     $no_telepon       = $_POST['no_telepon'];
     $no_telepon_rumah = $_POST['no_telepon_rumah'];
-    $lokasi_file      = $_FILES['foto_pegawai']['tmp_name'];
-    $tipe_file        = $_FILES['foto_pegawai']['type'];
-    $nama_file        = $_FILES['foto_pegawai']['name'];
-    $direktori        = "foto_pegawai/$nama_file";
-
-
-
+  
 include 'config/koneksiDB.php'; 
-if (!empty($lokasi_file)) {
-move_uploaded_file($lokasi_file, $direktori); 
-$cekdata="select nip from pegawai where nip='$nip'";
-  var_dump($cekdata);
-exit;  
+$cekdata="SELECT nip FROM pegawai WHERE nip='$nip'";
 $ada=mysqli_query($koneksi, $cekdata) or die(mysqli_error());
 if(mysqli_num_rows($ada)>0)
 { 
@@ -74,8 +64,7 @@ $query_simpan = 'INSERT INTO pegawai (nip,
                                       rt_rw,
                                       alamat_jln,
                                       no_telepon,
-                                      no_telepon_rumah,
-                                      foto_pegawai)
+                                      no_telepon_rumah)
                  VALUES ("'.$nip.'", 
                          "'.$nama_pegawai.'", 
                          "'.$jabatan_pegawai.'",
@@ -92,11 +81,11 @@ $query_simpan = 'INSERT INTO pegawai (nip,
                          "'.$rt_rw.'",
                          "'.$alamat_jln.'",
                          "'.$no_telepon.'",
-                         "'.$no_telepon_rumah.'",
-                         "'.$nama_file.'")';
-                         
-$hasil = mysqli_query($koneksi, $query_simpan);
+                         "'.$no_telepon_rumah.'")';
 
+var_dump($query_simpan);
+exit;
+$hasil = mysqli_query($koneksi, $query_simpan);
 if($hasil){
     echo'
           <script type="text/javascript">
@@ -115,12 +104,23 @@ if($hasil){
             } ,2000); 
             </script>';
   }else{
-    //var_dump($hasil);
-    //exit;
+    echo '<script type="text/javascript">
+            setTimeout(function () {    
+            swal({
+              title: "Maaf!",
+              text: "Ada Yang Salah",
+              type: "error",
+              timer: 2000,
+              showConfirmButton: true
+            }, function(){
+                  window.location.href = "pegawai_form_simpan.php";
+            });
+            },10); 
+            window.setTimeout(function(){ 
+            } ,2000); 
+            </script>';
   }
  }
-}
-
 
 }else{
   echo "<h2><div style='color:red;text-align:center;'>--- 404 Forbiden, SILAHKAN KEMBALI--- </div></h2>";
