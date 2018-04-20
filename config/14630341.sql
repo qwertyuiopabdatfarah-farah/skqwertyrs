@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2018 at 07:56 AM
+-- Generation Time: Apr 20, 2018 at 01:58 AM
 -- Server version: 5.7.21-log
 -- PHP Version: 7.2.4
 
@@ -59,11 +59,13 @@ CREATE TABLE `inventaris` (
 
 CREATE TABLE `kamar` (
   `id_kamar` int(21) NOT NULL,
+  `no_kamar` varchar(30) NOT NULL,
   `nama_kamar` varchar(30) NOT NULL,
   `kelas` varchar(30) NOT NULL,
   `jumlah_orang` varchar(30) NOT NULL,
   `lokasi` varchar(30) NOT NULL,
-  `status` enum('on','off','exist') NOT NULL
+  `status` enum('On','Off') NOT NULL,
+  `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -146,7 +148,7 @@ CREATE TABLE `pegawai` (
   `pendidikan_akhir` varchar(30) NOT NULL,
   `no_telepon` varchar(21) NOT NULL,
   `no_telepon_rumah` varchar(21) NOT NULL,
-  `kabupaten` varchar(30) NOT NULL,
+  `kabupaten_kota` varchar(30) NOT NULL,
   `kecamatan` varchar(30) DEFAULT NULL,
   `desa` varchar(30) DEFAULT NULL,
   `rt_rw` varchar(30) DEFAULT NULL,
@@ -157,8 +159,8 @@ CREATE TABLE `pegawai` (
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `jabatan_pegawai`, `jenis_pegawai`, `tgl_lahir`, `tgl_masuk_kerja`, `tgl_keluar_kerja`, `jenis_kelamin`, `agama`, `pendidikan_akhir`, `no_telepon`, `no_telepon_rumah`, `kabupaten`, `kecamatan`, `desa`, `rt_rw`, `alamat_jln`) VALUES
-(1, 'n01', 'Farah', 'Abdat', 'Kontrak', '2018-04-13', '2018-04-19', '2018-04-20', 'Laki-laki', 'Islam', 'S1', '085352644655', '085352644655', 'Banjarmasin', 'Ciwidey', '', 'Rt. 02. Rw. 09', 'Jl. Raya');
+INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `jabatan_pegawai`, `jenis_pegawai`, `tgl_lahir`, `tgl_masuk_kerja`, `tgl_keluar_kerja`, `jenis_kelamin`, `agama`, `pendidikan_akhir`, `no_telepon`, `no_telepon_rumah`, `kabupaten_kota`, `kecamatan`, `desa`, `rt_rw`, `alamat_jln`) VALUES
+(1, 'n01', 'Farah Saeleh', 'Abdat', 'Kontrak', '2018-04-13', '2018-04-19', '2018-04-20', 'Laki-laki', 'Islam', 'S1', '085352644655', '085352644655', 'Banjarmasin', 'Ciwidey', 'Rawabogo', 'Rt. 02. Rw. 09', 'Jl.  Naringul');
 
 -- --------------------------------------------------------
 
@@ -310,7 +312,7 @@ ALTER TABLE `inventaris`
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `id_kamar` int(21) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kamar` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ketenagaan_rs`

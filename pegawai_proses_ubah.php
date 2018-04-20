@@ -69,7 +69,7 @@ if(!$query){
 }
 
 }else{
-	echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
+	echo "<h2><div style='color:red;text-align:center;'>--- Jangan Pernah Datang Kesisni--- </div></h2>";
 }
 
 ?>

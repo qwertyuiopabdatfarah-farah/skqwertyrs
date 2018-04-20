@@ -41,7 +41,7 @@ WHERE id_pasien="'.$id_pasien.'"';
 
 $query = mysqli_query($koneksi, $ubah);
 if(!$query){
-	echo "Gagal Diubah";
+	echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
 }else{
 	echo'
           <script type="text/javascript">
@@ -62,7 +62,7 @@ if(!$query){
 }
 
 }else{
-	echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
+	echo "<h2><div style='color:red;text-align:center;'>--- Janagan Kesisni --- </div></h2>";
 }
 
 ?>
