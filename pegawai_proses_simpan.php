@@ -86,8 +86,8 @@ $query_simpan = 'INSERT INTO pegawai (nip,
                          "'.$no_telepon.'",
                          "'.$no_telepon_rumah.'")';
 
-var_dump($query_simpan);
-exit;
+//var_dump($query_simpan);
+//exit;
 $hasil = mysqli_query($koneksi, $query_simpan);
 if($hasil){
     echo'

@@ -42,9 +42,15 @@ else{
 $query_update_kamar = 'UPDATE pegawai set jumlah = jumlah+1 WHERE id_pegawai="'.$id_pegawai.'"';
 $hasil = mysqli_query($koneksi, $query_update_kamar);  
 //Update Kamar  
+//
 $query_update_kamar = 'UPDATE kamar set status = "Off" WHERE id_kamar="'.$id_kamar.'"';
 $hasil = mysqli_query($koneksi, $query_update_kamar);
-//Insert Data  
+//insert data log sms
+//
+$query_simpan_sms = 'INSERT INTO log_sms (id_pasien, id_kamar) VALUES ("'.$id_pasien.'","'.$id_kamar.'")';
+$hasil = mysqli_query($koneksi, $query_simpan_sms);
+//Insert Data pelayanan
+//
 $query_simpan = 'INSERT INTO pelayanan (id_pasien,
                                         id_pegawai,
                                         id_kamar,

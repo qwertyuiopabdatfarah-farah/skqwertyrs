@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 22, 2018 at 01:24 PM
+-- Generation Time: Apr 22, 2018 at 03:39 PM
 -- Server version: 5.7.21-log
 -- PHP Version: 7.2.4
 
@@ -67,7 +67,7 @@ CREATE TABLE `kamar` (
 --
 
 INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `nama_kamar`, `kelas`, `jumlah_tt`, `lokasi`, `status`, `keterangan`) VALUES
-(1, 'n01', 'bleke', '2', 'e', '', 'Off', 'd'),
+(1, 'n01', 'bleke', '2', 'e', '', 'On', 'd'),
 (2, 'n02', 'bleke222', '2', 'e', '', 'Off', 'd');
 
 -- --------------------------------------------------------
@@ -176,7 +176,7 @@ CREATE TABLE `pegawai` (
 
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `jabatan_pegawai`, `status`, `jenis_pegawai`, `nama_pt`, `tgl_lahir`, `tgl_masuk_kerja`, `tgl_keluar_kerja`, `jenis_kelamin`, `agama`, `pendidikan_akhir`, `no_telepon`, `no_telepon_rumah`, `kabupaten_kota`, `kecamatan`, `desa`, `rt_rw`, `alamat_jln`, `jumlah`) VALUES
 (1, 'n01', 'Farah Saeleh', 'Dokter', 'On', 'Kontrak', '', '2018-04-13', '2018-04-19', '2018-04-20', 'Laki-laki', 'Islam', 'S1', '085352644655', '085352644655', 'Banjarmasin', 'Ciwidey', 'Rawabogo', 'Rt. 02. Rw. 09', 'Jl.  Naringul', 4),
-(3, 'n02', 'Farah Saeleh', 'Dokter', 'On', 'Kontrak', '', '2018-04-13', '2018-04-19', '2018-04-20', 'Laki-laki', 'Islam', 'S1', '085352644655', '085352644655', 'Banjarmasin', 'Ciwidey', 'Rawabogo', 'Rt. 02. Rw. 09', 'Jl.  Naringul', 4);
+(3, 'n02', 'Farah Saeleh', 'Dokter', 'On', 'Kontrak', '', '2018-04-13', '2018-04-19', '2018-04-20', 'Laki-laki', 'Islam', 'S1', '085352644655', '085352644655', 'Banjarmasin', 'Ciwidey', 'Rawabogo', 'Rt. 02. Rw. 09', 'Jl.  Naringul', 2);
 
 -- --------------------------------------------------------
 
@@ -201,7 +201,7 @@ CREATE TABLE `pelayanan` (
 --
 
 INSERT INTO `pelayanan` (`id_pelayanan`, `id_pasien`, `id_pegawai`, `id_kamar`, `keluhan`, `diagnosa`, `tgl_masuk`, `tgl_keluar`, `keterangan`) VALUES
-(2, 2, 3, 1, 'Ok', NULL, '2018-04-20', NULL, 'Coba');
+(2, 2, 3, 1, 'Garing Banar', NULL, '2018-04-20', '2018-04-20', 'Coba Lagi');
 
 -- --------------------------------------------------------
 
@@ -367,7 +367,8 @@ ALTER TABLE `log_sms`
 --
 ALTER TABLE `pelayanan`
   ADD CONSTRAINT `pelayanan_ibfk_1` FOREIGN KEY (`id_kamar`) REFERENCES `kamar` (`id_kamar`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pelayanan_ibfk_3` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `pelayanan_ibfk_3` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pelayanan_ibfk_4` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
