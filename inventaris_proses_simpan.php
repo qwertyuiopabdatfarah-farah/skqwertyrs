@@ -7,18 +7,17 @@
 </head>
 <body>
 <?php
-if (isset($_POST['simpan_kamar'])) {
-  $no_kamar     = $_POST["no_kamar"];
-  $nama_kamar   = $_POST["nama_kamar"];
-  $kelas        = $_POST['kelas'];
-  $jumlah_tt    = $_POST['jumlah_tt'];
-  $lokasi       = $_POST['lokasi'];
-  $status       = $_POST['status'];
-  $keterangan   = $_POST['keterangan'];
-	
+if (isset($_POST['simpan_inventaris'])) {
+  $no_inventaris = $_POST["no_inventaris"];
+  $id_kamar      = $_POST["id_kamar"];
+  $jenis_barang  = $_POST['jenis_barang'];
+  $kondisi       = $_POST['kondisi'];
+  $jumlah        = $_POST['jumlah'];
+  $keterangan    = $_POST['keterangan'];
+ 	
 
 include 'config/koneksiDB.php'; 
-$cekdata = "select no_kamar from kamar where no_kamar='$no_kamar'";
+$cekdata = "SELECT no_inventaris FROM inventaris WHERE no_inventaris='$no_inventaris'";
 $ada     = mysqli_query($koneksi, $cekdata) or die(mysqli_error());
 if(mysqli_num_rows($ada)>0)
 { 
@@ -32,7 +31,7 @@ if(mysqli_num_rows($ada)>0)
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "kamar_form_simpan.php";
+                  window.location.href = "inventaris_form_simpan.php";
             });
             },10); 
             window.setTimeout(function(){ 
@@ -40,20 +39,18 @@ if(mysqli_num_rows($ada)>0)
             </script>';
 }
 else{
-$query_simpan = 'INSERT INTO kamar (no_kamar,
-                                     nama_kamar,
-                                     kelas,
-                                     jumlah_tt,
-                                     lokasi,
-                                     status, 
-                                     keterangan)
-	                VALUES ("'.$no_kamar.'",
-	                       "'.$nama_kamar.'", 
-	                       "'.$kelas.'", 
-	                       "'.$jumlah_tt.'",
-	                       "'.$lokasi.'",
-	                       "'.$status.'", 
-	                       "'.$keterangan.'")';
+$query_simpan = 'INSERT INTO inventaris (no_inventaris,
+                                            id_kamar,
+                                            jenis_barang,
+                                            kondisi,
+                                            jumlah,
+                                            keterangan)
+	                VALUES ("'.$no_inventaris.'",
+	                       "'.$id_kamar.'", 
+	                       "'.$jenis_barang.'", 
+	                       "'.$kondisi.'",
+	                       "'.$jumlah.'",
+                         "'.$keterangan.'")';
 
 $hasil = mysqli_query($koneksi, $query_simpan);
 if($hasil){
@@ -67,7 +64,7 @@ if($hasil){
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "kamar_form_simpan.php";
+                  window.location.href = "inventaris_form_simpan.php";
             });
             },10); 
             window.setTimeout(function(){ 

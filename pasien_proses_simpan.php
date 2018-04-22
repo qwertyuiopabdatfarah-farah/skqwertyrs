@@ -8,20 +8,21 @@
 <body>
 <?php
 if (isset($_POST['simpan_pasien'])) {
-	$no_registerasi  = $_POST["no_registerasi"];
-	$nama_lengkap    = $_POST['nama_lengkap'];
-	$tempat_lahir    = $_POST['tempat_lahir'];
-	$tgl_lahir       = $_POST['tgl_lahir'];
-	$jenis_kelamin   = $_POST['jenis_kelamin'];
-	$agama           = $_POST['agama'];
-	$no_telepon      = $_POST['no_telepon'];
-	$no_telepon_lain = $_POST['no_telepon_lain'];
-	$pekerjaan       = $_POST['pekerjaan'];
-	$kabupaten_kota  = $_POST['kabupaten_kota'];
-	$kecamatan       = $_POST['kecamatan'];
-	$desa            = $_POST['desa'];
-	$rt_rw           = $_POST['rt_rw'];
-	$alamat_jln      = $_POST['alamat_jln'];
+  $no_registerasi   = $_POST["no_registerasi"];
+  $nama_lengkap     = $_POST['nama_lengkap'];
+  $nama_ibu_kandung = $_POST['nama_ibu_kandung'];
+  $tempat_lahir     = $_POST['tempat_lahir'];
+  $tgl_lahir        = $_POST['tgl_lahir'];
+  $jenis_kelamin    = $_POST['jenis_kelamin'];
+  $agama            = $_POST['agama'];
+  $no_telepon       = $_POST['no_telepon'];
+  $no_telepon_lain  = $_POST['no_telepon_lain'];
+  $pekerjaan        = $_POST['pekerjaan'];
+  $kabupaten_kota   = $_POST['kabupaten_kota'];
+  $kecamatan        = $_POST['kecamatan'];
+  $desa             = $_POST['desa'];
+  $rt_rw            = $_POST['rt_rw'];
+  $alamat_jln       = $_POST['alamat_jln'];
 	
 
 include 'config/koneksiDB.php'; 
@@ -49,6 +50,7 @@ if(mysqli_num_rows($ada)>0)
 else{
 $query_simpan = 'INSERT INTO pasien (no_registerasi,
                                      nama_lengkap,
+                                     nama_ibu_kandung,
                                      tempat_lahir,
                                      tgl_lahir,
                                      jenis_kelamin,
@@ -61,7 +63,8 @@ $query_simpan = 'INSERT INTO pasien (no_registerasi,
                                      rt_rw, 
                                      alamat_jln)
 	                VALUES ("'.$no_registerasi.'",
-	                       "'.$nama_lengkap.'", 
+	                       "'.$nama_lengkap.'",
+                         "'.$nama_ibu_kandung.'", 
 	                       "'.$tempat_lahir.'", 
 	                       "'.$tgl_lahir.'",
 	                       "'.$jenis_kelamin.'",

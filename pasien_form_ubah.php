@@ -61,21 +61,22 @@
                   $hasil         = mysqli_query($koneksi, $query);
                    foreach ($hasil as $data)
                   {
-                        $id              = $data['id_pasien'];
-                        $no_registerasi  = $data['no_registerasi'];
-                        $nama_lengkap    = $data['nama_lengkap'];
-                        $tempat_lahir    = $data['tempat_lahir'];
-                        $tgl_lahir       = $data['tgl_lahir'];
-                        $jenis_kelamin   = $data['jenis_kelamin'];
-                        $agama           = $data['agama'];
-                        $no_telepon      = $data['no_telepon'];
-                        $no_telepon_lain = $data['no_telepon_lain'];
-                        $pekerjaan       = $data['pekerjaan'];
-                        $alamat_jln      = $data['alamat_jln'];
-                        $kabupaten_kota  = $data['kabupaten_kota'];
-                        $kecamatan       = $data['kecamatan'];
-                        $desa            = $data['desa'];
-                        $rt_rw           = $data['rt_rw'];
+                        $id               = $data['id_pasien'];
+                        $no_registerasi   = $data['no_registerasi'];
+                        $nama_lengkap     = $data['nama_lengkap'];
+                        $nama_ibu_kandung = $data['nama_ibu_kandung'];
+                        $tempat_lahir     = $data['tempat_lahir'];
+                        $tgl_lahir        = $data['tgl_lahir'];
+                        $jenis_kelamin    = $data['jenis_kelamin'];
+                        $agama            = $data['agama'];
+                        $no_telepon       = $data['no_telepon'];
+                        $no_telepon_lain  = $data['no_telepon_lain'];
+                        $pekerjaan        = $data['pekerjaan'];
+                        $alamat_jln       = $data['alamat_jln'];
+                        $kabupaten_kota   = $data['kabupaten_kota'];
+                        $kecamatan        = $data['kecamatan'];
+                        $desa             = $data['desa'];
+                        $rt_rw            = $data['rt_rw'];
                    }
                   ?>
                    
@@ -98,6 +99,13 @@
                         <div class="input-field col s12">
                           <input type="text" name="nama_lengkap" value="<?php echo $nama_lengkap; ?>" required="required" />
                           <label for="nama_lengkap">Nama Lengkap</label>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="nama_ibu_kandung" value="<?php echo $nama_ibu_kandung; ?>" required="required">
+                          <label for="nama_ibu_kandung">Nama Ibu Kandung</label>
                         </div>
                       </div>
 

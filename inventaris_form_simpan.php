@@ -14,7 +14,9 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Materialize is a Material Design Admin Template">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
-    <title>Farah Abdat</title>
+    <title>Human Resource</title>
+     <!-- selec2-->
+    <link href="assets/css/select2/select2.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
@@ -52,89 +54,61 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Pasien</h4>
+                  <h4 class="header2">Form Isi Data Inventaris Kamar</h4>
                   <div class="row">
-                  <?php
-                  include 'config/koneksiDB.php';
-                  $id_kamar      = $_GET['id_kamar'];
-                  $query         = "SELECT * FROM kamar WHERE id_kamar='$id_kamar'";
-                  $hasil         = mysqli_query($koneksi, $query);
-                   foreach ($hasil as $data)
-                  {
-                        $id           = $data['id_kamar'];
-                        $no_kamar     = $data['no_kamar'];
-                        $nama_kamar   = $data['nama_kamar'];
-                        $kelas        = $data['kelas'];
-                        $jumlah_tt    = $data['jumlah_tt'];
-                        $lokasi       = $data['lokasi'];
-                        $status       = $data['status'];
-                        $keterangan   = $data['keterangan'];
-                   }
 
-                  ?>
-                   
-                    <form class="col s12" action="kamar_proses_ubah.php" method="POST">
 
-                     <input type="hidden" name="id_kamar" value="<?php echo $id; ?>"/>   
 
+                    <form class="col s12" action="inventaris_proses_simpan.php" method="POST">
+
+                   <div class="row">
+                        <div class="input-field col s6">
+                          <input type="text" name="no_inventaris" required="required">
+                          <label for="no_inventaris">No Inventaris</label>
+                        </div>
+                    </div>    
 
                       <div class="row">
 
                         <div class="input-field col s6">
-                          <input type="text" name="no_kamar" disabled="disabled"  value="<?php echo $no_kamar; ?>">
-                          <label for="no_kamar">No Kamar</label>
+                          <select name="id_kamar" class="js-example-basic-sinsgle" required="required">
+                           <option value="" selected="selected">.:Pilih Nama Kamar:.</option>
+                            <?php
+                            include 'config/koneksiDB.php'; 
+                            $mysql = "SELECT * FROM Kamar";
+                            $hasil = mysqli_query($koneksi, $mysql);
+                            while ($data = mysqli_fetch_array($hasil, MYSQLI_BOTH)){ ?>
+                                  <option value="<?php echo $data['id_kamar']; ?>"><?php echo $data['kelas']; ?> = <?php echo $data['nama_kamar']; ?></option>
+                            <?php } 
+                            ?>
+                        </select>
+                          <label for="id_pegawai">Nama Kamar</label>
                         </div>
 
                         <div class="input-field col s6">
-                          <input type="text" name="nama_kamar" required="required" value="<?php echo $nama_kamar; ?>">
-                          <label for="nama_kamar">Nama Kamar</label>
+                          <input type="text" name="jenis_barang" required="required">
+                          <label for="jenis_barang">Jenis Barang</label>
                         </div>
 
                       </div>
-
-
-                      <div class="row">
-                        <div class="input-field col s6">
-                          <input type="text" name="kelas" required="required" value="<?php echo $kelas; ?>">
-                          <label for="kelas">Kelas</label>
-                        </div>
-
-                        <div class="input-field col s6">
-                          <input  type="text" name="jumlah_tt" required="required" value="<?php echo $jumlah_tt; ?>">
-                          <label for="jumlah_tt">Jumlah Tempat Tidur</label>
-                        </div>
+      
+                    <div class="row">
+                      <div class="input-field col s6">
+                          <input type="text" name="kondisi" required="required">
+                          <label for="kondisi">Kondisi</label>
                       </div>
-
 
                       <div class="input-field col s6">
-                          <input type="text" name="lokasi" required="required" value="<?php echo $lokasi; ?>">
-                          <label for="lokasi">Lokasi</label>
+                          <input type="text" name="jumlah" required="required">
+                          <label for="jumlah">Jumlah</label>
                       </div>
+                     </div>   
 
-
-
-                    <div class="row">
-                        <div class="input-field col s6">
-                          <select name="status" required="required"/>
-                             <option value="">.:Pilih Status Kamar:.</option>
-                                   <?php        
-                                    if ($status == "On")
-                                         echo "<option value='On' selected>On</option>";
-                                         else echo "<option value='On'>On</option>";
-
-                                    if ($status== "Off") 
-                                         echo "<option value='Off' selected>Off</option>";
-                                         else echo "<option value='Off'>Off</option>";    
-                                    ?>
-                         </select>
-                          <label>Status Kamar</label>
-                        </div>
-                    </div>
 
 
                       <div class="row">
                         <div class="input-field col s12">
-                          <textarea name="keterangan" id="message5" class="materialize-textarea" length="120" required="required"><?php echo $keterangan; ?></textarea>
+                          <textarea name="keterangan" id="message5" class="materialize-textarea" length="120" required="required"></textarea>
                           <label for="message">Keterangan</label>
                        </div>
                       </div> 
@@ -142,15 +116,13 @@
 
                         <div class="row">
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="ubah_kamar">Ubah
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="simpan_inventaris">Simpan
                               <i class="material-icons right">send</i>
                             </button>
                           </div>
                         </div>
                       </div>
                     </form>
-
-
 
                   </div>
                 </div>
@@ -176,7 +148,13 @@
       <script type="text/javascript" src="assets/js/plugins.js"></script>
       <!--custom-script.js - Add your own theme custom JS-->
       <script type="text/javascript" src="assets/js/custom-script.js"></script>
+      <script type="text/javascript" src="assets/js/select2/select2.js"></script>
+      
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $(".js-example-basic-single").select2();
+      });
+      </script>
   </body>
 </html>
 <?php } ?>
-                    

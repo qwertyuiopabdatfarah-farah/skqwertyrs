@@ -7,23 +7,23 @@
 </head>
 <body>
 <?php 
-if (isset($_POST['ubah_kamar'])) {
-	$id_kamar     = $_POST['id_kamar'];
-	$nama_kamar   = $_POST['nama_kamar'];
-	$kelas        = $_POST['kelas'];
-	$jumlah_tt    = $_POST['jumlah_tt'];
-	$lokasi       = $_POST['lokasi'];
-	$status       = $_POST['status'];
-	$keterangan   = $_POST['keterangan'];
+if (isset($_POST['ubah_inventaris'])) {
+   $id_inventaris = $_POST['id_inventaris'];
+   $no_inventaris = $_POST["no_inventaris"];
+   $id_kamar      = $_POST["id_kamar"];
+   $jenis_barang  = $_POST['jenis_barang'];
+   $kondisi       = $_POST['kondisi'];
+   $jumlah        = $_POST['jumlah'];
+   $keterangan    = $_POST['keterangan'];
 	
 include 'config/koneksiDB.php'; 
-$ubah = 'UPDATE kamar set   nama_kamar   = "'.$nama_kamar.'",
-							kelas        = "'.$kelas.'", 
-							jumlah_tt    = "'.$jumlah_tt.'",
-							lokasi       = "'.$lokasi.'", 
-							status       = "'.$status.'",
-							keterangan   = "'.$keterangan.'"
-WHERE id_kamar="'.$id_kamar.'"';
+$ubah = 'UPDATE inventaris set no_inventaris = "'.$no_inventaris.'",
+                               id_kamar      = "'.$id_kamar.'",
+                               jenis_barang  = "'.$jenis_barang.'", 
+                               kondisi       = "'.$kondisi.'",
+                               jumlah        = "'.$jumlah.'", 
+                               keterangan    = "'.$keterangan.'"
+WHERE id_inventaris="'.$id_inventaris.'"';
 
 $query = mysqli_query($koneksi, $ubah);
 if(!$query){
@@ -39,7 +39,7 @@ if(!$query){
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "kamar_data.php";
+                  window.location.href = "inventaris_data.php";
             });
             },10); 
             window.setTimeout(function(){ 

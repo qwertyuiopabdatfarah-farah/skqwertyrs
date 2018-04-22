@@ -15,6 +15,8 @@
     <meta name="description" content="Materialize is a Material Design Admin Template">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
     <title>Human Resource</title>
+     <!-- selec2-->
+    <link href="assets/css/select2/select2.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
@@ -52,73 +54,93 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Kamar Rumah Sakit</h4>
+                  <h4 class="header2">Form Isi Data Pelayanan Paien</h4>
                   <div class="row">
 
 
-
-
-                    <form class="col s12" action="kamar_proses_simpan.php" method="POST">
-
+                    <form class="col s12" action="pelayanan_proses_simpan.php" method="POST">
 
                       <div class="row">
 
                         <div class="input-field col s6">
-                          <input type="text" name="no_kamar" required="required">
-                          <label for="no_kamar">No Kamar</label>
+                          <select name="id_pasien" class="js-example-basic-sinsgle" required="required">
+                           <option value="" selected="selected">.:Pilih Nama Pasien:.</option>
+                            <?php
+                            include 'config/koneksiDB.php'; 
+                            $mysql = "SELECT * FROM pasien WHERE status='Baru' ORDER BY id_pasien DESC ";
+                            $hasil = mysqli_query($koneksi, $mysql);
+                            while ($data = mysqli_fetch_array($hasil, MYSQLI_BOTH)){ ?>
+                                  <option value="<?php echo $data['id_pasien']; ?>"><?php echo $data['nama_lengkap']; ?></option>
+                            <?php } 
+                            ?>
+                        </select>
+                          <label for="id_pasien">Nama Pasien</label>
                         </div>
 
+
                         <div class="input-field col s6">
-                          <input type="text" name="nama_kamar" required="required">
-                          <label for="nama_kamar">Nama Kamar</label>
+                          <select name="id_pegawai" class="js-example-basic-sinsgle" required="required">
+                           <option value="" selected="selected">.:Pilih Nama Dokter:.</option>
+                            <?php
+                            include 'config/koneksiDB.php'; 
+                            $mysql = "SELECT * FROM pegawai WHERE jabatan_pegawai = 'Dokter' AND status = 'On' AND  jumlah <= 3 ORDER BY id_pegawai DESC";
+                            $hasil = mysqli_query($koneksi, $mysql);
+                            while ($data = mysqli_fetch_array($hasil, MYSQLI_BOTH)){ ?>
+                                  <option value="<?php echo $data['id_pegawai']; ?>"><?php echo $data['nama_pegawai']; ?></option>
+                            <?php } 
+                            ?>
+                        </select>
+                          <label for="id_pasien">Nama Dokter</label>
                         </div>
 
                       </div>
-
-
-                      <div class="row">
-                        <div class="input-field col s6">
-                          <input type="text" name="kelas" required="required">
-                          <label for="kelas">Kelas</label>
-                        </div>
-
-                        <div class="input-field col s6">
-                          <input  type="text" name="jumlah_tt" required="required">
-                          <label for="jumlah_tt">Jumlah Tempat Tidur</label>
-                        </div>
-                      </div>
-
-
-                      <div class="input-field col s6">
-                          <input type="text" name="lokasi" required="required">
-                          <label for="lokasi">Lokasi</label>
-                      </div>
-
-
-
+      
                     <div class="row">
-                        <div class="input-field col s6">
-                          <select name="status" required="required">
-                            <option value="" disabled selected>.:Pilih Status Kamar:.</option>
-                            <option value="On">On</option>
-                            <option value="Off">Off</option>
-                          </select>
-                          <label>Status Kamar</label>
-                        </div>
-                    </div>
+                      
+                      <div class="input-field col s12">
+                          <select name="id_kamar" class="js-example-basic-sinsgle" required="required">
+                           <option value="" selected="selected">.:Pilih Nama Kamar:.</option>
+                            <?php
+                            ///Staus Of kan ketika SAVE
+                            include 'config/koneksiDB.php'; 
+                            $mysql = "SELECT * FROM kamar WHERE status = 'On' ORDER BY id_kamar DESC";
+                            $hasil = mysqli_query($koneksi, $mysql);
+                            while ($data = mysqli_fetch_array($hasil, MYSQLI_BOTH)){ ?>
+                                  <option value="<?php echo $data['id_kamar']; ?>"><?php echo $data['nama_kamar']; ?></option>
+                            <?php } 
+                            ?>
+                        </select>
+                          <label for="id_pasien">Nama Kamar</label>
+                      </div>
 
+                     </div>   
+
+                      
 
                       <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
+                          <input type="text" name="keluhan" required="required">
+                          <label for="keluhan">Keluhan</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                          <input type="text" class="datepicker" name="tgl_masuk" required="required">
+                          <label for="dob">Tanggal Masuk</label>
+                        </div>
+
+                      </div> 
+
+                      <div class="row">
+                        <div class="input-field col s6">
                           <textarea name="keterangan" id="message5" class="materialize-textarea" length="120" required="required"></textarea>
                           <label for="message">Keterangan</label>
                        </div>
-                      </div> 
+                     </div>
 
 
                         <div class="row">
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="simpan_kamar">Simpan
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="simpan_pelayanan">Simpan
                               <i class="material-icons right">send</i>
                             </button>
                           </div>
@@ -150,6 +172,13 @@
       <script type="text/javascript" src="assets/js/plugins.js"></script>
       <!--custom-script.js - Add your own theme custom JS-->
       <script type="text/javascript" src="assets/js/custom-script.js"></script>
+      <script type="text/javascript" src="assets/js/select2/select2.js"></script>
+      
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $(".js-example-basic-single").select2();
+      });
+      </script>
   </body>
 </html>
 <?php } ?>

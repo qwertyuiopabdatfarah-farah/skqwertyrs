@@ -8,35 +8,37 @@
 <body>
 <?php 
 if (isset($_POST['ubah_pasien'])) {
-	$id_pasien       = $_POST['id_pasien'];
-	$nama_lengkap    = $_POST['nama_lengkap'];
-	$tempat_lahir    = $_POST['tempat_lahir'];
-	$tgl_lahir       = $_POST['tgl_lahir'];
-	$jenis_kelamin   = $_POST['jenis_kelamin'];
-	$agama           = $_POST['agama'];
-	$no_telepon      = $_POST['no_telepon'];
-	$no_telepon_lain = $_POST['no_telepon_lain'];
-	$pekerjaan       = $_POST['pekerjaan'];
-	$alamat_jln      = $_POST['alamat_jln'];
-	$kabupaten_kota  = $_POST['kabupaten_kota'];
-	$kecamatan       = $_POST['kecamatan'];
-	$desa            = $_POST['desa'];
-	$rt_rw           = $_POST['rt_rw'];
+	$id_pasien        = $_POST['id_pasien'];
+	$nama_lengkap     = $_POST['nama_lengkap'];
+	$nama_ibu_kandung = $_POST['nama_ibu_kandung'];
+	$tempat_lahir     = $_POST['tempat_lahir'];
+	$tgl_lahir        = $_POST['tgl_lahir'];
+	$jenis_kelamin    = $_POST['jenis_kelamin'];
+	$agama            = $_POST['agama'];
+	$no_telepon       = $_POST['no_telepon'];
+	$no_telepon_lain  = $_POST['no_telepon_lain'];
+	$pekerjaan        = $_POST['pekerjaan'];
+	$alamat_jln       = $_POST['alamat_jln'];
+	$kabupaten_kota   = $_POST['kabupaten_kota'];
+	$kecamatan        = $_POST['kecamatan'];
+	$desa             = $_POST['desa'];
+	$rt_rw            = $_POST['rt_rw'];
 	
 include 'config/koneksiDB.php'; 
-$ubah = 'UPDATE pasien set  nama_lengkap    = "'.$nama_lengkap.'",
-							tempat_lahir    = "'.$tempat_lahir.'", 
-							tgl_lahir       = "'.$tgl_lahir.'",
-							jenis_kelamin   = "'.$jenis_kelamin.'", 
-							agama           = "'.$agama.'",
-							no_telepon      = "'.$no_telepon.'",
-							no_telepon_lain = "'.$no_telepon_lain.'",
-							pekerjaan       = "'.$pekerjaan.'",
-							alamat_jln      = "'.$alamat_jln.'",
-							kabupaten_kota  = "'.$kabupaten_kota.'",
-							kecamatan       = "'.$kecamatan.'",
-							desa            = "'.$desa.'",
-							rt_rw           = "'.$rt_rw.'"
+$ubah = 'UPDATE pasien set  nama_lengkap     = "'.$nama_lengkap.'",
+							nama_ibu_kandung = "'.$nama_ibu_kandung.'",
+							tempat_lahir     = "'.$tempat_lahir.'", 
+							tgl_lahir        = "'.$tgl_lahir.'",
+							jenis_kelamin    = "'.$jenis_kelamin.'", 
+							agama            = "'.$agama.'",
+							no_telepon       = "'.$no_telepon.'",
+							no_telepon_lain  = "'.$no_telepon_lain.'",
+							pekerjaan        = "'.$pekerjaan.'",
+							alamat_jln       = "'.$alamat_jln.'",
+							kabupaten_kota   = "'.$kabupaten_kota.'",
+							kecamatan        = "'.$kecamatan.'",
+							desa             = "'.$desa.'",
+							rt_rw            = "'.$rt_rw.'"
 WHERE id_pasien="'.$id_pasien.'"';
 
 $query = mysqli_query($koneksi, $ubah);

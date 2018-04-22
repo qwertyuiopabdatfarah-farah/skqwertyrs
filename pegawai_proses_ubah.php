@@ -12,6 +12,7 @@ if (isset($_POST['ubah_pegawai'])) {
     $nama_pegawai     = $_POST['nama_pegawai'];
     $jabatan_pegawai  = $_POST['jabatan_pegawai'];
     $jenis_pegawai    = $_POST['jenis_pegawai'];
+    $nama_pt          = $_POST['nama_pt'];
     $tgl_lahir        = $_POST['tgl_lahir'];
     $tgl_masuk_kerja  = $_POST['tgl_masuk_kerja'];
     $tgl_keluar_kerja = $_POST['tgl_keluar_kerja'];
@@ -31,6 +32,7 @@ $ubah = 'UPDATE pegawai set
               nama_pegawai     = "'.$nama_pegawai.'",
 							jabatan_pegawai  = "'.$jabatan_pegawai.'", 
 							jenis_pegawai    = "'.$jenis_pegawai.'",
+              nama_pt          = "'.$nama_pt.'",
 							tgl_lahir        = "'.$tgl_lahir.'", 
 							tgl_masuk_kerja  = "'.$tgl_masuk_kerja.'",
 							tgl_keluar_kerja = "'.$tgl_keluar_kerja.'", 

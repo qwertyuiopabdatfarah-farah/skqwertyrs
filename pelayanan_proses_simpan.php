@@ -7,18 +7,16 @@
 </head>
 <body>
 <?php
-if (isset($_POST['simpan_kamar'])) {
-  $no_kamar     = $_POST["no_kamar"];
-  $nama_kamar   = $_POST["nama_kamar"];
-  $kelas        = $_POST['kelas'];
-  $jumlah_tt    = $_POST['jumlah_tt'];
-  $lokasi       = $_POST['lokasi'];
-  $status       = $_POST['status'];
-  $keterangan   = $_POST['keterangan'];
-	
+if (isset($_POST['simpan_pelayanan'])) {
+  $id_pasien  = $_POST["id_pasien"];
+  $id_pegawai = $_POST['id_pegawai'];
+  $id_kamar   = $_POST['id_kamar'];
+  $keluhan    = $_POST['keluhan'];
+  $tgl_masuk  = $_POST['tgl_masuk'];
+  $keterangan = $_POST['keterangan'];
 
 include 'config/koneksiDB.php'; 
-$cekdata = "select no_kamar from kamar where no_kamar='$no_kamar'";
+$cekdata = "select id_pasien from pelayanan where id_pasien='$id_pasien'";
 $ada     = mysqli_query($koneksi, $cekdata) or die(mysqli_error());
 if(mysqli_num_rows($ada)>0)
 { 
@@ -32,7 +30,7 @@ if(mysqli_num_rows($ada)>0)
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "kamar_form_simpan.php";
+                  window.location.href = "pelayanan_form_simpan.php";
             });
             },10); 
             window.setTimeout(function(){ 
@@ -40,20 +38,25 @@ if(mysqli_num_rows($ada)>0)
             </script>';
 }
 else{
-$query_simpan = 'INSERT INTO kamar (no_kamar,
-                                     nama_kamar,
-                                     kelas,
-                                     jumlah_tt,
-                                     lokasi,
-                                     status, 
-                                     keterangan)
-	                VALUES ("'.$no_kamar.'",
-	                       "'.$nama_kamar.'", 
-	                       "'.$kelas.'", 
-	                       "'.$jumlah_tt.'",
-	                       "'.$lokasi.'",
-	                       "'.$status.'", 
-	                       "'.$keterangan.'")';
+//update dokter
+$query_update_kamar = 'UPDATE pegawai set jumlah = jumlah+1 WHERE id_pegawai="'.$id_pegawai.'"';
+$hasil = mysqli_query($koneksi, $query_update_kamar);  
+//Update Kamar  
+$query_update_kamar = 'UPDATE kamar set status = "Off" WHERE id_kamar="'.$id_kamar.'"';
+$hasil = mysqli_query($koneksi, $query_update_kamar);
+//Insert Data  
+$query_simpan = 'INSERT INTO pelayanan (id_pasien,
+                                        id_pegawai,
+                                        id_kamar,
+                                        keluhan,
+                                        tgl_masuk,
+                                        keterangan)
+	                VALUES ("'.$id_pasien.'",
+                          "'.$id_pegawai.'",
+                          "'.$id_kamar.'", 
+                          "'.$keluhan.'", 
+                          "'.$tgl_masuk.'",
+                          "'.$keterangan.'")';
 
 $hasil = mysqli_query($koneksi, $query_simpan);
 if($hasil){
@@ -67,7 +70,7 @@ if($hasil){
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "kamar_form_simpan.php";
+                  window.location.href = "pelayanan_form_simpan.php";
             });
             },10); 
             window.setTimeout(function(){ 

@@ -77,6 +77,14 @@
                       </div>
 
 
+                       <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" name="nama_ibu_kandung" required="required">
+                          <label for="nama_ibu_kandung">Nama Ibu Kandung</label>
+                        </div>
+                      </div>
+
+
                       <div class="row">
 
                         <div class="input-field col s6">

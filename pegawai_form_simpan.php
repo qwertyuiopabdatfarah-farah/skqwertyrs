@@ -83,17 +83,32 @@
                       <div class="row">
 
                         <div class="input-field col s6">
-                          <input  type="text" name="jenis_pegawai" required="required">
-                          <label for="jenis_pegawai">Jenis Pegawai</label>
-                        </div>
-
-
-                        <div class="input-field col s6">
                           <input type="text" class="datepicker" name="tgl_lahir" required="required">
                           <label for="dob">Tanggal Lahir</label>
                         </div>
 
                       </div>
+
+
+                    <div class="row">
+
+                        <div class="input-field col s6">
+                          <select name="jenis_pegawai" required="required">
+                            <option value="" disabled selected>.:Pilih Jenis Pegawai:.</option>
+                            <option value="Permanen">Permanen</option>
+                            <option value="Kontrak">Kontrak</option>
+                            <option value="Outsourcing">Outsourcing</option>
+                          </select>
+                          <label>Jenis Pegawai</label>
+                        </div>
+
+
+                        <div class="input-field col s6">
+                          <input  type="text" name="nama_pt">
+                          <label for="nama_pt">Nama PT Penyalur</label>
+                        </div>
+                    
+                    </div>  
 
 
                     <div class="row">

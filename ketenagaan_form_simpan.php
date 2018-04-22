@@ -81,8 +81,14 @@
                         </div>
 
                         <div class="input-field col s6">
-                          <input type="text" name="nama_ketenagaan" required="required">
-                          <label for="nama_ketenagaan">Nama Ketenagaan</label>
+                          <select name="nama_ketenagaan" required="required">
+                            <option value="" disabled selected>.:Pilih Nama Ketenagaan:.</option>
+                            <option value="Tenaga Medik">Tenaga Medik</option>
+                            <option value="Tenaga Paramadik">Tenaga Paramadik</option>
+                            <option value="Tenaga Penunjang Medik">Tenaga Penunjang Medik</option>
+                            <option value="Tenaga Non Medik">Tenaga Non Medik</option>
+                          </select>
+                          <label>Nama Ketenagaan</label>
                         </div>
 
                       </div>

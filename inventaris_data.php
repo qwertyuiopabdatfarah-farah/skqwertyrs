@@ -47,73 +47,75 @@
               <div class="divider"></div>
               <!--DataTables example-->
               <div id="table-datatables">
-                <h4 class="header">Data Pasien</h4>
+                <h4 class="header">Data Inventaris Barang Kamar Rumah Sakit</h4>
                 <div class="row">
                   <div class="col s12">
                     <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                         <thead>
                         <tr>
                         <th> No </th>
-                        <th> No Registrasi </th>
-                        <th> Nama Lengkap </th>
-                        <th> Tempat Lahir </th>
-                        <th> Tanggal Lahir </th>
-                        <th> Jenis Kelamin </th>
+                        <th> Nama Kamar </th>
+                        <th> Kelas Kamar </th>
+                        <th> No Inventaris </th>
+                        <th> Jenis Barang </th>
+                        <th> Kondisi </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query="SELECT * FROM pasien ORDER BY id_pasien DESC";
+                        $query = "SELECT kamar.nama_kamar, 
+                                         kamar.kelas, 
+                                         inventaris.id_inventaris, 
+                                         inventaris.no_inventaris, 
+                                         inventaris.jenis_barang, 
+                                         inventaris.kondisi, 
+                                         inventaris.jumlah, 
+                                         inventaris.keterangan FROM inventaris LEFT JOIN kamar 
+                                         ON kamar.id_kamar = inventaris.id_kamar";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
                         ?>
                         <tr>
                         <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['no_registerasi']; ?></td>  
-                        <td><?php echo $data['nama_lengkap']; ?></td>  
-                        <td><?php echo $data['tempat_lahir']; ?></td> 
-                        <td><?php echo $data['tgl_lahir']; ?></td>
-                        <td><?php echo $data['jenis_kelamin']; ?></td>   
+                        <td><?php echo $data['nama_kamar']; ?></td>  
+                        <td><?php echo $data['kelas']; ?></td>  
+                        <td><?php echo $data['no_inventaris']; ?></td> 
+                        <td><?php echo $data['jenis_barang']; ?></td>
+                        <td><?php echo $data['kondisi']; ?></td>
                         <td style="width:100px;text-align: center;">
-                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_pasien']; ?>'>|Detail|</a>
+                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_inventaris']; ?>'>|Detail|</a>
                         <?php echo "
-                        <a href='pasien_form_ubah.php?id_pasien=$data[id_pasien]'>|Ubah|</a>
-                        <a href='pasien_proses_hapus.php?id_pasien=$data[id_pasien]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
+                        <a href='inventaris_form_ubah.php?id_inventaris=$data[id_inventaris]'>|Ubah|</a>
+                        <a href='inventaris_proses_hapus.php?id_inventaris=$data[id_inventaris]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
                         ?>
                         </td> 
                         </tr>  
 
-                            <!-- Awal Modal -->
-                            <div id="modal2<?php echo $data['id_pasien']; ?>" class="modal modal-fixed-footer">
-                                  <div class="modal-content">
-                                    <h4>Data Pasien</h4>
-                                          <ul class="collection">
-                                          <li class="collection-item">No Registrasi : <?php echo $data['no_registerasi']; ?></li>
-                                          <li class="collection-item">Nama Lengkap : <?php echo $data['nama_lengkap']; ?></li>
-                                          <li class="collection-item">Tempat Lahir : <?php echo $data['tempat_lahir']; ?></li>
-                                          <li class="collection-item">Tanggal Lahir : <?php echo $data['tgl_lahir']; ?></li>
-                                          <li class="collection-item">Jenis Kelamin : <?php echo $data['jenis_kelamin']; ?></li>
-                                          <li class="collection-item">Agama : <?php echo $data['agama']; ?></li>
-                                          <li class="collection-item">No Telepon : <?php echo $data['no_telepon']; ?></li>
-                                          <li class="collection-item">No Telepon Lain : <?php echo $data['no_telepon_lain']; ?></li>  
-                                          <li class="collection-item">Nama Ibu Kandung : <?php echo $data['nama_ibu_kandung']; ?></li>
-                                          <li class="collection-item">Pekerjaan : <?php echo $data['pekerjaan']; ?></li>
-                                          <li class="collection-item">Alamat :  <?php echo $data['alamat_jln']; ?></li>
-                                          <li class="collection-item">Kabupaten/Kota : <?php echo $data['kabupaten_kota']; ?></li>
-                                          <li class="collection-item">Kecamatan : <?php echo $data['kecamatan']; ?></li>
-                                          <li class="collection-item">Desa : <?php echo $data['desa']; ?></li>
-                                          <li class="collection-item">Rt/Rw : <?php echo $data['rt_rw']; ?></li>
-                                          </ul>
-                                  </div>
+
+                         <!-- Awal Modal -->
+                      <div id="modal2<?php echo $data['id_inventaris']; ?>" class="modal modal-fixed-footer">
+                          <div class="modal-content">
+                               <h4>Data Inventaris Kamar Rumah Sakit</h4>
+                                <ul class="collection">
+                                  <li class="collection-item">Nama Kamar : <?php echo $data['nama_kamar']; ?></li>
+                                  <li class="collection-item">Kelas Kamar : <?php echo $data['kelas']; ?></li>
+                                  <li class="collection-item">No Inventaris : <?php echo $data['no_inventaris']; ?></li>
+                                  <li class="collection-item">Jenis Barang : <?php echo $data['jenis_barang']; ?></li>
+                                  <li class="collection-item">Kondisi : <?php echo $data['kondisi']; ?></li>
+                                  <li class="collection-item">Jumlah : <?php echo $data['jumlah']; ?></li>
+                                  <li class="collection-item">Keterangan : <?php echo $data['keterangan']; ?></li>
+                                 </ul>
+                              </div>
                                   <div class="modal-footer">
                                     <a href="javascript:;" class="modal-action modal-close waves-effect waves-green btn-flat ">Tutup</a>
                                   </div>
                               </div>
                              <!-- Akhir Modal --> 
-                             
+
+
                         <?php
                         }
                         ?>
@@ -128,7 +130,7 @@
         </div>
       </div>
           <!--end container-->
-        </section>
+    </section>
 
     <?php include 'config/footer.php'; ?>
       <!-- jQuery Library -->

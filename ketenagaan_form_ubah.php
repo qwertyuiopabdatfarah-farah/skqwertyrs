@@ -84,18 +84,38 @@
                            $qlnya ="SELECT id_pegawai, nama_pegawai FROM pegawai"; 
                            $sqlmenu = mysqli_query($koneksi, $qlnya);
                            while ($datamenu = mysqli_fetch_array($sqlmenu)){
-                           if($datamenu['id_pegawai'] == $id_pegawai)
+                           if($id_pegawai == $datamenu['id_pegawai'])
                            echo"<option value=$id_pegawai selected> $datamenu[nama_pegawai] </option>";
-                           else echo"<option value=$id_pegawai> $datamenu[nama_pegawai] </option>";
+                           else echo"<option value='$datamenu[id_pegawai]'> $datamenu[nama_pegawai] </option>";
                            }
                            ?>
                            </select>
                            <label for="id_pegawai">Nama Pegawai</label>
                         </div>
 
+
                         <div class="input-field col s6">
-                          <input type="text" name="nama_ketenagaan" required="required" value="<?php echo $nama_ketenagaan; ?>">
-                          <label for="nama_ketenagaan">Nama Ketenagaan</label>
+                          <select name="nama_ketenagaan" required="required"/>
+                             <option value="">.:Pilih Status Kamar:.</option>
+                                   <?php        
+                                    if ($nama_ketenagaan == "Tenaga Medik")
+                                         echo "<option value='Tenaga Medik' selected>Tenaga Medik</option>";
+                                         else echo "<option value='Tenaga Medik'>Tenaga Medik</option>";
+
+                                    if ($nama_ketenagaan == "Tenaga Paramadik") 
+                                         echo "<option value='Tenaga Paramadik' selected>Tenaga Paramadik</option>";
+                                         else echo "<option value='Tenaga Paramadik'>Tenaga Paramadik</option>";
+
+                                     if ($nama_ketenagaan == "Tenaga Penunjang Medik") 
+                                         echo "<option value='Tenaga Penunjang Medik' selected>Tenaga Penunjang Medik</option>";
+                                         else echo "<option value='Tenaga Penunjang Medik'>Tenaga Penunjang Medik</option>";
+
+                                       if ($nama_ketenagaan == "Tenaga Non Medik") 
+                                         echo "<option value='Tenaga Non Medik' selected>Tenaga Non Medik</option>";
+                                         else echo "<option value='Tenaga Non Medik'>Tenaga Non Medik</option>";           
+                                    ?>
+                         </select>
+                          <label>Nama Ketenagaan</label>
                         </div>
 
                       </div>

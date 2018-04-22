@@ -57,7 +57,7 @@
                         <th> No Kamar </th>
                         <th> Nama Kamar </th>
                         <th> Kelas </th>
-                        <th> Jumlah Orang </th>
+                        <th> Jumalah Tempat Tidur </th>
                         <th> Lokasi </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
@@ -75,7 +75,7 @@
                         <td><?php echo $data['no_kamar']; ?></td>  
                         <td><?php echo $data['nama_kamar']; ?></td>  
                         <td><?php echo $data['kelas']; ?></td> 
-                        <td><?php echo $data['jumlah_orang']; ?></td>
+                        <td><?php echo $data['jumlah_tt']; ?></td>
                         <td><?php echo $data['lokasi']; ?></td>   
                         <td style="width:100px;text-align: center;">
                         <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_kamar']; ?>'>|Detail|</a>
@@ -94,7 +94,7 @@
                                           <li class="collection-item">No Kamar : <?php echo $data['no_kamar']; ?></li>
                                           <li class="collection-item">Nama Kamar : <?php echo $data['nama_kamar']; ?></li>
                                           <li class="collection-item">Kelas : <?php echo $data['kelas']; ?></li>
-                                          <li class="collection-item">Jumalah Orang : <?php echo $data['jumlah_orang']; ?></li>
+                                          <li class="collection-item">Jumalah Tempat Tidur : <?php echo $data['jumlah_tt']; ?></li>
                                           <li class="collection-item">Lokasi : <?php echo $data['lokasi']; ?></li>
                                           <li class="collection-item">Status Kamar : <?php echo $data['status']; ?></li>
                                           <li class="collection-item">Keterangan : <?php echo $data['keterangan']; ?></li>

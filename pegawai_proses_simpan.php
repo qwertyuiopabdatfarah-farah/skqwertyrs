@@ -12,13 +12,14 @@ if (isset($_POST['simpan_pegawai'])) {
     $nama_pegawai     = $_POST['nama_pegawai'];
     $jabatan_pegawai  = $_POST['jabatan_pegawai'];
     $jenis_pegawai    = $_POST['jenis_pegawai'];
+    $nama_pt          = $_POST['nama_pt'];
     $tgl_lahir        = $_POST['tgl_lahir'];
     $tgl_masuk_kerja  = $_POST['tgl_masuk_kerja'];
     $tgl_keluar_kerja = $_POST['tgl_keluar_kerja'];
     $jenis_kelamin    = $_POST['jenis_kelamin'];
     $agama            = $_POST['agama'];
     $pendidikan_akhir = $_POST['pendidikan_akhir'];
-    $kabupaten_kota        = $_POST['kabupaten_kota'];
+    $kabupaten_kota   = $_POST['kabupaten_kota'];
     $kecamatan        = $_POST['kecamatan'];
     $desa             = $_POST['desa'];
     $rt_rw            = $_POST['rt_rw'];
@@ -52,6 +53,7 @@ $query_simpan = 'INSERT INTO pegawai (nip,
                                       nama_pegawai, 
                                       jabatan_pegawai, 
                                       jenis_pegawai, 
+                                      nama_pt,
                                       tgl_lahir, 
                                       tgl_masuk_kerja,
                                       tgl_keluar_kerja,
@@ -68,7 +70,8 @@ $query_simpan = 'INSERT INTO pegawai (nip,
                  VALUES ("'.$nip.'", 
                          "'.$nama_pegawai.'", 
                          "'.$jabatan_pegawai.'",
-                         "'.$jenis_pegawai.'", 
+                         "'.$jenis_pegawai.'",
+                         "'.$nama_pt.'", 
                          "'.$tgl_lahir.'",
                          "'.$tgl_masuk_kerja.'", 
                          "'.$tgl_keluar_kerja.'",

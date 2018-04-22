@@ -66,6 +66,7 @@
                         $nama_pegawai     = $data['nama_pegawai'];
                         $jabatan_pegawai  = $data['jabatan_pegawai'];
                         $jenis_pegawai    = $data['jenis_pegawai'];
+                        $nama_pt          = $data['nama_pt'];
                         $tgl_lahir        = $data['tgl_lahir'];
                         $tgl_masuk_kerja  = $data['tgl_masuk_kerja'];
                         $tgl_keluar_kerja = $data['tgl_keluar_kerja'];
@@ -114,18 +115,41 @@
                       <div class="row">
 
                         <div class="input-field col s6">
-                          <input  type="text" name="jenis_pegawai" required="required" value="<?php echo $jenis_pegawai; ?>">
-                          <label for="jenis_pegawai">Jenis Pegawai</label>
-                        </div>
-
-
-                        <div class="input-field col s6">
                           <input type="text" class="datepicker" name="tgl_lahir" required="required" value="<?php echo $tgl_lahir; ?>">
                           <label for="dob">Tanggal Lahir</label>
                         </div>
 
                       </div>
 
+
+                      <div class="row">
+                         <div class="input-field col s6">
+                          <select name="jenis_pegawai" required="required"/>
+                             <option value="">.:Pilih Jenis Pegawai:.</option>
+                                   <?php        
+                                    if ($jenis_pegawai == "Permanen")
+                                         echo "<option value='Permanen' selected>Permanen</option>";
+                                         else echo "<option value='Permanen'>Permanen</option>";
+
+                                    if ($jenis_pegawai == "Kontrak") 
+                                         echo "<option value='Kontrak' selected>Kontrak</option>";
+                                         else echo "<option value='Kontrak'>Kontrak</option>";  
+
+                                    if ($jenis_pegawai == "Outsourcing") 
+                                         echo "<option value='Outsourcing' selected>Outsourcing</option>";
+                                         else echo "<option value='Outsourcing'>Outsourcing</option>";         
+                                    ?>
+                         </select>
+                          <label>Jenis Pegawai</label>
+                        </div>
+                       
+
+                        <div class="input-field col s6">
+                          <input  type="text" name="nama_pt" value="<?php echo $nama_pt; ?>">
+                          <label for="nama_pt">Nama PT Penyalur</label>
+                        </div>
+
+                      </div>  
 
                     <div class="row">
 

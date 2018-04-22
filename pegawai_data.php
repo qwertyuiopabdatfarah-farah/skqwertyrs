@@ -92,7 +92,8 @@
                                           <li class="collection-item">NIP : <?php echo $data['nip']; ?></li>
                                           <li class="collection-item">Nama : <?php echo $data['nama_pegawai']; ?></li>
                                           <li class="collection-item">Jabatan : <?php echo $data['jabatan_pegawai']; ?></li>
-                                          <li class="collection-item">Jenis : <?php echo $data['jenis_pegawai']; ?></li>
+                                          <li class="collection-item">Jenis Pegawai : <?php echo $data['jenis_pegawai']; ?></li>
+                                          <li class="collection-item">Nama PT : <?php echo $data['nama_pt']; ?></li>
                                           <li class="collection-item">Tanggal Lahir : <?php echo $data['tgl_lahir']; ?></li>
                                           <li class="collection-item">Tanggal Masuk Kerja : <?php echo $data['tgl_masuk_kerja']; ?></li>
                                           <li class="collection-item">Tanggal Keluar Kerja : <?php echo $data['tgl_keluar_kerja']; ?></li>

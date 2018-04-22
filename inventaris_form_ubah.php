@@ -52,84 +52,76 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Pasien</h4>
+                  <h4 class="header2">Form Isi Data Ketenagaan Rumah Sakit</h4>
                   <div class="row">
                   <?php
                   include 'config/koneksiDB.php';
-                  $id_kamar      = $_GET['id_kamar'];
-                  $query         = "SELECT * FROM kamar WHERE id_kamar='$id_kamar'";
-                  $hasil         = mysqli_query($koneksi, $query);
+                  $id_inventaris      = $_GET['id_inventaris'];
+                  $query              = "SELECT * FROM inventaris WHERE id_inventaris='$id_inventaris'";
+                  $hasil              = mysqli_query($koneksi, $query);
                    foreach ($hasil as $data)
                   {
-                        $id           = $data['id_kamar'];
-                        $no_kamar     = $data['no_kamar'];
-                        $nama_kamar   = $data['nama_kamar'];
-                        $kelas        = $data['kelas'];
-                        $jumlah_tt    = $data['jumlah_tt'];
-                        $lokasi       = $data['lokasi'];
-                        $status       = $data['status'];
-                        $keterangan   = $data['keterangan'];
+                        $id            = $data['id_inventaris'];
+                        $no_inventaris = $data['no_inventaris'];
+                        $id_kamar      = $data['id_kamar'];
+                        $jenis_barang  = $data['jenis_barang'];
+                        $kondisi       = $data['kondisi'];
+                        $jumlah        = $data['jumlah'];
+                        $jumlah        = $data['jumlah'];
+                        $keterangan    = $data['keterangan'];
                    }
 
                   ?>
                    
-                    <form class="col s12" action="kamar_proses_ubah.php" method="POST">
+                    <form class="col s12" action="inventaris_proses_ubah.php" method="POST">
 
-                     <input type="hidden" name="id_kamar" value="<?php echo $id; ?>"/>   
+                     <input type="hidden" name="id_inventaris" value="<?php echo $id; ?>"/> 
 
+
+                     <div class="row">
+                        <div class="input-field col s6">
+                          <input type="text" name="no_inventaris" required="required" value="<?php echo $no_inventaris; ?>">
+                          <label for="no_inventaris">No Inventaris</label>
+                        </div>
+                    </div>    
 
                       <div class="row">
 
                         <div class="input-field col s6">
-                          <input type="text" name="no_kamar" disabled="disabled"  value="<?php echo $no_kamar; ?>">
-                          <label for="no_kamar">No Kamar</label>
+                          <select name="id_kamar" required="required">
+                           <option value="" >.:Nama Kamar:.</option>
+                           <?php
+                           include 'config/koneksiDB.php'; 
+                           $qlnya ="SELECT id_kamar, nama_kamar, kelas FROM kamar"; 
+                           $sqlmenu = mysqli_query($koneksi, $qlnya);
+                           while ($datamenu = mysqli_fetch_array($sqlmenu)){
+                           if($id_kamar == $datamenu['id_kamar'])
+                           echo"<option value='$id_kamar' selected> $datamenu[kelas] == $datamenu[nama_kamar] </option>";
+                           else echo"<option value='$datamenu[id_kamar]'> $datamenu[kelas] == $datamenu[nama_kamar] </option>";
+                           }
+                           ?>
+                           </select>
+                           <label for="id_kamar">Nama Kamar</label>
                         </div>
 
                         <div class="input-field col s6">
-                          <input type="text" name="nama_kamar" required="required" value="<?php echo $nama_kamar; ?>">
-                          <label for="nama_kamar">Nama Kamar</label>
+                          <input type="text" name="jenis_barang" required="required" value="<?php echo $jenis_barang; ?>">
+                          <label for="jenis_barang">Jenis Barang</label>
                         </div>
 
                       </div>
-
-
-                      <div class="row">
-                        <div class="input-field col s6">
-                          <input type="text" name="kelas" required="required" value="<?php echo $kelas; ?>">
-                          <label for="kelas">Kelas</label>
-                        </div>
-
-                        <div class="input-field col s6">
-                          <input  type="text" name="jumlah_tt" required="required" value="<?php echo $jumlah_tt; ?>">
-                          <label for="jumlah_tt">Jumlah Tempat Tidur</label>
-                        </div>
+      
+                    <div class="row">
+                      <div class="input-field col s6">
+                          <input type="text" name="kondisi" required="required" value="<?php echo $kondisi; ?>">
+                          <label for="kondisi">Kondisi</label>
                       </div>
-
 
                       <div class="input-field col s6">
-                          <input type="text" name="lokasi" required="required" value="<?php echo $lokasi; ?>">
-                          <label for="lokasi">Lokasi</label>
+                          <input type="text" name="jumlah" required="required" value="<?php echo $jumlah; ?>">
+                          <label for="jumlah">Jumlah</label>
                       </div>
-
-
-
-                    <div class="row">
-                        <div class="input-field col s6">
-                          <select name="status" required="required"/>
-                             <option value="">.:Pilih Status Kamar:.</option>
-                                   <?php        
-                                    if ($status == "On")
-                                         echo "<option value='On' selected>On</option>";
-                                         else echo "<option value='On'>On</option>";
-
-                                    if ($status== "Off") 
-                                         echo "<option value='Off' selected>Off</option>";
-                                         else echo "<option value='Off'>Off</option>";    
-                                    ?>
-                         </select>
-                          <label>Status Kamar</label>
-                        </div>
-                    </div>
+                     </div>   
 
 
                       <div class="row">
@@ -138,11 +130,10 @@
                           <label for="message">Keterangan</label>
                        </div>
                       </div> 
-
-
+  
                         <div class="row">
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="ubah_kamar">Ubah
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="ubah_inventaris">Ubah
                               <i class="material-icons right">send</i>
                             </button>
                           </div>
