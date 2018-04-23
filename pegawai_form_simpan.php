@@ -171,7 +171,7 @@
 
                     <div class="row">
                         <div class="input-field col s6">
-                          <input type="text" name="no_telepon" required="required">
+                          <input type="text" name="no_telepon" required="required" value="+62">
                           <label for="no_telepon">No Hp</label>
                         </div>
 

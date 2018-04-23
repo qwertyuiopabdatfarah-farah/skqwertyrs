@@ -129,12 +129,12 @@
                       
                       <div class="row">
                         <div class="input-field col s6">
-                          <input type="text" name="no_telepon" required="required">
+                          <input type="text" name="no_telepon" required="required" value="+62">
                           <label for="no_telepon">No Telepon 1</label>
                         </div>
 
                         <div class="input-field col s6">
-                          <input type="text" name="no_telepon_lain" required="required">
+                          <input type="text" name="no_telepon_lain" required="required" value="+62">
                           <label for="no_telepon_lain">No Telepon 2</label>
                         </div>
                     </div>
