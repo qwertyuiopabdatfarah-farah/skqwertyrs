@@ -48,7 +48,7 @@
 
           <div class="row margin">
             <div class="input-field col s12">
-              <input id="no_registerasi" type="text" name="no_registerasi">
+              <input  type="text" name="no_registerasi">
               <label for="no_registerasi" class="center-align">No Registrasi</label>
             </div>
           </div>
@@ -57,7 +57,7 @@
 
           <div class="row">
             <div class="input-field col s12">
-              <button type="submit" class="btn waves-effect waves-light col s12">Cari Data</button>
+              <button type="submit" name="cari" class="btn waves-effect waves-light col s12">Cari Data</button>
             </div>
           </div>
         </div>  
