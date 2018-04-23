@@ -7,19 +7,18 @@
 </head>
 <body>
 <?php
-if (isset($_POST['simpan_pengguna'])) {
-  $nama     = $_POST["nama"];
-  $username = $_POST['username'];
-  $email    = $_POST['email'];
-  $password = md5($_POST['password']);
+if (isset($_POST['simpan_statistik'])) {
+    $bulan         = $_POST['bulan'];
+    $tahun         = $_POST['tahun'];
+    $jumlah_pasien = $_POST['jumlah_pasien'];
 
 
 include 'config/koneksiDB.php'; 
-$cekdata = "select username from pengguna where username='$username'";
+$cekdata = "SELECT bulan, tahun FROM statistik_pasien WHERE bulan='$bulan' AND tahun='$tahun'";
 $ada     = mysqli_query($koneksi, $cekdata) or die(mysqli_error());
 if(mysqli_num_rows($ada)>0)
 { 
-	  echo'
+    echo'
           <script type="text/javascript">
             setTimeout(function () {    
             swal({
@@ -29,7 +28,7 @@ if(mysqli_num_rows($ada)>0)
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "pengguna_form_simpan.php";
+                  window.location.href = "statistik_form_simpan.php";
             });
             },10); 
             window.setTimeout(function(){ 
@@ -37,18 +36,16 @@ if(mysqli_num_rows($ada)>0)
             </script>';
 }
 else{
-$query_simpan = 'INSERT INTO pengguna (nama,
-                                     username,
-                                     email,
-                                     password)
-	                VALUES ("'.$nama.'",
-	                       "'.$username.'",
-                         "'.$email.'", 
-	                       "'.$password.'")';
+$query_simpan = 'INSERT INTO statistik_pasien (bulan,
+                                     tahun,
+                                     jumlah_pasien)
+                  VALUES ("'.$bulan.'",
+                         "'.$tahun.'",
+                         "'.$jumlah_pasien.'")';
 
 $hasil = mysqli_query($koneksi, $query_simpan);
 if($hasil){
-		echo'
+    echo'
           <script type="text/javascript">
             setTimeout(function () {    
             swal({
@@ -58,19 +55,19 @@ if($hasil){
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "pengguna_form_simpan.php";
+                  window.location.href = "statistik_form_simpan.php";
             });
             },10); 
             window.setTimeout(function(){ 
             } ,2000); 
             </script>';
-	}else{
-		echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
-	}
+  }else{
+    echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
+  }
  }
 
 }else{
-	echo "<h2><div style='color:red;text-align:center;'>--- 404 Forbiden, SILAHKAN KEMBALI--- </div></h2>";
+  echo "<h2><div style='color:red;text-align:center;'>--- 404 Forbiden, SILAHKAN KEMBALI--- </div></h2>";
  }
 ?>
 <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>

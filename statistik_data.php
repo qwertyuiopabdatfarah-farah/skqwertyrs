@@ -47,39 +47,39 @@
               <div class="divider"></div>
               <!--DataTables example-->
               <div id="table-datatables">
-                <h4 class="header">Data Admin</h4>
+                <h4 class="header">Kirim Pemberitahuan</h4>
                 <div class="row">
                   <div class="col s12">
                     <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                         <thead>
                         <tr>
                         <th> No </th>
-                        <th> Nama Pengguna </th>
-                        <th> Username </th>
-                        <th> Email </th>
+                        <th> Bulan </th>
+                        <th> Tahun </th>
+                        <th> Jumlah Pasien </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query = "SELECT * FROM pengguna ORDER BY id_pengguna DESC";
+                        $query="SELECT * FROM `statistik_pasien` ORDER BY id_statistik DESC";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
                         ?>
                         <tr>
                         <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['nama']; ?></td>  
-                        <td><?php echo $data['username']; ?></td>  
-                        <td><?php echo $data['email']; ?></td> 
+                        <td><?php echo $data['bulan']; ?></td>  
+                        <td><?php echo $data['tahun']; ?></td>
+                        <td style="color: red"><?php echo $data['jumlah_pasien']; ?></td>  
                         <td style="width:100px;text-align: center;">
                         <?php echo "
-                        <a href='pengguna_form_ubah.php?id_pengguna=$data[id_pengguna]'>|Ubah|</a>
-                        <a href='pengguna_proses_hapus.php?id_pengguna=$data[id_pengguna]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
+                        <a href='statistik_form_ubah.php?id_statistik=$data[id_statistik]'>|Ubah|</a>
+                        <a href='statistik_proses_hapus.php?id_statistik=$data[id_statistik]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
                         ?>
-                        </td> 
-                        </tr> 
+                        </td>     
+                        </tr>             
                         <?php
                         }
                         ?>
@@ -94,7 +94,7 @@
         </div>
       </div>
           <!--end container-->
-    </section>
+        </section>
 
     <?php include 'config/footer.php'; ?>
       <!-- jQuery Library -->

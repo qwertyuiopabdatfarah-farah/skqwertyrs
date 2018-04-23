@@ -56,123 +56,49 @@
                 <div class="card-panel">
                   <h4 class="header2">Form Isi Data Pelayanan Paien</h4>
                   <div class="row">
-                   <?php
+                  <?php
                   include 'config/koneksiDB.php';
-                  $id_pelayanan  = $_GET['id_pelayanan'];
-                  $query         = "SELECT * FROM pelayanan WHERE id_pelayanan='$id_pelayanan'";
-                  $hasil         = mysqli_query($koneksi, $query);
+                  $id_pengguna = $_GET['id_pengguna'];
+                  $query       = "SELECT * FROM pengguna WHERE id_pengguna='$id_pengguna'";
+                  $hasil       = mysqli_query($koneksi, $query);
                    foreach ($hasil as $data)
                   {
-                        $id         = $data['id_pelayanan'];
-                        $id_pasien  = $data['id_pasien'];
-                        $id_pegawai = $data['id_pegawai'];
-                        $id_kamar   = $data['id_kamar'];
-                        $keluhan    = $data['keluhan'];
-                        $diagnosa   = $data['diagnosa'];
-                        $tgl_masuk  = $data['tgl_masuk'];
-                        $tgl_keluar = $data['tgl_keluar'];
-                        $keterangan = $data['keterangan'];
+                        $id       = $data['id_pengguna'];
+                        $nama     = $data['nama'];
+                        $username = $data['username'];
+                        $email    = $data['email'];
                    }
-                ?> 
-                    <form class="col s12" action="pelayanan_proses_ubah.php" method="POST">
+                 ?> 
+                    <form class="col s12" action="pengguna_proses_ubah.php" method="POST">
 
-                      <input type="hidden" name="id_pelayanan" value="<?php echo $id; ?>"/> 
-
-                      <div class="row">
-                        <div class="input-field col s6">
-                          <select name="id_pasien" required="required">
-                           <option value="" >.:Nama Pasien:.</option>
-                           <?php
-                           include 'config/koneksiDB.php'; 
-                           $qlnya ="SELECT id_pasien, nama_lengkap FROM pasien"; 
-                           $sqlmenu = mysqli_query($koneksi, $qlnya);
-                           while ($datamenu = mysqli_fetch_array($sqlmenu)){
-                           if($id_pasien == $datamenu['id_pasien'])
-                           echo"<option value='$id_pasien' selected> $datamenu[nama_lengkap] </option>";
-                           else echo"<option value='$datamenu[id_pasien]'> $datamenu[nama_lengkap]</option>";
-                           }
-                           ?>
-                           </select>
-                           <label for="id_pasien">Nama Pasien</label>
-                        </div>
-                        
-                        <div class="input-field col s6">
-                          <select name="id_pegawai" required="required">
-                           <option value="" >.:Nama Dokter:.</option>
-                           <?php
-                           include 'config/koneksiDB.php'; 
-                           $qlnya ="SELECT id_pegawai, nama_pegawai FROM pegawai"; 
-                           $sqlmenu = mysqli_query($koneksi, $qlnya);
-                           while ($datamenu = mysqli_fetch_array($sqlmenu)){
-                           if($id_pegawai == $datamenu['id_pegawai'])
-                           echo"<option value='$id_pegawai' selected> $datamenu[nama_pegawai] </option>";
-                           else echo"<option value='$datamenu[id_pegawai]'> $datamenu[nama_pegawai]</option>";
-                           }
-                           ?>
-                           </select>
-                           <label for="id_pegawai">Nama Dokter</label>
-                        </div>
-                    </div>
-      
-                    <div class="row">
-                      <div class="input-field col s12">
-                          <select name="id_kamar" required="required">
-                           <option value="" >.:Nama Kamar:.</option>
-                           <?php
-                           include 'config/koneksiDB.php'; 
-                           $qlnya ="SELECT id_kamar, nama_kamar, kelas FROM kamar"; 
-                           $sqlmenu = mysqli_query($koneksi, $qlnya);
-                           while ($datamenu = mysqli_fetch_array($sqlmenu)){
-                           if($id_kamar == $datamenu['id_kamar'])
-                           echo"<option value='$id_kamar' selected> $datamenu[kelas] == $datamenu[nama_kamar] </option>";
-                           else echo"<option value='$datamenu[id_kamar]'> $datamenu[kelas] == $datamenu[nama_kamar]</option>";
-                           }
-                           ?>
-                           </select>
-                           <label for="id_kamar">Nama Kamar</label>
-                        </div>
-
-
-                     </div>   
-
-                      
+                      <input type="hidden" name="id_pengguna" value="<?php echo $id; ?>"/> 
 
                       <div class="row">
+
                         <div class="input-field col s6">
-                          <input type="text" name="keluhan" required="required" value="<?php echo $keluhan; ?>">
-                          <label for="keluhan">Keluhan Penyakit</label>
+                          <input type="text" name="nama" required="required" value="<?php echo $nama; ?>">
+                          <label for="nama">Nama Lengkap Pengguna</label>
                         </div>
-                        
+
                         <div class="input-field col s6">
-                          <input type="text" name="diagnosa" required="required" value="<?php echo $diagnosa; ?>">
-                          <label for="diagnosa">Diagnosa Penyakit</label>
+                          <input type="text" name="username" required="required" value="<?php echo $username; ?>">
+                          <label for="user">Username</label>
                         </div>
                       </div>
 
 
                       <div class="row">
-                      <div class="input-field col s6">
-                          <input type="text" class="datepicker" name="tgl_masuk" required="required" value="<?php echo $tgl_masuk; ?>">
-                          <label for="dob">Tanggal Masuk</label>
-                        </div>
 
                         <div class="input-field col s6">
-                          <input type="text" class="datepicker" name="tgl_keluar" required="required" value="<?php echo $tgl_keluar; ?>">
-                          <label for="dob">Tanggal Keluar</label>
+                          <input type="text" name="email" required="required" value="<?php echo $email; ?>">
+                          <label for="email">Email Pengguna</label>
                         </div>
-                      </div> 
 
-                      <div class="row">
-                        <div class="input-field col s6">
-                          <textarea name="keterangan" id="message5" class="materialize-textarea" length="120" required="required"><?php echo $keterangan; ?></textarea>
-                          <label for="message">Keterangan</label>
-                       </div>
-                     </div>
-
+                      </div>
 
                         <div class="row">
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="ubah_pelayanan">Ubah
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="ubah_pengguna">Simpan
                               <i class="material-icons right">send</i>
                             </button>
                           </div>
@@ -186,7 +112,6 @@
             </div>
           </div>
   </section>
-
      <!-- FOOTER -->
      <?php include 'config/footer.php'; ?>
 

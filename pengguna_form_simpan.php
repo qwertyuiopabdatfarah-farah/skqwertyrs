@@ -54,19 +54,12 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Inventaris Kamar</h4>
+                  <h4 class="header2">Form Isi Data Pengguna</h4>
                   <div class="row">
 
 
 
-                    <form class="col s12" action="user_proses_simpan.php" method="POST">
-
-                   <div class="row">
-                        <div class="input-field col s6">
-                          <input type="text" name="no_inventaris" required="required">
-                          <label for="no_inventaris">No Inventaris</label>
-                        </div>
-                    </div>    
+                  <form class="col s12" action="pengguna_proses_simpan.php" method="POST">    
 
                       <div class="row">
 
@@ -76,7 +69,7 @@
                         </div>
 
                         <div class="input-field col s6">
-                          <input type="text" name="user" required="required">
+                          <input type="text" name="username" required="required">
                           <label for="user">Username</label>
                         </div>
                       </div>

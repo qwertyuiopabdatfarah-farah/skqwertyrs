@@ -8,9 +8,9 @@
 <body>
 <?php
 include 'config/koneksiDB.php'; 
-$id_pegawai = $_GET['id_pegawai'];
-$sql 	    = 'DELETE FROM pegawai WHERE id_pegawai="'.$id_pegawai.'"';
-$berhasil	= mysqli_query($koneksi,$sql);
+$id_pengguna = $_GET['id_pengguna'];
+$sql 	       = 'DELETE FROM pengguna WHERE id_pengguna="'.$id_pengguna.'"';
+$berhasil	   = mysqli_query($koneksi,$sql);
 if(!$berhasil){
 	echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
 }else{
@@ -23,7 +23,7 @@ echo '<script type="text/javascript">
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "pegawai_data.php";
+                  window.location.href = "pengguna_data.php";
             });
             },10); 
             window.setTimeout(function(){ 

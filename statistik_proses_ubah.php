@@ -7,17 +7,14 @@
 </head>
 <body>
 <?php 
-if (isset($_POST['ubah_pengguna'])) {
-    $id_pengguna    = $_POST['id_pengguna'];
-	$nama           = $_POST['nama'];
-	$username       = $_POST['username'];
-	$email          = $_POST['email'];
+if (isset($_POST['ubah_statistik'])) {
+    $id_statistik  = $_POST['id_statistik'];
+    $tahun         = $_POST['tahun'];
+    $jumlah_pasien = $_POST['jumlah_pasien'];
 	
 include 'config/koneksiDB.php'; 
-$ubah = 'UPDATE pengguna set nama     = "'.$nama.'",
-							 username = "'.$username.'",
-							 email    = "'.$email.'"
-WHERE id_pengguna="'.$id_pengguna.'"';
+$ubah = 'UPDATE statistik_pasien set tahun = "'.$tahun.'",
+							                       jumlah_pasien = "'.$jumlah_pasien.'" WHERE id_statistik="'.$id_statistik.'"';
 
 $query = mysqli_query($koneksi, $ubah);
 if(!$query){
@@ -33,7 +30,7 @@ if(!$query){
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "pengguna_data.php";
+                  window.location.href = "statistik_data.php";
             });
             },10); 
             window.setTimeout(function(){ 
