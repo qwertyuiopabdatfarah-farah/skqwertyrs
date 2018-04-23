@@ -48,7 +48,7 @@
 
           <div class="row margin">
             <div class="input-field col s12">
-              <input  type="text" name="no_registerasi">
+              <input  type="text" name="no_registerasi" required="required">
               <label for="no_registerasi" class="center-align">No Registrasi</label>
             </div>
           </div>

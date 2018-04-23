@@ -24,7 +24,11 @@
   </head>
   <body style="background-image: url('../assets/images/front-tampilan/back.jpg');">
     <!-- Start Page Loading -->
-    
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
     <!-- End Page Loading -->
   <div class="container"> 
     <div id="login-page" class="row card-panel" style="width: 100%;height: 600px; background:rgba(255,255,255, 0.5); margin: 0 auto; margin-top: 20px;">
