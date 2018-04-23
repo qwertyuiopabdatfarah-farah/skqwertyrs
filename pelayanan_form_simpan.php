@@ -101,12 +101,11 @@
                           <select name="id_kamar" class="js-example-basic-sinsgle" required="required">
                            <option value="" selected="selected">.:Pilih Nama Kamar:.</option>
                             <?php
-                            ///Staus Of kan ketika SAVE
                             include 'config/koneksiDB.php'; 
                             $mysql = "SELECT * FROM kamar WHERE status = 'On' ORDER BY id_kamar DESC";
                             $hasil = mysqli_query($koneksi, $mysql);
                             while ($data = mysqli_fetch_array($hasil, MYSQLI_BOTH)){ ?>
-                                  <option value="<?php echo $data['id_kamar']; ?>"><?php echo $data['nama_kamar']; ?></option>
+                                  <option value="<?php echo $data['id_kamar']; ?>"><?php echo $data['nama_kamar']; ?> == <?php echo $data['kelas']; ?></option>
                             <?php } 
                             ?>
                         </select>

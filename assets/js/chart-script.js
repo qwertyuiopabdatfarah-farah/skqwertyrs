@@ -78,7 +78,7 @@ Trending Bar Chart
 */
 
 var dataBarChart = {
-    labels : ["JAN","FEB","MAR","APR","MAY","JUNE"],
+    labels : ["JAN","FEB","MAR","APR","MAY","JUNE", "JULI"],
     datasets: [
         {
             label: "Bar dataset",

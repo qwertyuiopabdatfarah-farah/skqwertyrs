@@ -8,7 +8,7 @@
 <body>
 <?php
 if (isset($_POST['simpan_pelayanan'])) {
-  $id_pasien  = $_POST["id_pasien"];
+  $id_pasien  = $_POST['id_pasien'];
   $id_pegawai = $_POST['id_pegawai'];
   $id_kamar   = $_POST['id_kamar'];
   $keluhan    = $_POST['keluhan'];
@@ -16,28 +16,6 @@ if (isset($_POST['simpan_pelayanan'])) {
   $keterangan = $_POST['keterangan'];
 
 include 'config/koneksiDB.php'; 
-$cekdata = "select id_pasien from pelayanan where id_pasien='$id_pasien'";
-$ada     = mysqli_query($koneksi, $cekdata) or die(mysqli_error());
-if(mysqli_num_rows($ada)>0)
-{ 
-	  echo'
-          <script type="text/javascript">
-            setTimeout(function () {    
-            swal({
-              title: "Maaf!",
-              text: "Data Sudah Ada",
-              type: "error",
-              timer: 2000,
-              showConfirmButton: true
-            }, function(){
-                  window.location.href = "pelayanan_form_simpan.php";
-            });
-            },10); 
-            window.setTimeout(function(){ 
-            } ,2000); 
-            </script>';
-}
-else{
 //update dokter
 $query_update_kamar = 'UPDATE pegawai set jumlah = jumlah+1 WHERE id_pegawai="'.$id_pegawai.'"';
 $hasil = mysqli_query($koneksi, $query_update_kamar);  
@@ -51,6 +29,10 @@ $query_simpan_sms = 'INSERT INTO log_sms (id_pasien, id_kamar) VALUES ("'.$id_pa
 $hasil = mysqli_query($koneksi, $query_simpan_sms);
 //Insert Data pelayanan
 //
+//Update pasien
+$query_update_pasien = 'UPDATE pasien set status = "Proses" WHERE id_pasien="'.$id_pasien.'"';
+$hasil = mysqli_query($koneksi, $query_update_pasien);
+
 $query_simpan = 'INSERT INTO pelayanan (id_pasien,
                                         id_pegawai,
                                         id_kamar,
@@ -85,7 +67,6 @@ if($hasil){
 	}else{
 		echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
 	}
- }
 
 }else{
 	echo "<h2><div style='color:red;text-align:center;'>--- 404 Forbiden, SILAHKAN KEMBALI--- </div></h2>";

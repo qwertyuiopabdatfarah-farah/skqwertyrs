@@ -21,10 +21,13 @@ if (isset($_POST['ubah_pelayanan'])) {
 include 'config/koneksiDB.php'; 
 //update dokter
 $query_update_kamar = 'UPDATE pegawai set jumlah = jumlah-1 WHERE id_pegawai="'.$id_pegawai.'"';
-$hasil = mysqli_query($koneksi, $query_update_kamar);  
+$query = mysqli_query($koneksi, $query_update_kamar);  
 //Update Kamar  
 $query_update_kamar = 'UPDATE kamar set status = "On" WHERE id_kamar="'.$id_kamar.'"';
-$hasil = mysqli_query($koneksi, $query_update_kamar);
+$query = mysqli_query($koneksi, $query_update_kamar);
+//uppdate Pasien
+$query_update_pasien = 'UPDATE pasien set status = "Keluar" WHERE id_pasien="'.$id_pasien.'"';
+$query = mysqli_query($koneksi, $query_update_pasien);
 $ubah = 'UPDATE pelayanan set 
               id_pasien  = "'.$id_pasien.'",
               id_pegawai = "'.$id_pegawai.'", 
