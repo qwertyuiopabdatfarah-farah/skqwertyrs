@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 23, 2018 at 07:22 AM
+-- Generation Time: Apr 24, 2018 at 01:20 AM
 -- Server version: 5.7.21-log
 -- PHP Version: 7.2.4
 
@@ -426,7 +426,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `statistik_pasien`
 --
 ALTER TABLE `statistik_pasien`
-  MODIFY `id_statistik` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_statistik` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
