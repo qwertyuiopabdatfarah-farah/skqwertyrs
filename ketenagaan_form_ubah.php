@@ -112,7 +112,32 @@
 
                                        if ($nama_ketenagaan == "Tenaga Non Medik") 
                                          echo "<option value='Tenaga Non Medik' selected>Tenaga Non Medik</option>";
-                                         else echo "<option value='Tenaga Non Medik'>Tenaga Non Medik</option>";           
+                                         else echo "<option value='Tenaga Non Medik'>Tenaga Non Medik</option>";
+
+
+                                         if ($nama_ketenagaan == "Tenaga Keuangan") 
+                                         echo "<option value='Tenaga Keuangan' selected>Tenaga Keuangan</option>";
+                                         else echo "<option value='Tenaga Keuangan'>Tenaga Keuangan</option>";
+
+
+                                         if ($nama_ketenagaan == "Tenaga Luar") 
+                                         echo "<option value='Tenaga Luar' selected>TTenaga Luar(Ousourcing)</option>";
+                                         else echo "<option value='Tenaga Luar'>Tenaga Luar(Ousourcing)tsourcingk</option>";
+
+
+                                         if ($nama_ketenagaan == "Tenaga Bangunan") 
+                                         echo "<option value='Tenaga Bangunan' selected>Tenaga Bangunan</option>";
+                                         else echo "<option value='Tenaga Bangunan'>Tenaga Bangunan</option>";
+
+
+                                         if ($nama_ketenagaan == "Tenaga Konsumsi") 
+                                         echo "<option value='Tenaga Konsumsi' selected>Tenaga Konsumsi</option>";
+                                         else echo "<option value='Tenaga Konsumsi'>Tenaga Konsumsi</option>";
+
+
+                                          if ($nama_ketenagaan == "Lain-lain") 
+                                         echo "<option value='Lain-lain' selected>Lain-lain</option>";
+                                         else echo "<option value='Lain-lain'>Lain-lain</option>";           
                                     ?>
                          </select>
                           <label>Nama Ketenagaan</label>

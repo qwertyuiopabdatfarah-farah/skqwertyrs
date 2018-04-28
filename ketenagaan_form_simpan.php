@@ -73,7 +73,7 @@
                             $mysql = "SELECT * FROM pegawai";
                             $hasil = mysqli_query($koneksi, $mysql);
                             while ($data = mysqli_fetch_array($hasil, MYSQLI_BOTH)){ ?>
-                                  <option value="<?php echo $data['id_pegawai']; ?>"><?php echo $data['nama_pegawai']; ?></option>
+                                  <option value="<?php echo $data['id_pegawai']; ?>"><?php echo $data['nama_pegawai']; ?> == <?php echo $data['jabatan_pegawai']; ?></option>
                             <?php } 
                             ?>
                         </select>
@@ -87,6 +87,11 @@
                             <option value="Tenaga Paramadik">Tenaga Paramadik</option>
                             <option value="Tenaga Penunjang Medik">Tenaga Penunjang Medik</option>
                             <option value="Tenaga Non Medik">Tenaga Non Medik</option>
+                            <option value="Tenaga Keuangan">Tenaga Keuangan</option>
+                            <option value="Tenaga Luar">Tenaga Luar(utsourcing)</option>
+                            <option value="Tenaga Bangunan">Tenaga Bangunan</option>
+                            <option value="Tenaga Konsumsi">Tenaga Bangunan</option>
+                            <option value="Lain-lain">Lain-lain</option>
                           </select>
                           <label>Nama Ketenagaan</label>
                         </div>

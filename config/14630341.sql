@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2018 at 01:20 AM
+-- Generation Time: Apr 28, 2018 at 01:24 PM
 -- Server version: 5.7.21-log
 -- PHP Version: 7.2.4
 
@@ -89,7 +89,7 @@ INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `nama_kamar`, `kelas`, `jumlah_tt`,
 CREATE TABLE `ketenagaan_rs` (
   `id_ketenagaan` int(21) NOT NULL,
   `id_pegawai` int(21) NOT NULL,
-  `nama_ketenagaan` enum('Tenaga Medik','Tenaga Paramadik','Tenaga Penunjang Medik','Tenaga Non Medik') NOT NULL,
+  `nama_ketenagaan` varchar(91) NOT NULL,
   `jenis_ketenagaan` varchar(70) NOT NULL,
   `status` enum('Aktif','NonAktif') NOT NULL,
   `keterangan` text NOT NULL
@@ -245,7 +245,7 @@ CREATE TABLE `pelayanan` (
 --
 
 INSERT INTO `pelayanan` (`id_pelayanan`, `id_pasien`, `id_pegawai`, `id_kamar`, `keluhan`, `diagnosa`, `tgl_masuk`, `tgl_keluar`, `keterangan`) VALUES
-(8, 3, 8, 20, 'Sakit Gigi', NULL, '2018-04-27', NULL, 'Pasien Sakit Gigi'),
+(8, 3, 8, 20, 'Sakit Gigi', 'sa', '2018-04-27', NULL, 'Pasien Sakit Gigi'),
 (9, 7, 8, 6, 'Sakit Gigi', NULL, '2018-04-26', NULL, 'Ok'),
 (10, 4, 15, 21, 'dsdsd', NULL, '2018-04-26', NULL, 'Ok');
 
@@ -291,7 +291,7 @@ INSERT INTO `statistik_pasien` (`id_statistik`, `bulan`, `tahun`, `jumlah_pasien
 (2, 'Januari', 2018, 4),
 (3, 'Februari', 2018, 16),
 (4, 'Maret', 2018, 15),
-(5, 'April', 2018, 11),
+(5, 'April', 2018, 43),
 (6, 'Mei', 2018, 10),
 (7, 'Juni', 2018, 50),
 (8, 'Juli', 2018, 14),

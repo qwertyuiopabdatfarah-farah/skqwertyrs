@@ -11,7 +11,7 @@
               <a href="javascript:;" class="brand-logo darken-1">
                 <span class="logo-text hide-on-med-and-down"><b><?php echo $_SESSION['username'] ?></span>
               </a>
-              <a href="#" class="navbar-toggler">
+              <a href="../#" class="navbar-toggler">
                 <i class="material-icons">radio_button_checked</i>
               </a>
             </h1>
@@ -22,7 +22,7 @@
               <p class="ultra-small margin more-text">Menu Pasien</p>
               </li>
              <li class="bold">
-                <a href="dashboard.php" class="waves-effect waves-cyan">
+                <a href="../dashboard.php" class="waves-effect waves-cyan">
                     <i class="material-icons">dashboard</i>
                     <span class="nav-text">Statistik Data Pasien</span>
                   </a>
@@ -36,13 +36,13 @@
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="pasien_form_simpan.php">
+                        <a href="../pasien_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Input Data Pasien</span>
                         </a>
                       </li>
                       <li>
-                        <a href="pasien_data.php">
+                        <a href="../pasien_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Data Pasien</span>
                         </a>
@@ -58,13 +58,13 @@
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="pelayanan_form_simpan.php">
+                        <a href="../pelayanan_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Input Data Pelayanan</span>
                         </a>
                       </li>
                       <li>
-                        <a href="pelayanan_data.php">
+                        <a href="../pelayanan_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Data Pelayanan Pasien</span>
                         </a>
@@ -81,13 +81,13 @@
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="statistik_form_simpan.php">
+                        <a href="../statistik_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Input Data Statistik</span>
                         </a>
                       </li>
                       <li>
-                        <a href="statistik_data.php">
+                        <a href="../statistik_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Data Statistik</span>
                         </a>
@@ -97,7 +97,7 @@
                 </li>
 
                 <li class="bold">
-                <a href="sms_data.php" class="waves-effect waves-cyan">
+                <a href="../sms_data.php" class="waves-effect waves-cyan">
                     <i class="material-icons">verified_user</i>
                     <span class="nav-text">Kirim Notifikasi</span>
                   </a>
@@ -114,13 +114,13 @@
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="pegawai_form_simpan.php">
+                        <a href="../pegawai_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Input Data Pegawai RS</span>
                         </a>
                       </li>
                       <li>
-                        <a href="pegawai_data.php" class="waves-effect waves-cyan">
+                        <a href="../pegawai_data.php" class="waves-effect waves-cyan">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span class="nav-text">Data Pegawai RS</span>
                         </a>
@@ -136,13 +136,13 @@
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="ketenagaan_form_simpan.php">
+                        <a href="../ketenagaan_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Input Data Ketenagaan RS</span>
                         </a>
                       </li>
                       <li>
-                        <a href="ketenagaan_data.php">
+                        <a href="../ketenagaan_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span class="nav-text">Data Ketenagaan RS</span>
                         </a>
@@ -161,13 +161,13 @@
                   <div class="collapsible-body">
                     <ul class="collapsible" data-collapsible="accordion">
                       <li>
-                        <a href="kamar_form_simpan.php">
+                        <a href="../kamar_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Input Data Kamar RS</span>
                         </a>
                       </li>
                       <li>
-                        <a href="kamar_data.php">
+                        <a href="../kamar_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Data Kamar</span>
                         </a>
@@ -183,13 +183,13 @@
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="inventaris_form_simpan.php">
+                        <a href="../inventaris_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Input Data Inventaris RS</span>
                         </a>
                       </li>
                       <li>
-                        <a href="inventaris_data.php">
+                        <a href="../inventaris_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Data Inventaris</span>
                         </a>
@@ -208,13 +208,13 @@
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="pengguna_form_simpan.php">
+                        <a href="../pengguna_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Laporan Data Papsien</span>
                         </a>
                       </li>
                       <li>
-                        <a href="pengguna_data.php">
+                        <a href="../pengguna_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Laporan Data ini</span>
                         </a>
@@ -233,13 +233,13 @@
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="pengguna_form_simpan.php">
+                        <a href="../pengguna_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Input Data Penguna</span>
                         </a>
                       </li>
                       <li>
-                        <a href="pengguna_data.php">
+                        <a href="../pengguna_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Data Pengguna</span>
                         </a>
@@ -250,7 +250,7 @@
               </ul>
             </li>
           </ul>
-          <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only gradient-45deg-light-blue-cyan gradient-shadow">
+          <a href="../#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only gradient-45deg-light-blue-cyan gradient-shadow">
             <i class="material-icons">menu</i>
           </a>
         </aside>
