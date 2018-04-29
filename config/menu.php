@@ -42,9 +42,27 @@
                         </a>
                       </li>
                       <li>
+                        <a href="pasien_baru.php">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Data Pasien  Baru</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="pasien_proses.php">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Data Pasien Proses Rawat</span>
+                        </a>
+                      </li>
+                       <li>
+                        <a href="pasien_beres.php">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Data Pasien Beres Rawat</span>
+                        </a>
+                      </li>
+                      <li>
                         <a href="pasien_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Data Pasien</span>
+                          <span>Data Semua Pasien</span>
                         </a>
                       </li>
                     </ul>
@@ -64,9 +82,15 @@
                         </a>
                       </li>
                       <li>
-                        <a href="pelayanan_data.php">
+                        <a href="pelayanan_pasien_dlm_rawat_inap.php">
                           <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Data Pelayanan Pasien</span>
+                          <span>Pasien Dalam Rawat Inap</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="pelayanan_pasien_beres_rawat_inap.php">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Pasien Sudah Rawat Inap</span>
                         </a>
                       </li>
                     </ul>
@@ -167,6 +191,20 @@
                         </a>
                       </li>
                       <li>
+                        <a href="kamar_kosong.php">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Data Kamar Kosong</span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="kamar_terpakai.php">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Data Kamar Terpakai</span>
+                        </a>
+                      </li>
+
+                      <li>
                         <a href="kamar_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Data Kamar</span>
@@ -197,6 +235,9 @@
                     </ul>
                   </div>
                 </li>
+
+
+
                 <li class="li-hover">
                   <p class="ultra-small margin more-text">Menu Laporan</p>
                 </li>
@@ -207,21 +248,127 @@
                   </a>
                   <div class="collapsible-body">
                     <ul>
+
                       <li>
-                        <a href="pengguna_form_simpan.php">
+                        <a href="laporan/pasien_all.php" target="blank">
                           <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Laporan Data Papsien</span>
+                          <span>Data Semua Pasien</span>
                         </a>
                       </li>
+
                       <li>
-                        <a href="pengguna_data.php">
+                        <a href="laporan/pasien_baru.php" target="blank">
                           <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Laporan Data ini</span>
+                          <span>Data Pasien Baru</span>
                         </a>
                       </li>
+
+                      <li>
+                        <a href="laporan/pasien_proses_rawat_inap.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Data Pasien Proses Rawat</span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="laporan/pasien_beres_rawat_inap.php">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Data Pasien Beres Rawat</span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="pasien_form_filter_one.php">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Cari Data Pasien</span>
+                        </a>
+                      </li>
+
+
+                      <li>
+                        <a href="pasien_form_filter_pertahun.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Cari Data Pasien Pertahun</span>
+                        </a>
+                      </li>
+
+
+
+                      <li>
+                        <a href="laporan/statistik.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Statistik</span>
+                        </a>
+                      </li>
+                     
+                     <li>
+                        <a href="laporan/ketenagaan_rs.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Ketenagaan RS</span>
+                        </a>
+                      </li>
+
+
+
+                      <li>
+                        <a href="laporan/kamar_all.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Semua Kamar</span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="laporan/kamar_kosong.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Kamar Kosong</span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="laporan/kamar_terpakai.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Kamar Terpakai</span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="laporan/inventaris_kamar.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Inventaris Kamar</span>
+                        </a>
+                      </li>
+
+
+                      <li>
+                        <a href="laporan/pegawai_permanen.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Pegawai Permanen RS</span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="laporan/pegawai_kontrak.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Pegawai Kontrak RS</span>
+                        </a>
+                      </li>
+
+
+                      <li>
+                        <a href="laporan/pegawai_outsourcing.php" target="blank">
+                          <i class="material-icons">keyboard_arrow_right</i>
+                          <span>Pegawai Outsourcing RS</span>
+                        </a>
+                      </li>
+ 
+
+
                     </ul>
                   </div>
                 </li>
+
+
+
                 <li class="li-hover">
                   <p class="ultra-small margin more-text">Menu Pengguna</p>
                 </li>

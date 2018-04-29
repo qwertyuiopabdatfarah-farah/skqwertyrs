@@ -47,57 +47,61 @@
               <div class="divider"></div>
               <!--DataTables example-->
               <div id="table-datatables">
-                <h4 class="header">Semua Data Data Kamar Rumah Sakit</h4>
+                <h4 class="header">Data Pasien Proses Rawat Inap</h4>
                 <div class="row">
                   <div class="col s12">
                     <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                         <thead>
                         <tr>
                         <th> No </th>
-                        <th> No Kamar </th>
-                        <th> Nama Kamar </th>
-                        <th> Kelas </th>
-                        <th> Jumalah Tempat Tidur </th>
-                        <th> Lokasi </th>
+                        <th> No Registrasi </th>
+                        <th> Nama Lengkap </th>
+                        <th> Tempat Lahir </th>
+                        <th> Tanggal Lahir </th>
+                        <th> Jenis Kelamin </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query="SELECT * FROM kamar ORDER BY id_kamar DESC";
+                        $query="SELECT * FROM pasien WHERE status = 'Proses' ORDER BY id_pasien DESC"; 
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
                         ?>
                         <tr>
                         <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['no_kamar']; ?></td>  
-                        <td><?php echo $data['nama_kamar']; ?></td>  
-                        <td><?php echo $data['kelas']; ?></td> 
-                        <td><?php echo $data['jumlah_tt']; ?></td>
-                        <td><?php echo $data['lokasi']; ?></td>   
+                        <td><?php echo $data['no_registerasi']; ?></td>  
+                        <td><?php echo $data['nama_lengkap']; ?></td>  
+                        <td><?php echo $data['tempat_lahir']; ?></td> 
+                        <td><?php echo $data['tgl_lahir']; ?></td>
+                        <td><?php echo $data['jenis_kelamin']; ?></td>   
                         <td style="width:100px;text-align: center;">
-                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_kamar']; ?>'>|Detail|</a>
-                        <?php echo "
-                        <a href='kamar_form_ubah.php?id_kamar=$data[id_kamar]'>|Ubah|</a>
-                        <a href='kamar_proses_hapus.php?id_kamar=$data[id_kamar]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
-                        ?>
+                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_pasien']; ?>'>|Detail|</a>
                         </td> 
                         </tr>  
 
                             <!-- Awal Modal -->
-                            <div id="modal2<?php echo $data['id_kamar']; ?>" class="modal modal-fixed-footer">
+                            <div id="modal2<?php echo $data['id_pasien']; ?>" class="modal modal-fixed-footer">
                                   <div class="modal-content">
-                                    <h4>Data Kamar Ruamah Sakit</h4>
+                                    <h4>Data Pasien</h4>
                                           <ul class="collection">
-                                          <li class="collection-item">No Kamar : <?php echo $data['no_kamar']; ?></li>
-                                          <li class="collection-item">Nama Kamar : <?php echo $data['nama_kamar']; ?></li>
-                                          <li class="collection-item">Kelas : <?php echo $data['kelas']; ?></li>
-                                          <li class="collection-item">Jumalah Tempat Tidur : <?php echo $data['jumlah_tt']; ?></li>
-                                          <li class="collection-item">Lokasi : <?php echo $data['lokasi']; ?></li>
-                                          <li class="collection-item">Status Kamar : <?php echo $data['status']; ?></li>
-                                          <li class="collection-item">Keterangan : <?php echo $data['keterangan']; ?></li>
+                                          <li class="collection-item">No Registrasi : <?php echo $data['no_registerasi']; ?></li>
+                                          <li class="collection-item">Nama Lengkap : <?php echo $data['nama_lengkap']; ?></li>
+                                          <li class="collection-item">Tempat Lahir : <?php echo $data['tempat_lahir']; ?></li>
+                                          <li class="collection-item">Tanggal Lahir : <?php echo $data['tgl_lahir']; ?></li>
+                                          <li class="collection-item">Jenis Kelamin : <?php echo $data['jenis_kelamin']; ?></li>
+                                          <li class="collection-item">Agama : <?php echo $data['agama']; ?></li>
+                                          <li class="collection-item">No Telepon : <?php echo $data['no_telepon']; ?></li>
+                                          <li class="collection-item">No Telepon Lain : <?php echo $data['no_telepon_lain']; ?></li>  
+                                          <li class="collection-item">Nama Ibu Kandung : <?php echo $data['nama_ibu_kandung']; ?></li>
+                                          <li class="collection-item">Pekerjaan : <?php echo $data['pekerjaan']; ?></li>
+                                          <li class="collection-item">Alamat :  <?php echo $data['alamat_jln']; ?></li>
+                                          <li class="collection-item">Kabupaten/Kota : <?php echo $data['kabupaten_kota']; ?></li>
+                                          <li class="collection-item">Kecamatan : <?php echo $data['kecamatan']; ?></li>
+                                          <li class="collection-item">Desa : <?php echo $data['desa']; ?></li>
+                                          <li class="collection-item">Rt/Rw : <?php echo $data['rt_rw']; ?></li>
                                           </ul>
                                   </div>
                                   <div class="modal-footer">

@@ -20,16 +20,26 @@ if (isset($_POST['kirim_sms'])) {
 
 
 
-
+//kalsel 2 009
 //https://control.txtlocal.co.uk/docs/api/code/post/
 //https://platform.clickatell.com/messages/http/send?apiKey=Uv0_5Cy7Sc-GW9YjgdZL7g==&to=6285351644655&content=Hai
-$username        = "erwinlocalhost90@gmail.com";
-$hash            = "511b9e794a09aa0c3b0e8b857cb2a5cbe8e6c6ff40f5aea3510437abd84c4145";
-$test            = "0";
-$sender          = "API Test";
-$no_registerasis = urlencode($no_registerasi);
+//https://www.textlocal.com/signup/
+// Akunnya.
+$username = "abdatfarah@gmail.com";
+$hash = "f1eb85615e2f1a29afb569d2e00423e8959d3c56c3998d48a2cd2539b51da236";
 
-$data = "username=".$username."&hash=".$hash."&message=".$no_registerasis."&sender=".$sender."&numbers=".$no_telepon."&test=".$test;
+//variabel 0
+$test    = "0";
+//nomer telepon penerima SMS berdasarkan pasien yang sdah terdaftar
+$numbers = $no_telepon; 
+$sender  = "API Test";
+$message = "No Registrasi = {$no_registerasis} Nama Lengkap = {$nama_lengkap} Nama Ibu Kandung = {$nama_ibu_kandung} Tempat Lahir = {$tempat_lahir} Jenis Kelamin = {$jenis_kelamin} Alamat = {$alamat_jln}";
+
+$message = urlencode($message);
+
+
+$message = urlencode($message);
+$data    = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$numbers."&test=".$test;
 $ch = curl_init('http://api.txtlocal.com/send/?');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -37,13 +47,12 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $result = curl_exec($ch); // This is the result from the API
 curl_close($ch);
 
-
 include 'config/koneksiDB.php'; 
 //update log sms
 $sms_update = 'UPDATE log_sms set status = "Sudah Terkirim" WHERE id_sms="'.$id_sms.'"';
 $hasil = mysqli_query($koneksi, $sms_update);  
 if($hasil){
-		echo'
+    echo'
           <script type="text/javascript">
             setTimeout(function () {    
             swal({
@@ -59,12 +68,12 @@ if($hasil){
             window.setTimeout(function(){ 
             } ,2000); 
             </script>';
-	}else{
-		echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
-	}
+  }else{
+    echo "<h2><div style='color:red;text-align:center;'>--- Ada Yang Salah Cek Querynya--- </div></h2>";
+  }
 
 }else{
-	echo "<h2><div style='color:red;text-align:center;'>--- 404 Forbiden, SILAHKAN KEMBALI--- </div></h2>";
+  echo "<h2><div style='color:red;text-align:center;'>--- 404 Forbiden, SILAHKAN KEMBALI--- </div></h2>";
  }
 ?>
 <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>

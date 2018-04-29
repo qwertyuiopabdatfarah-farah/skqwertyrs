@@ -47,65 +47,92 @@
               <div class="divider"></div>
               <!--DataTables example-->
               <div id="table-datatables">
-                <h4 class="header">Semua Data Data Kamar Rumah Sakit</h4>
+                <h4 class="header">Data Pelayanan Pasien Sudah Menjalanakan Proses Rawat Inap</h4>
                 <div class="row">
                   <div class="col s12">
                     <table id="data-table-simple" class="responsive-table display" cellspacing="0">
                         <thead>
                         <tr>
                         <th> No </th>
-                        <th> No Kamar </th>
+                        <th> No Registrasi </th>
+                        <th> Nama Lengkap Pasien </th>
+                        <th> Nama Dokter Pemeriksa </th>
                         <th> Nama Kamar </th>
-                        <th> Kelas </th>
-                        <th> Jumalah Tempat Tidur </th>
-                        <th> Lokasi </th>
+                        <th> Keluhan </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query="SELECT * FROM kamar ORDER BY id_kamar DESC";
+                        $query = "SELECT pasien.nama_lengkap,
+                                         pasien.no_registerasi,
+                                         pasien.nama_ibu_kandung, 
+                                         pasien.tempat_lahir,
+                                         pasien.tgl_lahir,
+                                         pasien.jenis_kelamin,
+                                         pasien.agama,
+                                         pasien.no_telepon,
+                                         pasien.pekerjaan,
+                                         pasien.alamat_jln,
+                                         pasien.kabupaten_kota,
+                                         pasien.kecamatan,
+                                         pasien.desa,
+                                         pegawai.nama_pegawai,
+                                         pegawai.nip,
+                                         pasien.rt_rw,
+                                         kamar.nama_kamar,
+                                         kamar.lokasi,
+                                         kamar.no_kamar,          
+                                         pelayanan.id_pelayanan, 
+                                         pelayanan.keluhan, 
+                                         pelayanan.diagnosa, 
+                                         pelayanan.tgl_masuk,
+                                         pelayanan.tgl_keluar, 
+                                         pelayanan.keterangan 
+                                         FROM pelayanan 
+                                         LEFT JOIN pasien 
+                                         ON pasien.id_pasien = pelayanan.id_pasien
+                                         LEFT JOIN pegawai 
+                                         ON pegawai.id_pegawai = pelayanan.id_pegawai
+                                         LEFT JOIN kamar ON Kamar.id_kamar = pelayanan.id_kamar
+                                         WHERE pelayanan.diagnosa IS NOT NULL AND pelayanan.tgl_keluar IS NOT NULL";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
                         ?>
                         <tr>
                         <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['no_kamar']; ?></td>  
-                        <td><?php echo $data['nama_kamar']; ?></td>  
-                        <td><?php echo $data['kelas']; ?></td> 
-                        <td><?php echo $data['jumlah_tt']; ?></td>
-                        <td><?php echo $data['lokasi']; ?></td>   
+                        <td><?php echo $data['no_registerasi']; ?></td>
+                        <td><?php echo $data['nama_lengkap']; ?></td>  
+                        <td><?php echo $data['nama_pegawai']; ?></td>  
+                        <td><?php echo $data['nama_kamar']; ?></td> 
+                        <td><?php echo $data['keluhan']; ?></td>
                         <td style="width:100px;text-align: center;">
-                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_kamar']; ?>'>|Detail|</a>
-                        <?php echo "
-                        <a href='kamar_form_ubah.php?id_kamar=$data[id_kamar]'>|Ubah|</a>
-                        <a href='kamar_proses_hapus.php?id_kamar=$data[id_kamar]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
-                        ?>
+                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_pelayanan']; ?>'>|Detail|</a>
                         </td> 
                         </tr>  
 
-                            <!-- Awal Modal -->
-                            <div id="modal2<?php echo $data['id_kamar']; ?>" class="modal modal-fixed-footer">
-                                  <div class="modal-content">
-                                    <h4>Data Kamar Ruamah Sakit</h4>
-                                          <ul class="collection">
-                                          <li class="collection-item">No Kamar : <?php echo $data['no_kamar']; ?></li>
-                                          <li class="collection-item">Nama Kamar : <?php echo $data['nama_kamar']; ?></li>
-                                          <li class="collection-item">Kelas : <?php echo $data['kelas']; ?></li>
-                                          <li class="collection-item">Jumalah Tempat Tidur : <?php echo $data['jumlah_tt']; ?></li>
-                                          <li class="collection-item">Lokasi : <?php echo $data['lokasi']; ?></li>
-                                          <li class="collection-item">Status Kamar : <?php echo $data['status']; ?></li>
-                                          <li class="collection-item">Keterangan : <?php echo $data['keterangan']; ?></li>
-                                          </ul>
-                                  </div>
+                      <!-- Awal Modal -->
+                      <div id="modal2<?php echo $data['id_pelayanan']; ?>" class="modal modal-fixed-footer">
+                          <div class="modal-content">
+                               <h4>Data Pelayanan Pasien Rumah Sakit</h4>
+                                <ul class="collection">
+                                  <li class="collection-item">Nama Lengkap Pasien : <?php echo $data['nama_lengkap']; ?></li>
+                                  <li class="collection-item">Nama Dokter Pemeriksa : <?php echo $data['nama_pegawai']; ?></li>
+                                  <li class="collection-item">Nama Kamar : <?php echo $data['nama_kamar']; ?></li>
+                                  <li class="collection-item">Keluha : <?php echo $data['keluhan']; ?></li>
+                                  <li class="collection-item">Diagnosa : <?php echo $data['diagnosa']; ?></li>
+                                  <li class="collection-item">Tanggal Masuk RS : <?php echo $data['tgl_masuk']; ?></li>
+                                  <li class="collection-item">Tanggal Keluar RS : <?php echo $data['tgl_keluar']; ?></li>
+                                  <li class="collection-item">Keterangan : <?php echo $data['keterangan']; ?></li>
+                                 </ul>
+                              </div>
                                   <div class="modal-footer">
                                     <a href="javascript:;" class="modal-action modal-close waves-effect waves-green btn-flat ">Tutup</a>
                                   </div>
                               </div>
                              <!-- Akhir Modal --> 
-                             
                         <?php
                         }
                         ?>
@@ -120,7 +147,7 @@
         </div>
       </div>
           <!--end container-->
-        </section>
+    </section>
 
     <?php include 'config/footer.php'; ?>
       <!-- jQuery Library -->

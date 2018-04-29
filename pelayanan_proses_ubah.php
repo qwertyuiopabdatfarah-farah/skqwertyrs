@@ -53,7 +53,7 @@ if(!$query){
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "pelayanan_data.php";
+                  window.location.href = "pelayanan_pasien_dlm_rawat_inap.php";
             });
             },10); 
             window.setTimeout(function(){ 

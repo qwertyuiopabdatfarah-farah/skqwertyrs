@@ -189,12 +189,6 @@
                           <label for="tgl_masuk_kerja">Tanggal Masuk Kerja</label>
                         </div>
 
-
-                        <div class="input-field col s6">
-                          <input type="text" class="datepicker" name="tgl_keluar_kerja">
-                          <label for="tgl_keluar_kerja">Tanggal Keluar Kerja</label>
-                        </div>
-
                       </div>
 
                       <div class="row">

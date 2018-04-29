@@ -16,17 +16,17 @@
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
     <title>Laporan</title>
      <!-- selec2-->
-    <link href="../assets/css/select2/select2.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/select2/select2.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
     <link rel="apple-touch-icon-precomposed" href="config/gambar_tampilan/favicon/apple-touch-icon-152x152.png">
-    <link href="../assets/css/materialize.css" type="text/css" rel="stylesheet">
-    <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
-    <link href="../assets/css/custom.css" type="text/css" rel="stylesheet">
-    <link href="../assets/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
-    <link href="../assets/css/jquery-jvectormap.css" type="text/css" rel="stylesheet">
-    <link href="../assets/css/flag-icon.min.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/materialize.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/custom.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/jquery-jvectormap.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/flag-icon.min.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <!-- Start Page Loading -->
@@ -38,10 +38,10 @@
     <!-- End Page Loading -->
 
   <!-- HEADER -->      
-  <?php include '../config/header.php'; ?>  
+  <?php include 'config/header.php'; ?>  
   
   <!--MENU --> 
-  <?php include '../config/menu.php'; ?>
+  <?php include 'config/menu.php'; ?>
 
 
 
@@ -57,7 +57,7 @@
                   <h4 class="header2">Filter Laporan Data Pasien Pertahun</h4>
                   <div class="row">
 
-                    <form class="col s12" action="pasien_filter_pertahun.php" method="POST">
+                    <form class="col s12" action="laporan/pasien_filter_pertahun.php" method="POST">
 
                     <div class="row">
                         <div class="input-field col s12">
@@ -91,23 +91,23 @@
   </section>
 
      <!-- FOOTER -->
-     <?php include '../config/footer.php'; ?>
+     <?php include 'config/footer.php'; ?>
 
       <!-- jQuery Library -->
-      <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
       <!--angularjs-->
-      <script type="text/javascript" src="../assets/js/angular.min.js"></script>
+      <script type="text/javascript" src="assets/js/angular.min.js"></script>
       <!--materialize js-->
-      <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
+      <script type="text/javascript" src="assets/js/materialize.min.js"></script>
       <!--prism-->
-      <script type="text/javascript" src="../assets/js/prism.js"></script>
+      <script type="text/javascript" src="assets/js/prism.js"></script>
       <!--scrollbar-->
-      <script type="text/javascript" src="../assets/js/perfect-scrollbar.min.js"></script>
+      <script type="text/javascript" src="assets/js/perfect-scrollbar.min.js"></script>
       <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-      <script type="text/javascript" src="../assets/js/plugins.js"></script>
+      <script type="text/javascript" src="assets/js/plugins.js"></script>
       <!--custom-script.js - Add your own theme custom JS-->
-      <script type="text/javascript" src="../assets/js/custom-script.js"></script>
-      <script type="text/javascript" src="../assets/js/select2/select2.js"></script>
+      <script type="text/javascript" src="assets/js/custom-script.js"></script>
+      <script type="text/javascript" src="assets/js/select2/select2.js"></script>
       
       <script type="text/javascript">
       $(document).ready(function() {

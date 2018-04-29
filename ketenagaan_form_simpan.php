@@ -90,7 +90,7 @@
                             <option value="Tenaga Keuangan">Tenaga Keuangan</option>
                             <option value="Tenaga Luar">Tenaga Luar(utsourcing)</option>
                             <option value="Tenaga Bangunan">Tenaga Bangunan</option>
-                            <option value="Tenaga Konsumsi">Tenaga Bangunan</option>
+                            <option value="Tenaga Konsumsi">Tenaga Konsumsi</option>
                             <option value="Lain-lain">Lain-lain</option>
                           </select>
                           <label>Nama Ketenagaan</label>

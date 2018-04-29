@@ -59,6 +59,7 @@
                         <th> Tempat Lahir </th>
                         <th> Tanggal Lahir </th>
                         <th> Jenis Kelamin </th>
+                        <th> Status </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
@@ -76,7 +77,8 @@
                         <td><?php echo $data['nama_lengkap']; ?></td>  
                         <td><?php echo $data['tempat_lahir']; ?></td> 
                         <td><?php echo $data['tgl_lahir']; ?></td>
-                        <td><?php echo $data['jenis_kelamin']; ?></td>   
+                        <td><?php echo $data['jenis_kelamin']; ?></td>
+                        <td><?php echo $data['status']; ?></td>   
                         <td style="width:100px;text-align: center;">
                         <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_pasien']; ?>'>|Detail|</a>
                         <?php echo "

@@ -7,7 +7,7 @@
 </head>
 <body>
 <p align="center"><img src="../config/gambar_tampilan/favicon/kepala_surat.jpg" alt="kepala_surat" style="width:100%"></p>
-    <h1><p align="center">Laporan Data Kamar Rumah Sakit Islam Banjarmasin</p></h1>
+    <h1><p align="center">Laporan Data Kamar Terpakai Rumah Sakit Islam Banjarmasin</p></h1>
         <table style="border-collapse: collapse; width: 100%;" border="1px">
             <thead>
                 <tr>
@@ -21,7 +21,7 @@
                     <tbody>
                      <?php
                      include '../config/koneksiDB.php';  
-                      $query="SELECT * FROM kamar ORDER BY id_kamar DESC";
+                      $query="SELECT * FROM kamar WHERE status = 'Off' ORDER BY id_kamar DESC";
                       $result=mysqli_query($koneksi, $query) or die(mysqli_error());
 
                       while ($row = mysqli_fetch_array($result, MYSQLI_BOTH))

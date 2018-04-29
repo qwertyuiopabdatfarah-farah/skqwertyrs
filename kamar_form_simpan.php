@@ -96,18 +96,6 @@
 
 
 
-                    <div class="row">
-                        <div class="input-field col s6">
-                          <select name="status" required="required">
-                            <option value="" disabled selected>.:Pilih Status Kamar:.</option>
-                            <option value="On">On</option>
-                            <option value="Off">Off</option>
-                          </select>
-                          <label>Status Kamar</label>
-                        </div>
-                    </div>
-
-
                       <div class="row">
                         <div class="input-field col s12">
                           <textarea name="keterangan" id="message5" class="materialize-textarea" length="120" required="required"></textarea>

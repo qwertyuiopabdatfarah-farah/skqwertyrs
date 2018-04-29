@@ -47,7 +47,7 @@
               <div class="divider"></div>
               <!--DataTables example-->
               <div id="table-datatables">
-                <h4 class="header">Semua Data Data Kamar Rumah Sakit</h4>
+                <h4 class="header">Data Kamar Rumah Sakit yang Terpakai</h4>
                 <div class="row">
                   <div class="col s12">
                     <table id="data-table-simple" class="responsive-table display" cellspacing="0">
@@ -65,7 +65,7 @@
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query="SELECT * FROM kamar ORDER BY id_kamar DESC";
+                        $query="SELECT * FROM kamar WHERE status = 'Off' ORDER BY id_kamar DESC";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
@@ -79,10 +79,6 @@
                         <td><?php echo $data['lokasi']; ?></td>   
                         <td style="width:100px;text-align: center;">
                         <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_kamar']; ?>'>|Detail|</a>
-                        <?php echo "
-                        <a href='kamar_form_ubah.php?id_kamar=$data[id_kamar]'>|Ubah|</a>
-                        <a href='kamar_proses_hapus.php?id_kamar=$data[id_kamar]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
-                        ?>
                         </td> 
                         </tr>  
 

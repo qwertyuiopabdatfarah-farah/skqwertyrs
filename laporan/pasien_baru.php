@@ -25,7 +25,6 @@
                 <th style=" text-align: left;background-color: #699FF0; color: white; border-bottom:1px dotted #000712">Desa</th>
                 <th style=" text-align: left;background-color: #699FF0; color: white; border-bottom:1px dotted #000712">Rt RW</th>
                 <th style=" text-align: left;background-color: #699FF0; color: white; border-bottom:1px dotted #000712">Alamat Jalan</th> 
-                <th style=" text-align: left;background-color: #699FF0; color: white; border-bottom:1px dotted #000712">Status Pasien</th> 
                 </tr>
                 </tr>
                     <tbody>
@@ -50,7 +49,6 @@
                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo ucwords($row['desa']); ?></td>
                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo ucwords($row['rt_rw']); ?></td>
                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo ucwords($row['alamat_jln']); ?></td>
-                        <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo ucwords($row['status']); ?></td>
                         </tr>
                      <?php
                      }                    

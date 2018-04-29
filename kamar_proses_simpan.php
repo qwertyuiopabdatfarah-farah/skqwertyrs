@@ -13,7 +13,6 @@ if (isset($_POST['simpan_kamar'])) {
   $kelas        = $_POST['kelas'];
   $jumlah_tt    = $_POST['jumlah_tt'];
   $lokasi       = $_POST['lokasi'];
-  $status       = $_POST['status'];
   $keterangan   = $_POST['keterangan'];
 	
 
@@ -45,14 +44,12 @@ $query_simpan = 'INSERT INTO kamar (no_kamar,
                                      kelas,
                                      jumlah_tt,
                                      lokasi,
-                                     status, 
                                      keterangan)
 	                VALUES ("'.$no_kamar.'",
 	                       "'.$nama_kamar.'", 
 	                       "'.$kelas.'", 
 	                       "'.$jumlah_tt.'",
-	                       "'.$lokasi.'",
-	                       "'.$status.'", 
+	                       "'.$lokasi.'", 
 	                       "'.$keterangan.'")';
 
 $hasil = mysqli_query($koneksi, $query_simpan);

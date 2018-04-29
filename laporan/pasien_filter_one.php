@@ -19,7 +19,7 @@
                      <?php
                      include '../config/koneksiDB.php'; 
                      if (isset($_POST['filter_one'])) {
-                     $tgl_masuk = $_POST['tgl_masuk']; 
+                     $no_registerasi = $_POST['no_registerasi']; 
                      $query="SELECT pasien.nama_lengkap,
                                          pasien.no_registerasi,
                                          pasien.nama_ibu_kandung, 
@@ -37,7 +37,8 @@
                                          pegawai.nip,
                                          pasien.rt_rw,
                                          kamar.nama_kamar,
-                                         kamar.lokasi,          
+                                         kamar.lokasi,
+                                         kamar.no_kamar,          
                                          pelayanan.id_pelayanan, 
                                          pelayanan.keluhan, 
                                          pelayanan.diagnosa, 
@@ -63,7 +64,12 @@
                         <tr style="background-color: #f2f2f2;"> 
                          <th style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"> Nama Lengkap </th> 
                          <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo $row['nama_lengkap']; ?></td>
-                        </tr>
+                         </tr>
+
+                         <tr style="background-color: #f2f2f2;"> 
+                         <th style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"> Nama Ibu Kandung </th> 
+                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo $row['nama_ibu_kandung']; ?></td>
+                         </tr>
                         
                          <tr style="background-color: #f2f2f2;"> 
                          <th style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"> Nip Dokter </th>
@@ -75,6 +81,11 @@
                          <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo $row['nama_pegawai']; ?></td>
                         </tr>
 
+                        
+                        <tr style="background-color: #f2f2f2;"> 
+                         <th style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"> No Kamar </th>
+                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo $row['no_kamar']; ?></td>
+                        </tr>
 
                         <tr style="background-color: #f2f2f2;"> 
                          <th style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"> Nama Kamar </th>
@@ -125,7 +136,7 @@
 
                         <tr style="background-color: #f2f2f2;"> 
                          <th style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"> Tanggal Lahir </th> 
-                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo $row['tanggal_lahir']; ?></td>
+                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo $row['tgl_lahir']; ?></td>
                         </tr>
 
 
