@@ -14,7 +14,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Materialize is a Material Design Admin Template">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
-    <title>Farah Abdat</title>
+    <title>Farah Saleh Abdat</title>
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">

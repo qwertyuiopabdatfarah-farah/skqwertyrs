@@ -8,7 +8,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Materialize is a Material Design Admin Template">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
-    <title>Human Resource</title>
+    <title>Farah Saleh Abdat</title>
     <!-- Favicons-->
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
     <!-- Favicons-->
@@ -23,7 +23,7 @@
     <link href="assets/css/jquery-jvectormap.css" type="text/css" rel="stylesheet">
     <link href="assets/css/flag-icon.min.css" type="text/css" rel="stylesheet">
   </head>
-  <body style="background-image: url('assets/images/front-tampilan/back.jpg');">
+  <body style="background-image: url('assets/images/front-tampilan/backs.jpg');">
     <!-- Start Page Loading -->
     <div id="loader-wrapper">
       <div id="loader"></div>
@@ -47,7 +47,7 @@
             <div class="input-field col s12">
                   <div id="card-alert" class="card gradient-45deg-light-blue-cyan">
                     <div class="card-content white-text">
-                      <i class="material-icons">notifications</i> Silahkan Login Terlebih Dahulu<p></p>
+                      <i class="material-icons">notifications</i>Silahkan Login Terlebih Dahulu<p></p>
                     </div>
                   </div>
             </div>

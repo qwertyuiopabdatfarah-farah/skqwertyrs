@@ -14,7 +14,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Materialize is a Material Design Admin Template">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
-    <title>Human Resource</title>
+    <title>Farah Saleh Abdat</title>
      <!-- selec2-->
     <link href="assets/css/select2/select2.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
@@ -54,18 +54,16 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Pengguna</h4>
+                  <h4 class="header2">Form Isi Data Admin</h4>
                   <div class="row">
 
-
-
-                  <form class="col s12" action="pengguna_proses_simpan.php" method="POST">    
+                  <form class="col s12" action="admin_proses_simpan.php" method="POST">    
 
                       <div class="row">
 
                         <div class="input-field col s6">
                           <input type="text" name="nama" required="required">
-                          <label for="nama">Nama Lengkap Pengguna</label>
+                          <label for="nama">Nama Lengkap Admin</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -77,20 +75,16 @@
 
                       <div class="row">
 
-                        <div class="input-field col s6">
-                          <input type="text" name="email" required="required">
-                          <label for="email">Email Pengguna</label>
-                        </div>
-
+                  
                         <div class="input-field col s6">
                           <input type="text" name="password" required="required">
-                          <label for="password">Password Pengguna</label>
+                          <label for="password">Password admin</label>
                         </div>
                       </div>
 
                         <div class="row">
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="simpan_pengguna">Simpan
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="simpan_admin">Simpan
                               <i class="material-icons right">send</i>
                             </button>
                           </div>

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 28, 2018 at 01:24 PM
--- Server version: 5.7.21-log
--- PHP Version: 7.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Apr 29, 2018 at 11:00 AM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `14630341`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(21) NOT NULL,
+  `nama` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama`, `username`, `password`) VALUES
+(1, 'Farah Abdat', 'Admin', 'a6b7cc30d968aff9dadabcc877dabd50');
 
 -- --------------------------------------------------------
 
@@ -37,6 +55,14 @@ CREATE TABLE `inventaris` (
   `jumlah` varchar(21) NOT NULL,
   `keterangan` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `inventaris`
+--
+
+INSERT INTO `inventaris` (`id_inventaris`, `no_inventaris`, `id_kamar`, `jenis_barang`, `kondisi`, `jumlah`, `keterangan`) VALUES
+(1, 'N01', 22, 'AC', 'Hidup', '1', 'Ac Ok'),
+(2, 'N03', 22, 'Kursi', 'Baik', '5', 'Kursi Baik');
 
 -- --------------------------------------------------------
 
@@ -77,8 +103,9 @@ INSERT INTO `kamar` (`id_kamar`, `no_kamar`, `nama_kamar`, `kelas`, `jumlah_tt`,
 (17, 'A15', 'Ruang Al Biruni', 'III B', '4 Tempat Tidur', 'dekat ruang al kindi', 'On', 'Kamar pasien siap diguakan'),
 (18, 'A16', 'Ruang Al Biruni', 'II', '10 Tempat Tidur', 'Dekat ruang al farabi', 'On', 'Kamar pasien siap diguakan'),
 (19, 'A17', 'Ruang Al Biruni', 'III A', '5 Tempat Tidur', 'Dekat ruang al haitam', 'On', 'Kamar pasien siap digunakan'),
-(20, 'A18', 'Ruang Al Biruni', 'I B', '4 Tempat Tidur', 'Dekat ruang al farabi', 'Off', 'Kamar pasien siap digunakan'),
-(21, 'A19', 'Ruang Al Kindi', 'Neonatus', '15 Tempat Tidur', 'dekat ruang al kindi', 'Off', 'Kamar pasien siap digunakan');
+(20, 'A18', 'Ruang Al Biruni', 'I B', '4 Tempat Tidur', 'Dekat ruang al farabi', 'On', 'Kamar pasien siap digunakan'),
+(21, 'A19', 'Ruang Al Kindi', 'Neonatus', '15 Tempat Tidur', 'dekat ruang al kindi', 'On', 'Kamar pasien siap digunakan'),
+(22, 'K021', 'Ruang Al Pukat', 'V11', '2 Tempat Tidur', 'Dekat ruang al farabi lantai 2', 'On', 'Kamar Ruangan Al Pukat');
 
 -- --------------------------------------------------------
 
@@ -111,7 +138,8 @@ INSERT INTO `ketenagaan_rs` (`id_ketenagaan`, `id_pegawai`, `nama_ketenagaan`, `
 (11, 12, 'Tenaga Paramadik', 'Perawat', 'Aktif', 'Perawat'),
 (12, 13, 'Tenaga Non Medik', 'Keuangan', 'Aktif', 'Bagian Keuangan'),
 (13, 14, 'Tenaga Medik', 'Dokter Kandungan', 'Aktif', 'Dokter Kandungan'),
-(14, 15, 'Tenaga Medik', 'Dokter Jantung', 'Aktif', 'Dokter Jantung');
+(14, 15, 'Tenaga Medik', 'Dokter Jantung', 'Aktif', 'Dokter Jantung'),
+(15, 16, 'Tenaga Medik', 'Dokter Umum', 'Aktif', 'Dokter Umum Bagian Tenaga Medik');
 
 -- --------------------------------------------------------
 
@@ -123,7 +151,7 @@ CREATE TABLE `log_sms` (
   `id_sms` int(21) NOT NULL,
   `id_pasien` int(21) NOT NULL,
   `id_kamar` int(21) NOT NULL,
-  `status` enum('Baru','Sudah Terkirirm') DEFAULT 'Baru'
+  `status` enum('Baru','Sudah Terkirim') DEFAULT 'Baru'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -131,7 +159,8 @@ CREATE TABLE `log_sms` (
 --
 
 INSERT INTO `log_sms` (`id_sms`, `id_pasien`, `id_kamar`, `status`) VALUES
-(1, 3, 3, 'Baru');
+(1, 3, 3, 'Baru'),
+(2, 13, 22, 'Sudah Terkirim');
 
 -- --------------------------------------------------------
 
@@ -165,14 +194,15 @@ CREATE TABLE `pasien` (
 
 INSERT INTO `pasien` (`id_pasien`, `no_registerasi`, `nama_lengkap`, `nama_ibu_kandung`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `no_telepon_lain`, `pekerjaan`, `alamat_jln`, `kabupaten_kota`, `kecamatan`, `desa`, `rt_rw`, `status`) VALUES
 (3, 'R01', 'Farah Saleh Abdat', 'Faizah', 'Banjarmasin', '1997-07-15', 'Perempuan', 'Islam', '082253099902', '086736228292', 'Mahasiswi', 'jl akaba no 20', 'Banjarmasin', 'Banjarmasin tengah', '', '13 25', 'Keluar'),
-(4, 'R02', 'Huda', 'farah', 'Surabaya', '2018-04-24', 'Perempuan', 'Islam', '0893673839', '08767883721', 'Mahasiswi', 'jl akaba gang ibu', 'banjarmasin', 'Banjarmasin tengah', '', '13 63', 'Proses'),
+(4, 'R02', 'Huda', 'farah', 'Surabaya', '2018-04-24', 'Perempuan', 'Islam', '0893673839', '08767883721', 'Mahasiswi', 'jl akaba gang ibu', 'banjarmasin', 'Banjarmasin tengah', '', '13 63', 'Keluar'),
 (5, 'R03', 'Fakhira', 'huda', 'Banjarmasin', '2018-04-11', 'Perempuan', 'Islam', '0895563887', '0856425678', 'pelajar', 'jl akt', 'Banjarmasin', '', '', '14 16', 'Baru'),
 (6, 'R04', 'Hasan', 'huda', 'bati bati', '2018-04-25', 'Perempuan', 'Islam', '0875678563', '0986543789', 'Mahasiswa', 'Jl landasan ulin', 'Bati bati', 'bati bati', '', '13 16', 'Baru'),
 (7, 'R05', 'Saleh Abdat', 'farah', 'Surabaya', '2018-04-25', 'Laki-laki', 'Islam', '09567790864', '0896456798', 'wiraswasta', 'jl kayu licin', 'Surabaya', 'surabaya tengah', '', '13 14', 'Keluar'),
 (8, 'R06', 'Syafiq', 'Huda', 'Banjarmasin', '2018-04-10', 'Laki-laki', 'Islam', '08675675678', '0813656768', 'Mahasiswi', 'Jl antasan kecil timur', 'Banjarmasin', 'Banjarmasin tengah', '', '14 15', 'Baru'),
 (9, 'R07', 'Fawas', 'Huda', 'Banjarmasin', '2018-04-23', 'Perempuan', 'Islam', '08876465765', '0813675876', 'wiraswasta', 'jl kayutangi 2', 'Banjarmasin', 'Banjarmasin timur', '', '12 13', 'Baru'),
 (11, 'R09', 'Salsabila', 'Salheh', 'Martapura', '2018-04-02', 'Perempuan', 'Islam', '08134567834', '0864367864', 'Mahasiswi', 'jl raya tengah', 'Martapura', 'Martapura selatan', '', '12 18', 'Baru'),
-(12, 'R10', 'Samil', 'Salheh', 'Martapura', '2018-04-01', 'Laki-laki', 'Islam', '0876895646', '0823458765', 'wiraswasta', 'Jl Raya Tengah', 'Martapura', 'Martapura selatan', '', '11 12', 'Baru');
+(12, 'R10', 'Samil', 'Salheh', 'Martapura', '2018-04-01', 'Laki-laki', 'Islam', '0876895646', '0823458765', 'wiraswasta', 'Jl Raya Tengah', 'Martapura', 'Martapura selatan', '', '11 12', 'Baru'),
+(13, 'R91', 'Ujang Solihin', 'Ibu Siti', 'Bandung', '2018-04-20', 'Laki-laki', 'Islam', '+6282253099902', '+6282295309990215', 'Mahasiswi', 'Jl. Setia Budi', 'Bandung', 'Cihamples', 'Tenjolaya', 'RT. 04 RW. 01', 'Keluar');
 
 -- --------------------------------------------------------
 
@@ -213,14 +243,15 @@ INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nama_pegawai`, `jabatan_pegawai`, `
 (5, 'N02', 'Dr. Huda Abdat', 'Dokter', 'On', 'Permanen', '', '2018-04-18', '2018-04-23', '0000-00-00', 'Perempuan', 'Islam', 'S3, Kedokteran Kandungan', '0875678563', '0834567245', 'Banjarmasin', 'Banjarmasin tengah', '', '11 15', 'jl kayutangi 2', 0),
 (6, 'N03', 'Dr. Saleh Abdat', 'Dokter', 'On', 'Permanen', '', '2018-04-24', '2018-04-01', '0000-00-00', 'Laki-laki', 'Islam', 'D3, Kedokteran umum', '08675675678', '05113350717', 'Banjarmasin', '', '', '12 14', 'Jl antasan kecil timur', 0),
 (7, 'N04', 'Dr. Syafiq', 'Dokter', 'On', 'Kontrak', '', '2018-04-01', '2018-04-08', '0000-00-00', 'Laki-laki', 'Islam', 'D3, Kedokteran gigi', '0875678563', '05113350717', 'Surabaya', 'surabaya tengah', '', '10 02', 'Jl kejaksaan tengah', 0),
-(8, 'N05', 'Dr. Fakhira', 'Dokter', 'On', 'Kontrak', '', '2018-04-01', '2018-04-15', '0000-00-00', 'Perempuan', 'Islam', 'D3, Kedokteran kandungan', '0875678563', '05113350717', 'Banjarmasin', 'Banjarmasin tengah', '', '10 11', 'jl akaba gang ibu', 2),
+(8, 'N05', 'Dr. Fakhira', 'Dokter', 'On', 'Kontrak', '', '2018-04-01', '2018-04-15', '0000-00-00', 'Perempuan', 'Islam', 'D3, Kedokteran kandungan', '0875678563', '05113350717', 'Banjarmasin', 'Banjarmasin tengah', '', '10 11', 'jl akaba gang ibu', 1),
 (9, 'N06', 'Salsabila, S. Kep', 'Perawat', 'On', 'Kontrak', '', '2018-04-08', '2018-04-01', '0000-00-00', 'Perempuan', 'Islam', 'S kep perawat', '0875678563', '05113350717', 'Banjarmasin', 'Banjarmasin tengah', '', '11 16', 'jl antasan kecil timur', 0),
-(10, 'N07', 'Samil, Security', 'Satpam', 'On', 'Outsourcing', 'PT satpam jaya', '2018-04-08', '2018-04-08', '0000-00-00', 'Laki-laki', 'Islam', 'Sma swasta 1', '0875678563', '05113350717', 'Banjarmasin', 'Banjarmasin timur', '', '02 01', 'jl antasan kecil timur', 0),
+(10, 'N07', 'Samil, Security', 'Satpam', 'On', 'Outsourcing', 'PT satpam jaya', '2018-04-08', '2018-04-08', '1899-11-23', 'Laki-laki', 'Islam', 'Sma swasta 1', '0875678563', '05113350717', 'Banjarmasin', 'Banjarmasin timur', '', '02 01', 'jl antasan kecil timur', 0),
 (11, 'N08', 'Fauzan', 'Satpam', 'On', 'Outsourcing', 'PT sinar jaya', '2018-04-09', '2018-04-08', '0000-00-00', 'Laki-laki', 'Islam', 'Smp swasta 2', '0856576557', '05113350717', 'Banjarmasin', 'Banjarmasin timur', '', '11 15', 'Jl sdn pasar lama 5', 0),
 (12, 'N09', 'Nadia', 'Perawat', 'On', 'Kontrak', '', '2018-04-01', '2018-04-15', '0000-00-00', 'Perempuan', 'Islam', 'S Ked keperawatan', '087646789234', '08564687', 'Banjarmasin', 'Banjarmasin tengah', '', '11 15', 'Jl antasan kecil timur', 0),
 (13, 'N10', 'Nazwa alya nanda', 'Keuangan', 'On', 'Kontrak', '', '2018-04-08', '2018-04-01', '0000-00-00', 'Perempuan', 'Islam', 'S1 akuntansi', '0856774578', '05113350717', 'Banjarmasin', 'Banjarmasin tengah', '', '11 12', 'jl raya tengah 1', 0),
 (14, 'N11', 'Nadin', 'Dokter', 'On', 'Kontrak', '', '2018-04-08', '2018-04-08', '0000-00-00', 'Perempuan', 'Islam', 'S3, kedokteran gigi', '08753567823', '05113350717', 'Banjarmasin', 'Banjarmasin tengah', '', '11 15', 'Jl akaba gang ibu', 0),
-(15, 'N12', 'Fidya', 'Dokter', 'On', 'Permanen', '', '2018-04-08', '2018-04-14', '0000-00-00', 'Perempuan', 'Islam', 'S3, Dokter Jantung', '086737896', '0864677875', 'Banjarmasin', 'Banjarmasin tengah', '', '11 15', 'Jl raya tengah ', 1);
+(15, 'N12', 'Fidya', 'Dokter', 'On', 'Permanen', '', '2018-04-08', '2018-04-14', '0000-00-00', 'Perempuan', 'Islam', 'S3, Dokter Jantung', '086737896', '0864677875', 'Banjarmasin', 'Banjarmasin tengah', '', '11 15', 'Jl raya tengah ', 0),
+(16, 'N021', 'Nasir', 'Dokter', 'On', 'Permanen', '', '2018-04-22', '2018-04-04', '0000-00-00', 'Laki-laki', 'Islam', 'S2, Kedokteran Umum', '+6282253099902', '+6282253099902', 'Banjaarmasin', 'Banjarmasin timur', '', 'RT. 04 RW. 01', 'Jl. Raya ', 0);
 
 -- --------------------------------------------------------
 
@@ -245,30 +276,10 @@ CREATE TABLE `pelayanan` (
 --
 
 INSERT INTO `pelayanan` (`id_pelayanan`, `id_pasien`, `id_pegawai`, `id_kamar`, `keluhan`, `diagnosa`, `tgl_masuk`, `tgl_keluar`, `keterangan`) VALUES
-(8, 3, 8, 20, 'Sakit Gigi', 'sa', '2018-04-27', NULL, 'Pasien Sakit Gigi'),
+(8, 3, 8, 20, 'Sakit Gigi', 'sa', '2018-04-27', '2018-04-26', 'sudah pulang'),
 (9, 7, 8, 6, 'Sakit Gigi', NULL, '2018-04-26', NULL, 'Ok'),
-(10, 4, 15, 21, 'dsdsd', NULL, '2018-04-26', NULL, 'Ok');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pengguna`
---
-
-CREATE TABLE `pengguna` (
-  `id_pengguna` int(21) NOT NULL,
-  `nama` varchar(30) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `pengguna`
---
-
-INSERT INTO `pengguna` (`id_pengguna`, `nama`, `username`, `email`, `password`) VALUES
-(1, 'erwin S', 'Badriyah', 'erwin@gmail.com', 'fcea920f7412b5da7be0cf42b8c93759');
+(10, 4, 15, 21, 'dsdsd', 'Sakit Perut Karena MAgg', '2018-04-26', '2018-04-28', 'Dia piulang'),
+(11, 13, 16, 22, 'Sakit Perut', 'Sakit Perut Karena MAgg', '2018-04-28', '2018-04-30', 'Pasien Sakit Perut');
 
 -- --------------------------------------------------------
 
@@ -304,6 +315,13 @@ INSERT INTO `statistik_pasien` (`id_statistik`, `bulan`, `tahun`, `jumlah_pasien
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`),
+  ADD UNIQUE KEY `nama` (`nama`);
 
 --
 -- Indexes for table `inventaris`
@@ -358,13 +376,6 @@ ALTER TABLE `pelayanan`
   ADD KEY `id_kamar` (`id_kamar`);
 
 --
--- Indexes for table `pengguna`
---
-ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id_pengguna`),
-  ADD UNIQUE KEY `nama` (`nama`);
-
---
 -- Indexes for table `statistik_pasien`
 --
 ALTER TABLE `statistik_pasien`
@@ -375,59 +386,50 @@ ALTER TABLE `statistik_pasien`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `inventaris`
 --
 ALTER TABLE `inventaris`
-  MODIFY `id_inventaris` int(21) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_inventaris` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `kamar`
 --
 ALTER TABLE `kamar`
-  MODIFY `id_kamar` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
+  MODIFY `id_kamar` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `ketenagaan_rs`
 --
 ALTER TABLE `ketenagaan_rs`
-  MODIFY `id_ketenagaan` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `id_ketenagaan` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `log_sms`
 --
 ALTER TABLE `log_sms`
-  MODIFY `id_sms` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id_sms` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
+  MODIFY `id_pasien` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
+  MODIFY `id_pegawai` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `pelayanan`
 --
 ALTER TABLE `pelayanan`
-  MODIFY `id_pelayanan` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `pengguna`
---
-ALTER TABLE `pengguna`
-  MODIFY `id_pengguna` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id_pelayanan` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `statistik_pasien`
 --
 ALTER TABLE `statistik_pasien`
   MODIFY `id_statistik` int(21) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
 -- Constraints for dumped tables
 --
@@ -458,7 +460,6 @@ ALTER TABLE `pelayanan`
   ADD CONSTRAINT `pelayanan_ibfk_1` FOREIGN KEY (`id_kamar`) REFERENCES `kamar` (`id_kamar`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pelayanan_ibfk_3` FOREIGN KEY (`id_pasien`) REFERENCES `pasien` (`id_pasien`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pelayanan_ibfk_4` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

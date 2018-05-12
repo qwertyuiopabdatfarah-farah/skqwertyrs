@@ -14,7 +14,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Materialize is a Material Design Admin Template">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
-    <title>Human Resource</title>
+    <title>Farah Saleh Abdat</title>
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
@@ -54,16 +54,15 @@
                         <thead>
                         <tr>
                         <th> No </th>
-                        <th> Nama Pengguna </th>
+                        <th> Nama admin </th>
                         <th> Username </th>
-                        <th> Email </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query = "SELECT * FROM pengguna ORDER BY id_pengguna DESC";
+                        $query = "SELECT * FROM admin ORDER BY id_admin DESC";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
@@ -72,11 +71,10 @@
                         <td><?php echo $no++; ?></td>
                         <td><?php echo $data['nama']; ?></td>  
                         <td><?php echo $data['username']; ?></td>  
-                        <td><?php echo $data['email']; ?></td> 
                         <td style="width:100px;text-align: center;">
                         <?php echo "
-                        <a href='pengguna_form_ubah.php?id_pengguna=$data[id_pengguna]'>|Ubah|</a>
-                        <a href='pengguna_proses_hapus.php?id_pengguna=$data[id_pengguna]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
+                        <a href='admin_form_ubah.php?id_admin=$data[id_admin]'>|Ubah|</a>
+                        <a href='admin_proses_hapus.php?id_admin=$data[id_admin]' onclick=\"return confirm('Anda yakin akan menghapus data ?')\">|Hapus|</a>";
                         ?>
                         </td> 
                         </tr> 

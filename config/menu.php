@@ -44,19 +44,7 @@
                       <li>
                         <a href="pasien_baru.php">
                           <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Data Pasien  Baru</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="pasien_proses.php">
-                          <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Data Pasien Proses Rawat</span>
-                        </a>
-                      </li>
-                       <li>
-                        <a href="pasien_beres.php">
-                          <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Data Pasien Beres Rawat</span>
+                          <span>Data Pasien Baru Masuk</span>
                         </a>
                       </li>
                       <li>
@@ -370,25 +358,25 @@
 
 
                 <li class="li-hover">
-                  <p class="ultra-small margin more-text">Menu Pengguna</p>
+                  <p class="ultra-small margin more-text">Menu Admin</p>
                 </li>
                 <li class="bold">
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">account_circle</i>
-                    <span class="nav-text">Pengguna</span>
+                    <span class="nav-text">Admin</span>
                   </a>
                   <div class="collapsible-body">
                     <ul>
                       <li>
-                        <a href="pengguna_form_simpan.php">
+                        <a href="admin_form_simpan.php">
                           <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Input Data Penguna</span>
+                          <span>Input Data Admin</span>
                         </a>
                       </li>
                       <li>
-                        <a href="pengguna_data.php">
+                        <a href="admin_data.php">
                           <i class="material-icons">keyboard_arrow_right</i>
-                          <span>Data Pengguna</span>
+                          <span>Data Admin</span>
                         </a>
                       </li>
                     </ul>

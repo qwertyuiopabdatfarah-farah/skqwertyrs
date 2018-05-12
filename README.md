@@ -1,4 +1,5 @@
 ini license sublime yang baru
+
 —– BEGIN LICENSE —–
 TwitterInc
 200 User License
@@ -13,6 +14,8 @@ D5D52613 C3D12E98 BC49967F 7652EED2
 E36B85CC 84991F19 7575D828 470A92AB
 —— END LICENSE ——
 
+
+dan ini adalah trigger dalam daatabase ORACLE
 CREATE SEQUENCE seq_id_master_hris;
 
 CREATE OR REPLACE TRIGGER trig_increment_master_hris
@@ -24,9 +27,3 @@ BEGIN
   FROM dual;
 END;
 
-//Erwin Wiguna	
-
-Baca Ini Farah
-Pertama kamu clone dengan perntah "git clone https://github.com/Farah-Skripsi/human_resource.git" di web server kamu, 
-setelah diclone kalau kamu mau dapat updatennya tinggal "git pull"
-Terimkasih, Semoga ALLAH selalu memberi kelancaran dan kemudahan pada kita

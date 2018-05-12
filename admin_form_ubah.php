@@ -14,7 +14,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Materialize is a Material Design Admin Template">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
-    <title>Human Resource</title>
+    <title>Farah Saleh Abdat</title>
      <!-- selec2-->
     <link href="assets/css/select2/select2.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
@@ -54,30 +54,29 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Pelayanan Paien</h4>
+                  <h4 class="header2">Form Isi Data Admin</h4>
                   <div class="row">
                   <?php
                   include 'config/koneksiDB.php';
-                  $id_pengguna = $_GET['id_pengguna'];
-                  $query       = "SELECT * FROM pengguna WHERE id_pengguna='$id_pengguna'";
+                  $id_admin    = $_GET['id_admin'];
+                  $query       = "SELECT * FROM admin WHERE id_admin='$id_admin'";
                   $hasil       = mysqli_query($koneksi, $query);
                    foreach ($hasil as $data)
                   {
-                        $id       = $data['id_pengguna'];
+                        $id       = $data['id_admin'];
                         $nama     = $data['nama'];
                         $username = $data['username'];
-                        $email    = $data['email'];
                    }
                  ?> 
-                    <form class="col s12" action="pengguna_proses_ubah.php" method="POST">
+                    <form class="col s12" action="admin_proses_ubah.php" method="POST">
 
-                      <input type="hidden" name="id_pengguna" value="<?php echo $id; ?>"/> 
+                      <input type="hidden" name="id_admin" value="<?php echo $id; ?>"/> 
 
                       <div class="row">
 
                         <div class="input-field col s6">
                           <input type="text" name="nama" required="required" value="<?php echo $nama; ?>">
-                          <label for="nama">Nama Lengkap Pengguna</label>
+                          <label for="nama">Nama Lengkap Admin</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -86,19 +85,9 @@
                         </div>
                       </div>
 
-
-                      <div class="row">
-
-                        <div class="input-field col s6">
-                          <input type="text" name="email" required="required" value="<?php echo $email; ?>">
-                          <label for="email">Email Pengguna</label>
-                        </div>
-
-                      </div>
-
                         <div class="row">
                           <div class="input-field col s12">
-                            <button class="btn cyan waves-effect waves-light right" type="submit" name="ubah_pengguna">Simpan
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="ubah_admin">Simpan
                               <i class="material-icons right">send</i>
                             </button>
                           </div>

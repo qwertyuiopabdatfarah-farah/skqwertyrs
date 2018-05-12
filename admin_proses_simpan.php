@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pesan</title> 
+  <title>Farah Saleh Abdat</title> 
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet">
     <link href="assets/css/sweetalert.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <?php
-if (isset($_POST['simpan_pengguna'])) {
+if (isset($_POST['simpan_admin'])) {
   $nama     = $_POST["nama"];
   $username = $_POST['username'];
-  $email    = $_POST['email'];
   $password = md5($_POST['password']);
 
 
 include 'config/koneksiDB.php'; 
-$cekdata = "select username from pengguna where username='$username'";
+$cekdata = "select username from admin where username='$username'";
 $ada     = mysqli_query($koneksi, $cekdata) or die(mysqli_error());
 if(mysqli_num_rows($ada)>0)
 { 
@@ -29,7 +28,7 @@ if(mysqli_num_rows($ada)>0)
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "pengguna_form_simpan.php";
+                  window.location.href = "admin_form_simpan.php";
             });
             },10); 
             window.setTimeout(function(){ 
@@ -37,13 +36,11 @@ if(mysqli_num_rows($ada)>0)
             </script>';
 }
 else{
-$query_simpan = 'INSERT INTO pengguna (nama,
+$query_simpan = 'INSERT INTO admin (nama,
                                      username,
-                                     email,
                                      password)
 	                VALUES ("'.$nama.'",
 	                       "'.$username.'",
-                         "'.$email.'", 
 	                       "'.$password.'")';
 
 $hasil = mysqli_query($koneksi, $query_simpan);
@@ -58,7 +55,7 @@ if($hasil){
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "pengguna_form_simpan.php";
+                  window.location.href = "admin_form_simpan.php";
             });
             },10); 
             window.setTimeout(function(){ 

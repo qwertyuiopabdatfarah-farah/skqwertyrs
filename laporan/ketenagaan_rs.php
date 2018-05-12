@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Laporan Data Pasien</title>
+    <title>Farah Saleh Abdat</title>
     <script>window.print()</script>
 </head>
 <body>
@@ -75,13 +75,7 @@
     <table width="80%" align="right" border="0">
     <tr>
         <td width="20%"></td>
-        <td align="center">BANJARMASIN, <?php echo $tgl;?><br>PENGEMBANGAN TEKNOLOGI INFORMASI DAN KOMUNIKASI (PTIK) ULM <br>KALIMANTAN SELATAN
-        <br>KASUBAG<br>
-        <img src="kepala_surat/ttd.png" alt="TandataTangan">
-        <br/>
-        EKA SETYA WIJAYA <br/>
-        <hr width="20%"></hr>
-        NIP. 12345678910</td>
+        <td align="center">Banjarmasin, <?php echo $tgl;?><br>RUMAH SAKIT ISLAM BANJARMASIN <br>KALIMANTAN SELATAN
     </tr>
 </table>
 </body>

@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Laporan Data Pasien</title>
+    <title>Farah Saleh Abdat</title>
     <script>window.print()</script>
 </head>
 <body>
 <p align="center"><img src="../config/gambar_tampilan/favicon/kepala_surat.jpg" alt="kepala_surat" style="width:100%"></p>
-    <h1><p align="center">Laporan Data Pasien Baru Rumah Sakit Islam Banjarmasin</p></h1>
+    <h1><p align="center">Laporan Data Semua Rumah Sakit Islam Banjarmasin</p></h1>
         <table style="border-collapse: collapse; width: 100%: text-align: 100px;" border="1px">
             <thead>
                 <tr>
@@ -31,7 +31,7 @@
                     <tbody>
                      <?php
                      include '../config/koneksiDB.php';  
-                     $query = "SELECT * FROM pasien  WHERE status = 'Baru' ORDER BY id_pasien DESC";
+                     $query = "SELECT * FROM pasien ORDER BY id_pasien DESC";
                      $result = mysqli_query($koneksi, $query) or die(mysqli_error());
                      while ($row = mysqli_fetch_array($result, MYSQLI_BOTH))
                     {?>
@@ -65,13 +65,7 @@
     <table width="80%" align="right" border="0">
     <tr>
         <td width="20%"></td>
-        <td align="center">BANJARMASIN, <?php echo $tgl;?><br>PENGEMBANGAN TEKNOLOGI INFORMASI DAN KOMUNIKASI (PTIK) ULM <br>KALIMANTAN SELATAN
-        <br>KASUBAG<br>
-        <img src="kepala_surat/ttd.png" alt="TandataTangan">
-        <br/>
-        EKA SETYA WIJAYA <br/>
-        <hr width="20%"></hr>
-        NIP. 12345678910</td>
+        <td align="center">Banjarmasin, <?php echo $tgl;?><br>RUMAH SAKIT ISLAM BANJARMASIN <br>KALIMANTAN SELATAN
     </tr>
 </table>
 </body>

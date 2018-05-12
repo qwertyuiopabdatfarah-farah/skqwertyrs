@@ -1,5 +1,5 @@
 <?php
 
-header('Location: login_form.php');
+header('Location: visitor/temukan-pasien.php');
 
 ?>

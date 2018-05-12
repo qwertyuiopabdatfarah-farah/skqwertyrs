@@ -14,7 +14,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Materialize is a Material Design Admin Template">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template">
-    <title>Human Resource</title>
+    <title>Farah Saleh Abdat</title>
      <!-- selec2-->
     <link href="assets/css/select2/select2.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="config/gambar_tampilan/favicon/favicon-32x32.png" sizes="32x32">
@@ -22,6 +22,7 @@
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
     <link rel="apple-touch-icon-precomposed" href="config/gambar_tampilan/favicon/apple-touch-icon-152x152.png">
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/select2/select2-materialize.css" type="text/css" rel="stylesheet">
     <link href="assets/css/style.css" type="text/css" rel="stylesheet">
     <link href="assets/css/custom.css" type="text/css" rel="stylesheet">
     <link href="assets/css/perfect-scrollbar.css" type="text/css" rel="stylesheet">
@@ -81,7 +82,7 @@
                         </div>
 
                         <div class="input-field col s6">
-                          <select name="nama_ketenagaan" required="required">
+                          <select name="nama_ketenagaan" required="required" class="js-example-basic-single">
                             <option value="" disabled selected>.:Pilih Nama Ketenagaan:.</option>
                             <option value="Tenaga Medik">Tenaga Medik</option>
                             <option value="Tenaga Paramadik">Tenaga Paramadik</option>

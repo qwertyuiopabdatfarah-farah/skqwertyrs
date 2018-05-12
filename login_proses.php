@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pesan</title> 
+  <title>Farah Saleh Abdat</title> 
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet">
     <link href="assets/css/sweetalert.css" type="text/css" rel="stylesheet">
 </head>
@@ -11,17 +11,16 @@
 
 @$username = $_POST['username']; 
 @$password = md5($_POST['password']); 
-@$sql      = "SELECT * FROM pengguna WHERE username='$username' and password='$password'";
+@$sql      = "SELECT * FROM admin WHERE username='$username' and password='$password'";
 include 'config/koneksiDB.php'; 
 @$result   = mysqli_query($koneksi, $sql); 
 @$count    = mysqli_num_rows($result); 
 if($count==1){ 
   @$datalogin = mysqli_fetch_array($result, MYSQLI_ASSOC);
   session_start(); 
-  @$_SESSION['id_pengguna'] = $datalogin['id_pengguna'];
+  @$_SESSION['id_admin'] = $datalogin['id_admin'];
   @$_SESSION['nama']        = $datalogin['nama'];
   @$_SESSION['username']    = $datalogin['username'];
-  @$_SESSION['email']       = $datalogin['email'];
   header('Location: dashboard.php');     
 }
  else{

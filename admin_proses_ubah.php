@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pesan</title> 
+  <title>Farah Saleh Abdat</title> 
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet">
     <link href="assets/css/sweetalert.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <?php 
-if (isset($_POST['ubah_pengguna'])) {
-    $id_pengguna    = $_POST['id_pengguna'];
+if (isset($_POST['ubah_admin'])) {
+    $id_admin    = $_POST['id_admin'];
 	$nama           = $_POST['nama'];
 	$username       = $_POST['username'];
-	$email          = $_POST['email'];
 	
 include 'config/koneksiDB.php'; 
-$ubah = 'UPDATE pengguna set nama     = "'.$nama.'",
-							 username = "'.$username.'",
-							 email    = "'.$email.'"
-WHERE id_pengguna="'.$id_pengguna.'"';
+$ubah = 'UPDATE admin set nama = "'.$nama.'",
+							            username = "'.$username.'",
+                          WHERE id_admin="'.$id_admin.'"';
 
 $query = mysqli_query($koneksi, $ubah);
 if(!$query){
@@ -33,7 +31,7 @@ if(!$query){
               timer: 2000,
               showConfirmButton: true
             }, function(){
-                  window.location.href = "pengguna_data.php";
+                  window.location.href = "admin_data.php";
             });
             },10); 
             window.setTimeout(function(){ 

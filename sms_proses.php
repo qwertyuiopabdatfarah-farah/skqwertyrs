@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pesan</title> 
+  <title>Farah Saleh Abdat</title> 
     <link href="assets/css/materialize.css" type="text/css" rel="stylesheet">
     <link href="assets/css/sweetalert.css" type="text/css" rel="stylesheet">
 </head>
@@ -25,15 +25,15 @@ if (isset($_POST['kirim_sms'])) {
 //https://platform.clickatell.com/messages/http/send?apiKey=Uv0_5Cy7Sc-GW9YjgdZL7g==&to=6285351644655&content=Hai
 //https://www.textlocal.com/signup/
 // Akunnya.
-$username = "abdatfarah@gmail.com";
-$hash = "f1eb85615e2f1a29afb569d2e00423e8959d3c56c3998d48a2cd2539b51da236";
+$username = "abdatfarah@gmail.com";  //yang diganti kalau daftar baru
+$hash = "f1eb85615e2f1a29afb569d2e00423e8959d3c56c3998d48a2cd2539b51da236";//ini yang diganti kalau daftar baru
 
 //variabel 0
 $test    = "0";
 //nomer telepon penerima SMS berdasarkan pasien yang sdah terdaftar
 $numbers = $no_telepon; 
 $sender  = "API Test";
-$message = "No Registrasi = {$no_registerasis} Nama Lengkap = {$nama_lengkap} Nama Ibu Kandung = {$nama_ibu_kandung} Tempat Lahir = {$tempat_lahir} Jenis Kelamin = {$jenis_kelamin} Alamat = {$alamat_jln}";
+$message = "No Registrasi = {$no_registerasi} Nama Lengkap = {$nama_lengkap} Nama Ibu Kandung = {$nama_ibu_kandung} Tempat Lahir = {$tempat_lahir} Jenis Kelamin = {$jenis_kelamin} Alamat = {$alamat_jln}";
 
 $message = urlencode($message);
 

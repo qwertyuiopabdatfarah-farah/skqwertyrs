@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Data Statistik Pasien RS Tahun 2018</title>
+    <title>Farah Saleh Abdat</title>
     <link href="../assets/css/materialize.css" type="text/css" rel="stylesheet">
     <link href="../assets/css/style.css" type="text/css" rel="stylesheet">
     <script>window.print()</script>
