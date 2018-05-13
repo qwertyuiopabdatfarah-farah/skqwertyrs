@@ -14,7 +14,7 @@ if (isset($_POST['ubah_admin'])) {
 	
 include 'config/koneksiDB.php'; 
 $ubah = 'UPDATE admin set nama = "'.$nama.'",
-							            username = "'.$username.'",
+							            username = "'.$username.'"
                           WHERE id_admin="'.$id_admin.'"';
 
 $query = mysqli_query($koneksi, $ubah);
