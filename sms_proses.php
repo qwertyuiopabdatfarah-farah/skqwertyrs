@@ -19,33 +19,23 @@ if (isset($_POST['kirim_sms'])) {
   $alamat_jln       = $_POST['alamat_jln'];
 
 
-
-//kalsel 2 009
-//https://control.txtlocal.co.uk/docs/api/code/post/
-//https://platform.clickatell.com/messages/http/send?apiKey=Uv0_5Cy7Sc-GW9YjgdZL7g==&to=6285351644655&content=Hai
-//https://www.textlocal.com/signup/
-// Akunnya.
-$username = "abdatfarah@gmail.com";  //yang diganti kalau daftar baru
-$hash = "f1eb85615e2f1a29afb569d2e00423e8959d3c56c3998d48a2cd2539b51da236";//ini yang diganti kalau daftar baru
-
-//variabel 0
-$test    = "0";
-//nomer telepon penerima SMS berdasarkan pasien yang sdah terdaftar
-$numbers = $no_telepon; 
-$sender  = "API Test";
+$userkey = "hglrnq";
+$passkey = "saleh123Q";
+$nohp    = $no_telepon;
 $message = "No Registrasi = {$no_registerasi} Nama Lengkap = {$nama_lengkap} Nama Ibu Kandung = {$nama_ibu_kandung} Tempat Lahir = {$tempat_lahir} Jenis Kelamin = {$jenis_kelamin} Alamat = {$alamat_jln}";
 
-$message = urlencode($message);
-
-
-$message = urlencode($message);
-$data    = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$numbers."&test=".$test;
-$ch = curl_init('http://api.txtlocal.com/send/?');
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result = curl_exec($ch); // This is the result from the API
-curl_close($ch);
+$url = "https://reguler.zenziva.net/apps/smsapi.php";
+$curlHandle = curl_init();
+curl_setopt($curlHandle, CURLOPT_URL, $url);
+curl_setopt($curlHandle, CURLOPT_POSTFIELDS, 'userkey='.$userkey.'&passkey='.$passkey.'&nohp='.$nohp.'&pesan='.urlencode($message));
+curl_setopt($curlHandle, CURLOPT_HEADER, 0);
+curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
+curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
+curl_setopt($curlHandle, CURLOPT_POST, 1);
+$results = curl_exec($curlHandle);
+curl_close($curlHandle);
 
 include 'config/koneksiDB.php'; 
 //update log sms
