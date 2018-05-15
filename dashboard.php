@@ -48,10 +48,20 @@
           <div class="container">
           <?php 
           include 'config/koneksiDB.php';
-          $data_bulan = mysqli_query($koneksi, "SELECT bulan FROM `statistik_pasien` WHERE `tahun` = 2018");
-          $jumlah     = mysqli_query($koneksi, "SELECT jumlah_pasien FROM `statistik_pasien` WHERE `tahun`=2018 order by id_statistik asc");
-          $result     = mysqli_query($koneksi, "SELECT sum(jumlah_pasien) AS total FROM `statistik_pasien`");
-          $data       = mysqli_fetch_assoc($result);
+          //Pasien Baru Masuk
+          $semua_data     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `semua` FROM pasien");
+          $pasien_semua   = mysqli_fetch_assoc($semua_data);          
+
+          //Pasien Baru Masuk
+          $data_baru_masuk     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `jumlah_masuk` FROM pasien WHERE status = 'Baru'");
+          $pasien_baru_masuk   = mysqli_fetch_assoc($data_baru_masuk);
+          //Pasien Proses Inap
+          $data_proses     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `jumlah_proses` FROM pasien WHERE status = 'Proses'");
+          $pasien_proses   = mysqli_fetch_assoc($data_proses);
+          //Pasien Beres Rawat Inap
+          $data_keluar     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `jumlah_keluar` FROM pasien WHERE status = 'Keluar'");
+          $pasien_keluar   = mysqli_fetch_assoc($data_keluar);
+
           ?>
           
             <div id="sales-chart">
@@ -59,9 +69,9 @@
                 <div class="col s12 m8 l12">
                   <div id="revenue-chart" class="card">
                     <div class="card-content">
-                      <h4 class="header mt-0">Data Ststistik PAsien Rumah Sakit Islam Banjarmasin Tahun 2018
+                      <h4 class="header mt-0">Data Ststistik Pasien Rumah Sakit Islam Banjarmasin
                         <span class="purple-text small text-darken-1 ml-1"></span> 
-                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien : <?php echo $data['total']; ?> Orang</a>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasien_semua['semua']; ?>  Orang</a>
                       </h4>
                       <div class="row">
                         <div class="col s12">
@@ -87,7 +97,7 @@
 
               //Sampel Line Chart 
        var LineChartSampleData = {
-        labels: [<?php while ($bulan = mysqli_fetch_array($data_bulan)) { echo '"' . $bulan['bulan'] . '",';}?>],
+        labels: ['Pasien Baru Masuk', 'Pasien Sedang Rawat Inap', 'Pasien Sudah Rawat Inap'],
         datasets: [{
          label: "My First dataset",
          fillColor: "rgba(0, 191, 165,0.2)",
@@ -96,7 +106,7 @@
          pointStrokeColor: "#fff",
          pointHighlightFill: "#fff",
          pointHighlightStroke: "rgba(0, 191, 165,1)",
-         data: [<?php while ($berapa = mysqli_fetch_array($jumlah)) { echo '"' . $berapa['jumlah_pasien'] . '",';}?>]
+         data: ['<?php echo $pasien_baru_masuk['jumlah_masuk']; ?>', '<?php echo $pasien_proses['jumlah_proses']; ?>', '<?php echo $pasien_keluar['jumlah_keluar']; ?>']
         }]
        };
           window.onload = function() {

@@ -27,3 +27,18 @@ BEGIN
   FROM dual;
 END;
 
+
+Jika Triger yang diatas tidak berfungsi cobai yang ini :
+
+create sequence log_seq 
+start with 1 
+increment by 1 
+nomaxvalue;
+
+create trigger log_trigger
+before insert on CREATE_LOG
+for each row
+begin
+select log_seq.nextval into :new.id from dual;
+end;
+
