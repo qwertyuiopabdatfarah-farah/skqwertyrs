@@ -85,7 +85,7 @@
                   </div>
                 </li>
 
-                <li class="bold">
+                <!-- <li class="bold">
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">pie_chart_outlined</i>
                     <span class="nav-text">Statistik</span>
@@ -106,7 +106,7 @@
                       </li>
                     </ul>
                   </div>
-                </li>
+                </li> -->
 
                 <li class="bold">
                 <a href="sms_data.php" class="waves-effect waves-cyan">
