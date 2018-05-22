@@ -11,6 +11,7 @@
               <a href="javascript:;" class="brand-logo darken-1">
                 <span class="logo-text hide-on-med-and-down"><b><?php echo $_SESSION['username'] ?></span>
               </a>
+
               <a href="#" class="navbar-toggler">
                 <i class="material-icons">radio_button_checked</i>
               </a>
@@ -18,21 +19,39 @@
           </div>
           <ul id="slide-out" class="side-nav fixed leftside-navigation">
             <li class="no-padding">
+
+
+
+
+
+
               <li class="li-hover">
               <p class="ultra-small margin more-text">Menu Pasien</p>
               </li>
+
+
+
              <li class="bold">
                 <a href="dashboard.php" class="waves-effect waves-cyan">
                     <i class="material-icons">dashboard</i>
                     <span class="nav-text">Statistik Data Pasien</span>
                   </a>
               </li>
+
               <ul class="collapsible" data-collapsible="accordion">
+
+
+
+              <!-- mulai dari sini -->
+
+<!-- awal menu -->
                 <li class="bold">
+
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">dvr</i>
                     <span class="nav-text">Pasien</span>
                   </a>
+
                   <div class="collapsible-body">
                     <ul>
                       <li>
@@ -56,7 +75,12 @@
                     </ul>
                   </div>
                 </li>
-                <li class="bold">
+<!-- Akhir Menu -->                
+
+
+
+<!-- awal menu -->
+               <li class="bold">
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">web</i>
                     <span class="nav-text">Pelayanan Pasien</span>
@@ -84,8 +108,11 @@
                     </ul>
                   </div>
                 </li>
+<!-- akhir menu -->  
 
-                <!-- <li class="bold">
+
+<!-- awal  menu -->
+                <li class="bold">
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">pie_chart_outlined</i>
                     <span class="nav-text">Statistik</span>
@@ -106,15 +133,22 @@
                       </li>
                     </ul>
                   </div>
-                </li> -->
+                </li>
+<!-- akhir menu -->     
 
+
+<!-- awal menu -->
                 <li class="bold">
                 <a href="sms_data.php" class="waves-effect waves-cyan">
                     <i class="material-icons">verified_user</i>
                     <span class="nav-text">Kirim Notifikasi</span>
                   </a>
                 </li>
+<!-- akhir menu -->                
 
+
+
+<!-- menu yang maeke default -->
                 <li class="li-hover">
                   <p class="ultra-small margin more-text">Menu Pegawai</p>
                 </li>
@@ -140,6 +174,11 @@
                     </ul>
                   </div>
                 </li>
+<!-- akhir menu -->
+
+
+
+<!-- awal menu -->
                 <li class="bold">
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">invert_colors</i>
@@ -162,6 +201,9 @@
                     </ul>
                   </div>
                 </li>
+<!-- akhir menu -->
+
+<!-- awal menu -->
                 <li class="li-hover">
                   <p class="ultra-small margin more-text">Menu Ruangan RS</p>
                 </li>
@@ -201,6 +243,11 @@
                     </ul>
                   </div>
                 </li>
+<!-- akhir menu -->
+
+
+
+<!-- akhir menu -->
                 <li class="bold">
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">library_add</i>
@@ -223,12 +270,14 @@
                     </ul>
                   </div>
                 </li>
+<!-- akhir menu -->
 
 
-
+<!-- awal menu make default -->
                 <li class="li-hover">
                   <p class="ultra-small margin more-text">Menu Laporan</p>
                 </li>
+
                 <li class="bold">
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">import_contacts</i>
@@ -354,9 +403,10 @@
                     </ul>
                   </div>
                 </li>
+<!-- akhir mneu -->
 
 
-
+<!-- awal menu -->
                 <li class="li-hover">
                   <p class="ultra-small margin more-text">Menu Admin</p>
                 </li>
@@ -382,11 +432,15 @@
                     </ul>
                   </div>
                 </li>
+<!-- akhir menu --> 
+
+
               </ul>
             </li>
           </ul>
+
+
           <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only gradient-45deg-light-blue-cyan gradient-shadow">
             <i class="material-icons">menu</i>
           </a>
-        </aside>
-        
+        </aside>    
