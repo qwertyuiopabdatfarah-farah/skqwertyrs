@@ -112,7 +112,7 @@
 
 
 <!-- awal  menu -->
-                <li class="bold">
+                <!-- <li class="bold">
                   <a class="collapsible-header waves-effect waves-cyan">
                     <i class="material-icons">pie_chart_outlined</i>
                     <span class="nav-text">Statistik</span>
@@ -133,7 +133,7 @@
                       </li>
                     </ul>
                   </div>
-                </li>
+                </li> -->
 <!-- akhir menu -->     
 
 
@@ -331,12 +331,12 @@
 
 
 
-                      <li>
+                      <!-- <li>
                         <a href="laporan/statistik.php" target="blank">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Statistik</span>
                         </a>
-                      </li>
+                      </li> -->
                      
                      <li>
                         <a href="laporan/ketenagaan_rs.php" target="blank">
