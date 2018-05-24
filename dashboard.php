@@ -48,7 +48,10 @@
           <div class="container">
           <?php 
           include 'config/koneksiDB.php';
-          //Pasien Baru Masuk
+          $data_bulan = mysqli_query($koneksi, "SELECT bulan FROM `statistik_pasien` WHERE `tahun` = 2018");
+          $jumlah     = mysqli_query($koneksi, "SELECT jumlah_pasien FROM `statistik_pasien` WHERE `tahun`=2018 order by id_statistik asc");
+          //ini total pasien
+
           $semua_data     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `semua` FROM pasien");
           $pasien_semua   = mysqli_fetch_assoc($semua_data);          
 
@@ -61,7 +64,7 @@
           //Pasien Beres Rawat Inap
           $data_keluar     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `jumlah_keluar` FROM pasien WHERE status = 'Keluar'");
           $pasien_keluar   = mysqli_fetch_assoc($data_keluar);
-
+         
           ?>
           
             <div id="sales-chart">
@@ -69,9 +72,17 @@
                 <div class="col s12 m8 l12">
                   <div id="revenue-chart" class="card">
                     <div class="card-content">
-                      <h4 class="header mt-0">Data Ststistik Pasien Rumah Sakit Islam Banjarmasin
-                        <span class="purple-text small text-darken-1 ml-1"></span> 
-                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasien_semua['semua']; ?>  Orang</a>
+                      <h4 class="header mt-0">Data Ststistik Pasien Rumah Sakit Islam Banjarmasin Tahun 2018
+                        <span class="purple-text small text-darken-1 ml-1"></span>
+                        <br/>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Masuk : <?php echo $pasien_baru_masuk['jumlah_masuk']; ?> Orang</a>
+                        <br/><br/>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Dirawat : <?php echo $pasien_proses['jumlah_proses']; ?> Orang</a>
+                        <br/><br/>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Keluar : <?php echo $pasien_keluar['jumlah_keluar']; ?> Orang</a>
+                        <br/><br/>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasien_semua['semua']; ?> Orang</a>
+
                       </h4>
                       <div class="row">
                         <div class="col s12">
@@ -94,10 +105,9 @@
       <!-- chartjs -->
       <script type="text/javascript" src="assets/js/chart.min.js"></script>
       <script type="text/javascript">
-
               //Sampel Line Chart 
        var LineChartSampleData = {
-        labels: ['Pasien Baru Masuk', 'Pasien Sedang Rawat Inap', 'Pasien Sudah Rawat Inap'],
+        labels: [<?php while ($bulan = mysqli_fetch_array($data_bulan)) { echo '"' . $bulan['bulan'] . '",';}?>],
         datasets: [{
          label: "My First dataset",
          fillColor: "rgba(0, 191, 165,0.2)",
@@ -106,14 +116,13 @@
          pointStrokeColor: "#fff",
          pointHighlightFill: "#fff",
          pointHighlightStroke: "rgba(0, 191, 165,1)",
-         data: ['<?php echo $pasien_baru_masuk['jumlah_masuk']; ?>', '<?php echo $pasien_proses['jumlah_proses']; ?>', '<?php echo $pasien_keluar['jumlah_keluar']; ?>']
+         data: [<?php while ($berapa = mysqli_fetch_array($jumlah)) { echo '"' . $berapa['jumlah_pasien'] . '",';}?>]
         }]
        };
           window.onload = function() {
           window.LineChartSample = new Chart(document.getElementById("line-chart-sample").getContext("2d")).Line(LineChartSampleData,{
            responsive:true
           });
-
          };
       </script>
       
