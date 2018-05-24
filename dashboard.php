@@ -72,7 +72,7 @@
                 <div class="col s12 m8 l12">
                   <div id="revenue-chart" class="card">
                     <div class="card-content">
-                      <h4 class="header mt-0">Data Ststistik Pasien Rumah Sakit Islam Banjarmasin Tahun 2018
+                      <h4 class="header mt-0">Data Stastistik Pasien Rumah Sakit Islam Banjarmasin Tahun 2018
                         <span class="purple-text small text-darken-1 ml-1"></span>
                         <br/>
                         <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Masuk : <?php echo $pasien_baru_masuk['jumlah_masuk']; ?> Orang</a>
