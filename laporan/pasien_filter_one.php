@@ -51,7 +51,7 @@
                                          LEFT JOIN pegawai 
                                          ON pegawai.id_pegawai = pelayanan.id_pegawai
                                          LEFT JOIN kamar ON Kamar.id_kamar = pelayanan.id_kamar
-                                         WHERE pelayanan.diagnosa IS NOT NULL AND pelayanan.tgl_keluar IS NOT NULL AND pasien.no_registerasi = '$no_registerasi'";
+                                         WHERE pasien.status='Keluar' AND pasien.no_registerasi = '$no_registerasi'";
                                          $result = mysqli_query($koneksi, $query) or die(mysqli_error());
                                          if (mysqli_num_rows($result) > 0) {
                                          while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)){

@@ -56,8 +56,8 @@
                         <th> No </th>
                         <th> Nama Lengkap Pasien </th>
                         <th> Nama Dokter Pemeriksa </th>
-                        <th> Nama Kamar </th>
                         <th> Tanggal Masuk </th>
+                        <th> Tanggal Keluar </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
@@ -79,7 +79,7 @@
                                          LEFT JOIN pegawai 
                                          ON pegawai.id_pegawai = pelayanan.id_pegawai
                                          LEFT JOIN kamar
-                                         ON Kamar.id_kamar = pelayanan.id_kamar WHERE pelayanan.diagnosa IS NOT NULL AND pelayanan.tgl_keluar IS NOT NULL";
+                                         ON Kamar.id_kamar = pelayanan.id_kamar WHERE pasien.status = 'Keluar'";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
@@ -87,9 +87,9 @@
                         <tr>
                         <td><?php echo $no++; ?></td>
                         <td><?php echo $data['nama_lengkap']; ?></td>  
-                        <td><?php echo $data['nama_pegawai']; ?></td>  
-                        <td><?php echo $data['nama_kamar']; ?></td> 
+                        <td><?php echo $data['nama_pegawai']; ?></td>   
                         <td><?php echo $data['tgl_masuk']; ?></td>
+                        <td><?php echo $data['tgl_keluar']; ?></td>
                         <td style="width:100px;text-align: center;">
                         <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_pelayanan']; ?>'>|Detail|</a>
                         </td> 

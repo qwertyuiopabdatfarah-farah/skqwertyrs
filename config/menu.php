@@ -331,12 +331,12 @@
 
 
 
-                      <!-- <li>
+                     <li>
                         <a href="laporan/statistik.php" target="blank">
                           <i class="material-icons">keyboard_arrow_right</i>
                           <span>Statistik</span>
                         </a>
-                      </li> -->
+                      </li> 
                      
                      <li>
                         <a href="laporan/ketenagaan_rs.php" target="blank">
