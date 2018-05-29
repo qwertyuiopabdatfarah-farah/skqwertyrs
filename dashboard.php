@@ -50,12 +50,12 @@
           include 'config/koneksiDB.php';
           $data_bulan = mysqli_query($koneksi, "SELECT bulan FROM `statistik_pasien` WHERE `tahun` = 2018");
           $jumlah     = mysqli_query($koneksi, "SELECT SUM(jumlah_pasien) AS `jumlahnya` FROM `statistik_pasien` WHERE `tahun`=2018 order by id_statistik asc");
-          $pasien_semua   = mysqli_fetch_assoc($jumlah);
+          $pasienya   = mysqli_fetch_assoc($jumlah);
 
           //ini total pasien
 
-          /*$semua_data     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `semua` FROM pasien");
-          $pasien_semua   = mysqli_fetch_assoc($semua_data);*/          
+          $semua_data     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `semua` FROM pasien");
+          $pasien_semua   = mysqli_fetch_assoc($semua_data);        
 
           //Pasien Baru Masuk
           $data_baru_masuk     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `jumlah_masuk` FROM pasien WHERE status = 'Baru'");
@@ -83,7 +83,7 @@
                         <br/><br/>
                         <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Keluar : <?php echo $pasien_keluar['jumlah_keluar']; ?> Orang</a>
                         <br/><br/>
-                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasien_semua['jumlahnya']; ?> Orang</a>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasienya['jumlahnya']; ?> Orang</a>
 
                       </h4>
                       <div class="row">
