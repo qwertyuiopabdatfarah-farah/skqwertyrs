@@ -49,14 +49,20 @@
           <?php 
           include 'config/koneksiDB.php';
           $data_bulan = mysqli_query($koneksi, "SELECT bulan FROM `statistik_pasien` WHERE `tahun` = 2018");
+          
+          $jumlah_pasien     = mysqli_query($koneksi, "SELECT jumlah_pasien AS `jumlah` FROM `statistik_pasien` WHERE `tahun`=2018 order by id_statistik asc");
+
+
+          //ini total pasien statistik
+          /*$semua_data     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `semua` FROM pasien");
+          $pasien_semua   = mysqli_fetch_assoc($semua_data);*/
           $jumlah     = mysqli_query($koneksi, "SELECT SUM(jumlah_pasien) AS `jumlahnya` FROM `statistik_pasien` WHERE `tahun`=2018 order by id_statistik asc");
-          $pasienya   = mysqli_fetch_assoc($jumlah);
+          $pasienya   = mysqli_fetch_assoc($jumlah); 
 
-          //ini total pasien
 
-          $semua_data     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `semua` FROM pasien");
-          $pasien_semua   = mysqli_fetch_assoc($semua_data);        
-
+          //Pasien All
+          $pasiens     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `all_pasien` FROM pasien");
+          $pasiens_all = mysqli_fetch_assoc($pasiens);
           //Pasien Baru Masuk
           $data_baru_masuk     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `jumlah_masuk` FROM pasien WHERE status = 'Baru'");
           $pasien_baru_masuk   = mysqli_fetch_assoc($data_baru_masuk);
@@ -83,8 +89,8 @@
                         <br/><br/>
                         <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Keluar : <?php echo $pasien_keluar['jumlah_keluar']; ?> Orang</a>
                         <br/><br/>
-                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasienya['jumlahnya']; ?> Orang</a>
-
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Data Seluruh Pasien : <?php echo $pasiens_all['all_pasien']; ?> Orang</a>
+                        <br/><br/>
                       </h4>
                       <div class="row">
                         <div class="col s12">
@@ -100,7 +106,10 @@
               </div>
             </div>
            </div> 
+
+      <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien Pada Data Statistik : <?php echo $pasienya['jumlahnya']; ?> Orang</a>
         </section>
+      <br/><br/><br/><br/>
      <?php include 'config/footer.php'; ?>
       <!-- jQuery Library -->
       <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
@@ -118,7 +127,7 @@
          pointStrokeColor: "#fff",
          pointHighlightFill: "#fff",
          pointHighlightStroke: "rgba(0, 191, 165,1)",
-         data: [<?php while ($berapa = mysqli_fetch_array($jumlah)) { echo '"' . $berapa['jumlah_pasien'] . '",';}?>]
+         data: [<?php while ($berapa = mysqli_fetch_array($jumlah_pasien)) { echo '"' . $berapa['jumlah'] . '",';}?>]
         }]
        };
           window.onload = function() {
@@ -127,7 +136,6 @@
           });
          };
       </script>
-      
       <!--materialize js-->
       <script type="text/javascript" src="assets/js/materialize.min.js"></script>
       <!--prism-->
