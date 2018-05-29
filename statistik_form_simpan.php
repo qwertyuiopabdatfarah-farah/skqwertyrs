@@ -68,7 +68,7 @@
                         ?>
                         <tr>
                         <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['no_registrasi']; ?></td>
+                        <td><?php echo $data['no_registerasi']; ?></td>
                         <td><?php echo $data['nama_lengkap']; ?></td>      
                         </tr>  
 
