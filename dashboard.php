@@ -50,10 +50,12 @@
           include 'config/koneksiDB.php';
           $data_bulan = mysqli_query($koneksi, "SELECT bulan FROM `statistik_pasien` WHERE `tahun` = 2018");
           $jumlah     = mysqli_query($koneksi, "SELECT jumlah_pasien FROM `statistik_pasien` WHERE `tahun`=2018 order by id_statistik asc");
+          $pasien_semua   = mysqli_fetch_assoc($jumlah);
+
           //ini total pasien
 
-          $semua_data     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `semua` FROM pasien");
-          $pasien_semua   = mysqli_fetch_assoc($semua_data);          
+          /*$semua_data     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `semua` FROM pasien");
+          $pasien_semua   = mysqli_fetch_assoc($semua_data);*/          
 
           //Pasien Baru Masuk
           $data_baru_masuk     = mysqli_query($koneksi, "SELECT COUNT(id_pasien) AS `jumlah_masuk` FROM pasien WHERE status = 'Baru'");
