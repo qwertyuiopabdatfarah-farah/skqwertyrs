@@ -61,7 +61,7 @@
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query = "SELECT * pasien ORDER BY id_pasien DESC";
+                        $query = "SELECT * FROM pasien ORDER BY id_pasien DESC";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
