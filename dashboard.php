@@ -49,7 +49,7 @@
           <?php 
           include 'config/koneksiDB.php';
           $data_bulan = mysqli_query($koneksi, "SELECT bulan FROM `statistik_pasien` WHERE `tahun` = 2018");
-          $jumlah     = mysqli_query($koneksi, "SELECT COUNT(jumlah_pasien) FROM `statistik_pasien` WHERE `tahun`=2018 order by id_statistik asc");
+          $jumlah     = mysqli_query($koneksi, "SELECT SUM(jumlah_pasien) AS `jumlahnya` FROM `statistik_pasien` WHERE `tahun`=2018 order by id_statistik asc");
           $pasien_semua   = mysqli_fetch_assoc($jumlah);
 
           //ini total pasien
@@ -83,7 +83,7 @@
                         <br/><br/>
                         <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Keluar : <?php echo $pasien_keluar['jumlah_keluar']; ?> Orang</a>
                         <br/><br/>
-                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasien_semua['jumlah_pasien']; ?> Orang</a>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasien_semua['jumlahnya']; ?> Orang</a>
 
                       </h4>
                       <div class="row">
