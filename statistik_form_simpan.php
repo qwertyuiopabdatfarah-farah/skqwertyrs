@@ -39,7 +39,7 @@
   <?php include 'config/header.php'; ?>
   <!-- END MENU -->
   <?php include 'config/menu.php'; ?>
-        <!-- START CONTENT -->
+ <!-- START CONTENT -->
         <section id="content">
           <!--start container-->
           <div class="container">
@@ -54,22 +54,45 @@
                         <thead>
                         <tr>
                         <th> No </th>
-                        <th> No Registrasi </th>
-                        <th> Nama Lengkap </th>
+                        <th> Nama Lengkap Pasien </th>
+                        <th> Nama Dokter Pemeriksa </th>
+                        <th> Tanggal Masuk </th>
+                        <th> Tanggal Keluar </th>
+                        <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
                         </thead>
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query = "SELECT * FROM pasien ORDER BY id_pasien DESC";
+                        $query = "SELECT pasien.nama_lengkap, 
+                                         pegawai.nama_pegawai, 
+                                         kamar.nama_kamar, 
+                                         pelayanan.id_pelayanan, 
+                                         pelayanan.keluhan, 
+                                         pelayanan.diagnosa, 
+                                         pelayanan.tgl_masuk,
+                                         pelayanan.tgl_keluar, 
+                                         pelayanan.keterangan 
+                                         FROM pelayanan 
+                                         LEFT JOIN pasien 
+                                         ON pasien.id_pasien = pelayanan.id_pasien
+                                         LEFT JOIN pegawai 
+                                         ON pegawai.id_pegawai = pelayanan.id_pegawai
+                                         LEFT JOIN kamar
+                                         ON Kamar.id_kamar = pelayanan.id_kamar";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
                         ?>
                         <tr>
                         <td><?php echo $no++; ?></td>
-                        <td><?php echo $data['no_registerasi']; ?></td>
-                        <td><?php echo $data['nama_lengkap']; ?></td>      
+                        <td><?php echo $data['nama_lengkap']; ?></td>  
+                        <td><?php echo $data['nama_pegawai']; ?></td>
+                        <td><?php echo $data['tgl_masuk']; ?></td>
+                        <td><?php echo $data['tgl_keluar']; ?></td> 
+                        <td style="width:100px;text-align: center;">
+                        <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_pelayanan']; ?>'>|Detail|</a>
+                        </td> 
                         </tr>  
 
                         <?php
