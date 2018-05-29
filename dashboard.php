@@ -83,7 +83,7 @@
                         <br/><br/>
                         <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Keluar : <?php echo $pasien_keluar['jumlah_keluar']; ?> Orang</a>
                         <br/><br/>
-                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasien_semua['semua']; ?> Orang</a>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Semua Pasien : <?php echo $pasien_semua['jumlah_pasien']; ?> Orang</a>
 
                       </h4>
                       <div class="row">
