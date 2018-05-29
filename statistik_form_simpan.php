@@ -79,7 +79,7 @@
                                          LEFT JOIN pegawai 
                                          ON pegawai.id_pegawai = pelayanan.id_pegawai
                                          LEFT JOIN kamar
-                                         ON Kamar.id_kamar = pelayanan.id_kamar WHERE pasien.status = 'Keluar'";
+                                         ON Kamar.id_kamar = pelayanan.id_kamar'";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
