@@ -18,16 +18,24 @@ if (isset($_POST['kirim_sms'])) {
   $jenis_kelamin    = $_POST['jenis_kelamin'];
   $alamat_jln       = $_POST['alamat_jln'];
 
+//Jika Habis kuotanya pake akun ini
+//$api_key    = "b994112a";
+//$api_secret = "5iEZLdwVIl0inwMx";
+//$to         = "+6285351644655";
+//$from       = "+6282253099902";  
 
-$userkey = "hglrnq";
-$passkey = "saleh123Q";
-$nohp    = $no_telepon;
-$message = "No Registrasi = {$no_registerasi} Nama Lengkap = {$nama_lengkap} Nama Ibu Kandung = {$nama_ibu_kandung} Tempat Lahir = {$tempat_lahir} Jenis Kelamin = {$jenis_kelamin} Alamat = {$alamat_jln}";
+$api_key    = "22fea0f2";
+$api_secret = "cjlz1ZaBTSfJ01ar";
+$to         =  $no_telepon;
+$from       = '+6285351644655';
+$text       = "No Registrasi = {$no_registerasi} Nama Lengkap = {$nama_lengkap} Nama Ibu Kandung = {$nama_ibu_kandung} Tempat Lahir = {$tempat_lahir} Jenis Kelamin = {$jenis_kelamin} Alamat = {$alamat_jln}";
 
-$url = "https://reguler.zenziva.net/apps/smsapi.php";
+/*https://rest.nexmo.com/sms/json?api_key=22fea0f2&api_secret=cjlz1ZaBTSfJ01ar&to=%2B6282253099902&from=%2B6285351644655&text=Ini+Adalah+SMS+Gate+Way*/
+
+$url = "https://rest.nexmo.com/sms/json?";
 $curlHandle = curl_init();
 curl_setopt($curlHandle, CURLOPT_URL, $url);
-curl_setopt($curlHandle, CURLOPT_POSTFIELDS, 'userkey='.$userkey.'&passkey='.$passkey.'&nohp='.$nohp.'&pesan='.urlencode($message));
+curl_setopt($curlHandle, CURLOPT_POSTFIELDS, 'api_key='.$api_key.'&api_secret='.$api_secret.'&to='.$to.'&from='.$from.'&text='.urlencode($text));
 curl_setopt($curlHandle, CURLOPT_HEADER, 0);
 curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);

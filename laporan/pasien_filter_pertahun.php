@@ -11,6 +11,7 @@
         <table style="border-collapse: collapse; width: 100%: text-align: 100px;" border="1px">
             <thead>
                 <tr>
+                <th style=" text-align: left;background-color: #699FF0; color: white; border-bottom:1px dotted #000712">No</th>
                 <th style=" text-align: left;background-color: #699FF0; color: white; border-bottom:1px dotted #000712">No Registerasi</th>
                 <th style=" text-align: left; background-color: #699FF0; color: white; border-bottom:1px dotted #000712">Nama Lengkap</th>
                 <th style=" text-align: left;background-color: #699FF0; color: white; border-bottom:1px dotted #000712">Tempat Lahir</th>
@@ -63,6 +64,7 @@
                         while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
                         ?> 
                         <tr style="background-color: #f2f2f2;">  
+                        <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo $no++; ?></td>
                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo $row['no_registerasi']; ?></td> 
                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo ucwords($row['nama_lengkap']); ?></td>
                         <td style="text-align: left;padding: 8px; border-bottom:1px dotted #000712"><?php echo ucwords($row['tempat_lahir']); ?></td>

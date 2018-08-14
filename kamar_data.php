@@ -57,7 +57,7 @@
                         <th> No Kamar </th>
                         <th> Nama Kamar </th>
                         <th> Kelas </th>
-                        <th> Jumalah Tempat Tidur </th>
+                        <th> Sisa Tempat Tidur </th>
                         <th> Lokasi </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
@@ -75,7 +75,7 @@
                         <td><?php echo $data['no_kamar']; ?></td>  
                         <td><?php echo $data['nama_kamar']; ?></td>  
                         <td><?php echo $data['kelas']; ?></td> 
-                        <td><?php echo $data['jumlah_tt']; ?></td>
+                        <td><?php echo $data['jumlah_tt']; ?> Tempat Tidur</td>
                         <td><?php echo $data['lokasi']; ?></td>   
                         <td style="width:100px;text-align: center;">
                         <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_kamar']; ?>'>|Detail|</a>

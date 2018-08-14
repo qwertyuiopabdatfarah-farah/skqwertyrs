@@ -47,7 +47,7 @@
               <div class="divider"></div>
               <!--DataTables example-->
               <div id="table-datatables">
-                <h4 class="header">Data Kamar Rumah Sakit yang Terpakai</h4>
+                <h4 class="header">Data Kamar Rumah Sakit Islam Banjarmasin yang Siap Pakai</h4>
                 <div class="row">
                   <div class="col s12">
                     <table id="data-table-simple" class="responsive-table display" cellspacing="0">
@@ -57,7 +57,7 @@
                         <th> No Kamar </th>
                         <th> Nama Kamar </th>
                         <th> Kelas </th>
-                        <th> Jumalah Tempat Tidur </th>
+                        <th> Sisa Tempat Tidur</th>
                         <th> Lokasi </th>
                         <th style="width:100px;text-align: center;"> Aksi </th>
                         </tr>
@@ -65,7 +65,7 @@
                        <tbody>
                         <?php
                         include 'config/koneksiDB.php';  
-                        $query="SELECT * FROM kamar WHERE status = 'Off' ORDER BY id_kamar DESC";
+                        $query="SELECT * FROM kamar WHERE NOT jumlah_tt='0' ORDER BY id_kamar DESC";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
@@ -75,7 +75,7 @@
                         <td><?php echo $data['no_kamar']; ?></td>  
                         <td><?php echo $data['nama_kamar']; ?></td>  
                         <td><?php echo $data['kelas']; ?></td> 
-                        <td><?php echo $data['jumlah_tt']; ?></td>
+                        <td><?php echo $data['jumlah_tt']; ?> Tempat Tidur</td>
                         <td><?php echo $data['lokasi']; ?></td>   
                         <td style="width:100px;text-align: center;">
                         <a class='waves-effect waves-light modal-trigger' href='#modal2<?php echo $data['id_kamar']; ?>'>|Detail|</a>
@@ -90,7 +90,7 @@
                                           <li class="collection-item">No Kamar : <?php echo $data['no_kamar']; ?></li>
                                           <li class="collection-item">Nama Kamar : <?php echo $data['nama_kamar']; ?></li>
                                           <li class="collection-item">Kelas : <?php echo $data['kelas']; ?></li>
-                                          <li class="collection-item">Jumalah Tempat Tidur : <?php echo $data['jumlah_tt']; ?></li>
+                                          <li class="collection-item">Sisa Tempat Tidur : <?php echo $data['jumlah_tt']; ?>Tempat Tidur</li>
                                           <li class="collection-item">Lokasi : <?php echo $data['lokasi']; ?></li>
                                           <li class="collection-item">Status Kamar : <?php echo $data['status']; ?></li>
                                           <li class="collection-item">Keterangan : <?php echo $data['keterangan']; ?></li>

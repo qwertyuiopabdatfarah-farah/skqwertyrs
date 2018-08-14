@@ -16,13 +16,14 @@ if (isset($_POST['simpan_pelayanan'])) {
   $keterangan = $_POST['keterangan'];
 
 include 'config/koneksiDB.php'; 
+
+//Update Jumlah Kamar
+$update_kamar_kurang_satu = 'UPDATE kamar set jumlah_tt = jumlah_tt-1 WHERE id_kamar="'.$id_kamar.'"';
+$hasil = mysqli_query($koneksi, $update_kamar_kurang_satu);  
 //update dokter
-$query_update_kamar = 'UPDATE pegawai set jumlah = jumlah+1 WHERE id_pegawai="'.$id_pegawai.'"';
-$hasil = mysqli_query($koneksi, $query_update_kamar);  
+$query_update_pegawai = 'UPDATE pegawai set jumlah = jumlah+1 WHERE id_pegawai="'.$id_pegawai.'"';
+$hasil = mysqli_query($koneksi, $query_update_pegawai);  
 //Update Kamar  
-//
-$query_update_kamar = 'UPDATE kamar set status = "Off" WHERE id_kamar="'.$id_kamar.'"';
-$hasil = mysqli_query($koneksi, $query_update_kamar);
 //insert data log sms
 //
 $query_simpan_sms = 'INSERT INTO log_sms (id_pasien, id_kamar) VALUES ("'.$id_pasien.'","'.$id_kamar.'")';

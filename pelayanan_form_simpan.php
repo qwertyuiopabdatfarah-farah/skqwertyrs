@@ -54,7 +54,7 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Pelayanan Paien</h4>
+                  <h4 class="header2">Form Isi Data Pelayanan Pasien</h4>
                   <div class="row">
 
 
@@ -102,7 +102,7 @@
                            <option value="" selected="selected">.:Pilih Nama Kamar:.</option>
                             <?php
                             include 'config/koneksiDB.php'; 
-                            $mysql = "SELECT * FROM kamar WHERE status = 'On' ORDER BY id_kamar DESC";
+                            $mysql = "SELECT * FROM kamar WHERE NOT jumlah_tt='0' ORDER BY id_kamar DESC";
                             $hasil = mysqli_query($koneksi, $mysql);
                             while ($data = mysqli_fetch_array($hasil, MYSQLI_BOTH)){ ?>
                                   <option value="<?php echo $data['id_kamar']; ?>"><?php echo $data['nama_kamar']; ?> == <?php echo $data['kelas']; ?></option>

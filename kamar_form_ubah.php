@@ -52,7 +52,7 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Pasien</h4>
+                  <h4 class="header2">Form Ubah Data Kamar</h4>
                   <div class="row">
                   <?php
                   include 'config/koneksiDB.php';
@@ -100,7 +100,7 @@
                         </div>
 
                         <div class="input-field col s6">
-                          <input  type="text" name="jumlah_tt" required="required" value="<?php echo $jumlah_tt; ?>">
+                          <input  type="number" name="jumlah_tt" required="required" value="<?php echo $jumlah_tt; ?>">
                           <label for="jumlah_tt">Jumlah Tempat Tidur</label>
                         </div>
                       </div>

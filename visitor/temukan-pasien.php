@@ -97,14 +97,14 @@
                         <th> No Kamar </th>
                         <th> Nama Kamar </th>
                         <th> Kelas </th>
-                        <th> Jumalah Tempat Tidur </th>
+                        <th> Sisa Tempat Tidur </th>
                         <th> Lokasi </th>
                         </tr>
                         </thead>
                        <tbody>
                         <?php
                         include '../config/koneksiDB.php';  
-                        $query="SELECT * FROM kamar WHERE status = 'On' ORDER BY id_kamar DESC";
+                        $query="SELECT * FROM kamar WHERE NOT jumlah_tt='0' ORDER BY id_kamar DESC";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
                         while ($data = mysqli_fetch_array($result, MYSQLI_BOTH)){
@@ -114,7 +114,7 @@
                         <td><?php echo $data['no_kamar']; ?></td>  
                         <td><?php echo $data['nama_kamar']; ?></td>  
                         <td><?php echo $data['kelas']; ?></td> 
-                        <td><?php echo $data['jumlah_tt']; ?></td>
+                        <td><?php echo $data['jumlah_tt']; ?> Tempat Tidur</td>
                         <td><?php echo $data['lokasi']; ?></td>    
                         </tr>  
                       <?php

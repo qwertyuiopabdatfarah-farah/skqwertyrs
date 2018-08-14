@@ -83,10 +83,10 @@
                       <h4 class="header mt-0">Data Stastistik Pasien Rumah Sakit Islam Banjarmasin Tahun 2018
                         <span class="purple-text small text-darken-1 ml-1"></span>
                         <br/>
-                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Masuk : <?php echo $pasien_baru_masuk['jumlah_masuk']; ?> Orang</a>
-                        <br/><br/>
+                        <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Baru Masuk : <?php echo $pasien_baru_masuk['jumlah_masuk']; ?> Orang</a>
+                         <br/>
                         <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Dirawat : <?php echo $pasien_proses['jumlah_proses']; ?> Orang</a>
-                        <br/><br/>
+                        <br/>
                         <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Pasien Keluar : <?php echo $pasien_keluar['jumlah_keluar']; ?> Orang</a>
                         <br/><br/>
                         <a class="waves-effect waves-light btn gradient-45deg-purple-deep-cyan gradient-shadow right">Total Data Seluruh Pasien : <?php echo $pasiens_all['all_pasien']; ?> Orang</a>

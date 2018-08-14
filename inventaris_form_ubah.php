@@ -52,7 +52,7 @@
             <div class="row">
               <div class="col s12 m12 l12">
                 <div class="card-panel">
-                  <h4 class="header2">Form Isi Data Ketenagaan Rumah Sakit</h4>
+                  <h4 class="header2">Form Ubah Inventaris</h4>
                   <div class="row">
                   <?php
                   include 'config/koneksiDB.php';
@@ -66,7 +66,6 @@
                         $id_kamar      = $data['id_kamar'];
                         $jenis_barang  = $data['jenis_barang'];
                         $kondisi       = $data['kondisi'];
-                        $jumlah        = $data['jumlah'];
                         $jumlah        = $data['jumlah'];
                         $keterangan    = $data['keterangan'];
                    }
@@ -118,7 +117,7 @@
                       </div>
 
                       <div class="input-field col s6">
-                          <input type="text" name="jumlah" required="required" value="<?php echo $jumlah; ?>">
+                          <input type="number" name="jumlah" required="required" value="<?php echo $jumlah; ?>">
                           <label for="jumlah">Jumlah</label>
                       </div>
                      </div>   

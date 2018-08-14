@@ -38,6 +38,9 @@
                   </a>
               </li>
 
+              
+
+
               <ul class="collapsible" data-collapsible="accordion">
 
 
@@ -51,6 +54,8 @@
                     <i class="material-icons">dvr</i>
                     <span class="nav-text">Pasien</span>
                   </a>
+
+                  
 
                   <div class="collapsible-body">
                     <ul>

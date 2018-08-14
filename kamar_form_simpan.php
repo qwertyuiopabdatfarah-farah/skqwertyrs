@@ -83,7 +83,7 @@
                         </div>
 
                         <div class="input-field col s6">
-                          <input  type="text" name="jumlah_tt" required="required">
+                          <input  type="number" name="jumlah_tt" required="required">
                           <label for="jumlah_tt">Jumlah Tempat Tidur</label>
                         </div>
                       </div>

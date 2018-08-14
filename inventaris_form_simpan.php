@@ -99,7 +99,7 @@
                       </div>
 
                       <div class="input-field col s6">
-                          <input type="text" name="jumlah" required="required">
+                          <input type="number" name="jumlah" required="required">
                           <label for="jumlah">Jumlah</label>
                       </div>
                      </div>   

@@ -90,12 +90,12 @@
                                          pelayanan.tgl_masuk,
                                          pelayanan.tgl_keluar, 
                                          pelayanan.keterangan 
-                                         FROM pelayanan 
-                                         LEFT JOIN pasien 
+                                         FROM pasien
+                                         INNER JOIN pelayanan 
                                          ON pasien.id_pasien = pelayanan.id_pasien
-                                         LEFT JOIN pegawai 
+                                         INNER JOIN pegawai 
                                          ON pegawai.id_pegawai = pelayanan.id_pegawai
-                                         LEFT JOIN kamar ON Kamar.id_kamar = pelayanan.id_kamar
+                                         INNER JOIN kamar ON Kamar.id_kamar = pelayanan.id_kamar
                                          WHERE pasien.status = 'Keluar'";
                         $result=mysqli_query($koneksi, $query) or die(mysqli_error());
                         $no=1; //penomoran 
